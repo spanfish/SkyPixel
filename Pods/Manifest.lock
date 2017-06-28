@@ -1,0 +1,18 @@
+PODS:
+  - Google-Mobile-Ads-SDK (7.20.0)
+  - Masonry (1.0.2)
+  - ReactiveObjC (3.0.0)
+
+DEPENDENCIES:
+  - Google-Mobile-Ads-SDK
+  - Masonry
+  - ReactiveObjC (= 3.0.0)
+
+SPEC CHECKSUMS:
+  Google-Mobile-Ads-SDK: 168312cdc167fa22746d4ea8e839fc4825dd2966
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
+
+PODFILE CHECKSUM: 568579037e1bb395ea6870e7577e276745098449
+
+COCOAPODS: 1.1.1

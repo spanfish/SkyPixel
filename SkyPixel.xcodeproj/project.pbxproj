@@ -1,0 +1,398 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B61D5FF967AE7097708EE04 /* libPods-SkyPixel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B84C8E84F23D6AF160F575D6 /* libPods-SkyPixel.a */; };
+		BC43B3581F03DE1C00998A59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B3571F03DE1C00998A59 /* main.m */; };
+		BC43B35B1F03DE1C00998A59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B35A1F03DE1C00998A59 /* AppDelegate.m */; };
+		BC43B35E1F03DE1C00998A59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B35D1F03DE1C00998A59 /* ViewController.m */; };
+		BC43B3611F03DE1C00998A59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC43B35F1F03DE1C00998A59 /* Main.storyboard */; };
+		BC43B3631F03DE1C00998A59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC43B3621F03DE1C00998A59 /* Assets.xcassets */; };
+		BC43B3661F03DE1C00998A59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC43B3641F03DE1C00998A59 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2C4190FAF7ADBD31F8C81B45 /* Pods-SkyPixel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyPixel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkyPixel/Pods-SkyPixel.release.xcconfig"; sourceTree = "<group>"; };
+		B84C8E84F23D6AF160F575D6 /* libPods-SkyPixel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SkyPixel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC43B3531F03DE1C00998A59 /* SkyPixel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyPixel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC43B3571F03DE1C00998A59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BC43B3591F03DE1C00998A59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BC43B35A1F03DE1C00998A59 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BC43B35C1F03DE1C00998A59 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BC43B35D1F03DE1C00998A59 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BC43B3601F03DE1C00998A59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BC43B3621F03DE1C00998A59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BC43B3651F03DE1C00998A59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BC43B3671F03DE1C00998A59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB36B70873C5A58756C5E2F3 /* Pods-SkyPixel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyPixel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkyPixel/Pods-SkyPixel.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BC43B3501F03DE1C00998A59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B61D5FF967AE7097708EE04 /* libPods-SkyPixel.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		75D67623A1FE2DA6DF0D795C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB36B70873C5A58756C5E2F3 /* Pods-SkyPixel.debug.xcconfig */,
+				2C4190FAF7ADBD31F8C81B45 /* Pods-SkyPixel.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8F370627FFF4DB8064BA6CF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B84C8E84F23D6AF160F575D6 /* libPods-SkyPixel.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC43B34A1F03DE1C00998A59 = {
+			isa = PBXGroup;
+			children = (
+				BC43B3551F03DE1C00998A59 /* SkyPixel */,
+				BC43B3541F03DE1C00998A59 /* Products */,
+				75D67623A1FE2DA6DF0D795C /* Pods */,
+				8F370627FFF4DB8064BA6CF8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BC43B3541F03DE1C00998A59 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BC43B3531F03DE1C00998A59 /* SkyPixel.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC43B3551F03DE1C00998A59 /* SkyPixel */ = {
+			isa = PBXGroup;
+			children = (
+				BC43B3591F03DE1C00998A59 /* AppDelegate.h */,
+				BC43B35A1F03DE1C00998A59 /* AppDelegate.m */,
+				BC43B35C1F03DE1C00998A59 /* ViewController.h */,
+				BC43B35D1F03DE1C00998A59 /* ViewController.m */,
+				BC43B35F1F03DE1C00998A59 /* Main.storyboard */,
+				BC43B3621F03DE1C00998A59 /* Assets.xcassets */,
+				BC43B3641F03DE1C00998A59 /* LaunchScreen.storyboard */,
+				BC43B3671F03DE1C00998A59 /* Info.plist */,
+				BC43B3561F03DE1C00998A59 /* Supporting Files */,
+			);
+			path = SkyPixel;
+			sourceTree = "<group>";
+		};
+		BC43B3561F03DE1C00998A59 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BC43B3571F03DE1C00998A59 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BC43B3521F03DE1C00998A59 /* SkyPixel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC43B36A1F03DE1C00998A59 /* Build configuration list for PBXNativeTarget "SkyPixel" */;
+			buildPhases = (
+				77BE2EE30CBE04B74C58244E /* [CP] Check Pods Manifest.lock */,
+				BC43B34F1F03DE1C00998A59 /* Sources */,
+				BC43B3501F03DE1C00998A59 /* Frameworks */,
+				BC43B3511F03DE1C00998A59 /* Resources */,
+				129BDBDC4BCA631452D98795 /* [CP] Embed Pods Frameworks */,
+				A5A6D255A9541C2DE53B8ABA /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SkyPixel;
+			productName = SkyPixel;
+			productReference = BC43B3531F03DE1C00998A59 /* SkyPixel.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BC43B34B1F03DE1C00998A59 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Xiangwei Wang";
+				TargetAttributes = {
+					BC43B3521F03DE1C00998A59 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = S78RUL88S5;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = BC43B34E1F03DE1C00998A59 /* Build configuration list for PBXProject "SkyPixel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BC43B34A1F03DE1C00998A59;
+			productRefGroup = BC43B3541F03DE1C00998A59 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BC43B3521F03DE1C00998A59 /* SkyPixel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BC43B3511F03DE1C00998A59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC43B3661F03DE1C00998A59 /* LaunchScreen.storyboard in Resources */,
+				BC43B3631F03DE1C00998A59 /* Assets.xcassets in Resources */,
+				BC43B3611F03DE1C00998A59 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		129BDBDC4BCA631452D98795 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SkyPixel/Pods-SkyPixel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77BE2EE30CBE04B74C58244E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A5A6D255A9541C2DE53B8ABA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SkyPixel/Pods-SkyPixel-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BC43B34F1F03DE1C00998A59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC43B35E1F03DE1C00998A59 /* ViewController.m in Sources */,
+				BC43B35B1F03DE1C00998A59 /* AppDelegate.m in Sources */,
+				BC43B3581F03DE1C00998A59 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BC43B35F1F03DE1C00998A59 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BC43B3601F03DE1C00998A59 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BC43B3641F03DE1C00998A59 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BC43B3651F03DE1C00998A59 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BC43B3681F03DE1C00998A59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BC43B3691F03DE1C00998A59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BC43B36B1F03DE1C00998A59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB36B70873C5A58756C5E2F3 /* Pods-SkyPixel.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S78RUL88S5;
+				INFOPLIST_FILE = SkyPixel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiang.SkyPixel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BC43B36C1F03DE1C00998A59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C4190FAF7ADBD31F8C81B45 /* Pods-SkyPixel.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S78RUL88S5;
+				INFOPLIST_FILE = SkyPixel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiang.SkyPixel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BC43B34E1F03DE1C00998A59 /* Build configuration list for PBXProject "SkyPixel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC43B3681F03DE1C00998A59 /* Debug */,
+				BC43B3691F03DE1C00998A59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC43B36A1F03DE1C00998A59 /* Build configuration list for PBXNativeTarget "SkyPixel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC43B36B1F03DE1C00998A59 /* Debug */,
+				BC43B36C1F03DE1C00998A59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BC43B34B1F03DE1C00998A59 /* Project object */;
+}
