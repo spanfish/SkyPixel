@@ -14,6 +14,9 @@
 		BC43B3611F03DE1C00998A59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC43B35F1F03DE1C00998A59 /* Main.storyboard */; };
 		BC43B3631F03DE1C00998A59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC43B3621F03DE1C00998A59 /* Assets.xcassets */; };
 		BC43B3661F03DE1C00998A59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC43B3641F03DE1C00998A59 /* LaunchScreen.storyboard */; };
+		BC43B36F1F03E0F500998A59 /* MainCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B36E1F03E0F500998A59 /* MainCollectionViewController.m */; };
+		BC43B3741F03E2A100998A59 /* SPVCreationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B3731F03E2A100998A59 /* SPVCreationModel.m */; };
+		BC43B3821F03F24200998A59 /* UIActivityIndicatorView+loading.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B3811F03F24200998A59 /* UIActivityIndicatorView+loading.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,12 @@
 		BC43B3621F03DE1C00998A59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC43B3651F03DE1C00998A59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC43B3671F03DE1C00998A59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC43B36D1F03E0F500998A59 /* MainCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCollectionViewController.h; sourceTree = "<group>"; };
+		BC43B36E1F03E0F500998A59 /* MainCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCollectionViewController.m; sourceTree = "<group>"; };
+		BC43B3721F03E2A100998A59 /* SPVCreationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVCreationModel.h; sourceTree = "<group>"; };
+		BC43B3731F03E2A100998A59 /* SPVCreationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVCreationModel.m; sourceTree = "<group>"; };
+		BC43B3801F03F24200998A59 /* UIActivityIndicatorView+loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+loading.h"; sourceTree = "<group>"; };
+		BC43B3811F03F24200998A59 /* UIActivityIndicatorView+loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+loading.m"; sourceTree = "<group>"; };
 		CB36B70873C5A58756C5E2F3 /* Pods-SkyPixel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyPixel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkyPixel/Pods-SkyPixel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,10 +91,11 @@
 		BC43B3551F03DE1C00998A59 /* SkyPixel */ = {
 			isa = PBXGroup;
 			children = (
+				BC43B37F1F03F20E00998A59 /* UI */,
+				BC43B3711F03E25300998A59 /* ViewModel */,
+				BC43B3701F03E24700998A59 /* VC */,
 				BC43B3591F03DE1C00998A59 /* AppDelegate.h */,
 				BC43B35A1F03DE1C00998A59 /* AppDelegate.m */,
-				BC43B35C1F03DE1C00998A59 /* ViewController.h */,
-				BC43B35D1F03DE1C00998A59 /* ViewController.m */,
 				BC43B35F1F03DE1C00998A59 /* Main.storyboard */,
 				BC43B3621F03DE1C00998A59 /* Assets.xcassets */,
 				BC43B3641F03DE1C00998A59 /* LaunchScreen.storyboard */,
@@ -101,6 +111,35 @@
 				BC43B3571F03DE1C00998A59 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BC43B3701F03E24700998A59 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				BC43B35C1F03DE1C00998A59 /* ViewController.h */,
+				BC43B35D1F03DE1C00998A59 /* ViewController.m */,
+				BC43B36D1F03E0F500998A59 /* MainCollectionViewController.h */,
+				BC43B36E1F03E0F500998A59 /* MainCollectionViewController.m */,
+			);
+			name = VC;
+			sourceTree = "<group>";
+		};
+		BC43B3711F03E25300998A59 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BC43B3721F03E2A100998A59 /* SPVCreationModel.h */,
+				BC43B3731F03E2A100998A59 /* SPVCreationModel.m */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		BC43B37F1F03F20E00998A59 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BC43B3801F03F24200998A59 /* UIActivityIndicatorView+loading.h */,
+				BC43B3811F03F24200998A59 /* UIActivityIndicatorView+loading.m */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,7 +240,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A5A6D255A9541C2DE53B8ABA /* [CP] Copy Pods Resources */ = {
@@ -226,8 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC43B3741F03E2A100998A59 /* SPVCreationModel.m in Sources */,
 				BC43B35E1F03DE1C00998A59 /* ViewController.m in Sources */,
+				BC43B36F1F03E0F500998A59 /* MainCollectionViewController.m in Sources */,
 				BC43B35B1F03DE1C00998A59 /* AppDelegate.m in Sources */,
+				BC43B3821F03F24200998A59 /* UIActivityIndicatorView+loading.m in Sources */,
 				BC43B3581F03DE1C00998A59 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +395,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S78RUL88S5;
 				INFOPLIST_FILE = SkyPixel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiang.SkyPixel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -366,6 +409,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S78RUL88S5;
 				INFOPLIST_FILE = SkyPixel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiang.SkyPixel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -391,6 +435,7 @@
 				BC43B36C1F03DE1C00998A59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
