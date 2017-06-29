@@ -17,6 +17,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //ad app id
+    NSString *adAppId = @"ca-app-pub-5834401851232277~9221159349";
+    //banner unit id: ca-app-pub-5834401851232277/1697892541
     return YES;
 }
 

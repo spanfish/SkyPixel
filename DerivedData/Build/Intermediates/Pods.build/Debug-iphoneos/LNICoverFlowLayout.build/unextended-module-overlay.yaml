@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/LNICoverFlowLayout/LNICoverFlowLayout.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Intermediates/Pods.build/Debug-iphoneos/LNICoverFlowLayout.build/unextended-module.modulemap',
+    }]
+  }]
+}

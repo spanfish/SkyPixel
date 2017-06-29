@@ -1,0 +1,10 @@
+framework module LNICoverFlowLayout {
+  umbrella header "LNICoverFlowLayout-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module LNICoverFlowLayout.__Swift {
+    exclude header "LNICoverFlowLayout-Swift.h"
+}

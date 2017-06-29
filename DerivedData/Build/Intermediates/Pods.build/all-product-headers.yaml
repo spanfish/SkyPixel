@@ -1,0 +1,757 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/Masonry/Masonry.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "MASCompositeConstraint.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Masonry/Masonry/MASCompositeConstraint.h"
+        },
+        {
+          'type': 'file',
+          'name': "MASConstraint+Private.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Masonry/Masonry/MASConstraint+Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "MASConstraint.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Masonry/Masonry/MASConstraint.h"
+        },
+        {
+          'type': 'file',
+          'name': "MASConstraintMaker.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Masonry/Masonry/MASConstraintMaker.h"
+        },
+        {
+          'type': 'file',
+          'name': "MASLayoutConstraint.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Masonry/Masonry/MASLayoutConstraint.h"
+        },
+        {
+          'type': 'file',
+          'name': "MASUtilities.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Masonry/Masonry/MASUtilities.h"
+        },
+        {
+          'type': 'file',
+          'name': "MASViewAttribute.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Masonry/Masonry/MASViewAttribute.h"
+        },
+        {
+          'type': 'file',
+          'name': "MASViewConstraint.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Masonry/Masonry/MASViewConstraint.h"
+        },
+        {
+          'type': 'file',
+          'name': "Masonry-Swift.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/Masonry/Masonry.framework/Headers/Masonry-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "Masonry-umbrella.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Target Support Files/Masonry/Masonry-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "Masonry.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Masonry/Masonry/Masonry.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSArray+MASAdditions.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Masonry/Masonry/NSArray+MASAdditions.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSArray+MASShorthandAdditions.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Masonry/Masonry/NSArray+MASShorthandAdditions.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSLayoutConstraint+MASDebugAdditions.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Masonry/Masonry/NSLayoutConstraint+MASDebugAdditions.h"
+        },
+        {
+          'type': 'file',
+          'name': "View+MASAdditions.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Masonry/Masonry/View+MASAdditions.h"
+        },
+        {
+          'type': 'file',
+          'name': "View+MASShorthandAdditions.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Masonry/Masonry/View+MASShorthandAdditions.h"
+        },
+        {
+          'type': 'file',
+          'name': "ViewController+MASAdditions.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Masonry/Masonry/ViewController+MASAdditions.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/Masonry/Masonry.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Intermediates/Pods.build/Debug-iphoneos/Masonry.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/Pods_SkyPixel.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Pods-SkyPixel-umbrella.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Target Support Files/Pods-SkyPixel/Pods-SkyPixel-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "Pods_SkyPixel-Swift.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/Pods_SkyPixel.framework/Headers/Pods_SkyPixel-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/Pods_SkyPixel.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Intermediates/Pods.build/Debug-iphoneos/Pods-SkyPixel.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/ReactiveCocoa/ReactiveCocoa.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "NSArray+RACSequenceAdditions.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSArray+RACSequenceAdditions.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSData+RACSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSData+RACSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSDictionary+RACSequenceAdditions.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSDictionary+RACSequenceAdditions.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSEnumerator+RACSequenceAdditions.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSEnumerator+RACSequenceAdditions.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSFileHandle+RACSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSFileHandle+RACSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSInvocation+RACTypeParsing.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSInvocation+RACTypeParsing.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSNotificationCenter+RACSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSNotificationCenter+RACSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSObject+RACDeallocating.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACDeallocating.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSObject+RACDescription.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACDescription.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSObject+RACKVOWrapper.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACKVOWrapper.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSObject+RACLifting.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACLifting.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSObject+RACPropertySubscribing.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACPropertySubscribing.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSObject+RACSelectorSignal.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSObject+RACSelectorSignal.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSOrderedSet+RACSequenceAdditions.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSOrderedSet+RACSequenceAdditions.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSSet+RACSequenceAdditions.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSSet+RACSequenceAdditions.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSString+RACKeyPathUtilities.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSString+RACKeyPathUtilities.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSString+RACSequenceAdditions.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSString+RACSequenceAdditions.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSString+RACSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSString+RACSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSURLConnection+RACSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/NSURLConnection+RACSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACArraySequence.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACArraySequence.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACBacktrace.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACBacktrace.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACBehaviorSubject.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACBehaviorSubject.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACBlockTrampoline.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACBlockTrampoline.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACChannel.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACChannel.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACCommand.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACCommand.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACCompoundDisposable.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACCompoundDisposable.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACDelegateProxy.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACDelegateProxy.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACDisposable.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACDisposable.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACDynamicSequence.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACDynamicSequence.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACDynamicSignal.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACDynamicSignal.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACEXTKeyPathCoding.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/extobjc/RACEXTKeyPathCoding.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACEXTScope.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/extobjc/RACEXTScope.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACEagerSequence.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACEagerSequence.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACEmptySequence.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACEmptySequence.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACEmptySignal.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACEmptySignal.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACErrorSignal.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACErrorSignal.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACEvent.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACEvent.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACGroupedSignal.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACGroupedSignal.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACImmediateScheduler.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACImmediateScheduler.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACKVOChannel.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACKVOChannel.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACKVOTrampoline.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACKVOTrampoline.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACMulticastConnection.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACMulticastConnection.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACObjCRuntime.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACObjCRuntime.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACPassthroughSubscriber.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACPassthroughSubscriber.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACQueueScheduler+Subclass.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACQueueScheduler+Subclass.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACQueueScheduler.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACQueueScheduler.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACReplaySubject.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACReplaySubject.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACReturnSignal.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACReturnSignal.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACScheduler.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACScheduler.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACScopedDisposable.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACScopedDisposable.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACSequence.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSequence.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACSerialDisposable.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSerialDisposable.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACSignal+Operations.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSignal+Operations.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACSignal.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSignal.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACSignalSequence.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSignalSequence.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACStream.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACStream.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACStringSequence.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACStringSequence.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACSubject.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubject.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACSubscriber.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubscriber.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACSubscriptingAssignmentTrampoline.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubscriptingAssignmentTrampoline.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACSubscriptionScheduler.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubscriptionScheduler.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACTargetQueueScheduler.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACTargetQueueScheduler.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACTestScheduler.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACTestScheduler.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACTuple.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACTuple.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACTupleSequence.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACTupleSequence.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACUnarySequence.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACUnarySequence.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACUnit.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACUnit.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACValueTransformer.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACValueTransformer.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACmetamacros.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/extobjc/RACmetamacros.h"
+        },
+        {
+          'type': 'file',
+          'name': "ReactiveCocoa-Swift.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/ReactiveCocoa/ReactiveCocoa.framework/Headers/ReactiveCocoa-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "ReactiveCocoa-umbrella.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Target Support Files/ReactiveCocoa/ReactiveCocoa-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "ReactiveCocoa.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/ReactiveCocoa.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIActionSheet+RACSignalSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIActionSheet+RACSignalSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIAlertView+RACSignalSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIAlertView+RACSignalSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIBarButtonItem+RACCommandSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIBarButtonItem+RACCommandSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIButton+RACCommandSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIButton+RACCommandSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "UICollectionReusableView+RACSignalSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UICollectionReusableView+RACSignalSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIControl+RACSignalSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIControl+RACSignalSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIDatePicker+RACSignalSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIDatePicker+RACSignalSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIGestureRecognizer+RACSignalSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIGestureRecognizer+RACSignalSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIRefreshControl+RACCommandSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIRefreshControl+RACCommandSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "UISegmentedControl+RACSignalSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UISegmentedControl+RACSignalSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "UISlider+RACSignalSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UISlider+RACSignalSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIStepper+RACSignalSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIStepper+RACSignalSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "UISwitch+RACSignalSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UISwitch+RACSignalSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "UITableViewCell+RACSignalSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UITableViewCell+RACSignalSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "UITextField+RACSignalSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UITextField+RACSignalSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "UITextView+RACSignalSupport.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UITextView+RACSignalSupport.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/ReactiveCocoa/ReactiveCocoa.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Intermediates/Pods.build/Debug-iphoneos/ReactiveCocoa.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/ReactiveCocoa/ReactiveCocoa.framework/PrivateHeaders",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "RACEXTRuntimeExtensions.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/extobjc/RACEXTRuntimeExtensions.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACMulticastConnection+Private.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACMulticastConnection+Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACScheduler+Private.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACScheduler+Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACStream+Private.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACStream+Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "RACSubscriber+Private.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/RACSubscriber+Private.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIControl+RACSignalSupportPrivate.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa/UIControl+RACSignalSupportPrivate.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/ReactiveViewModel/ReactiveViewModel.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "RVMViewModel.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveViewModel/ReactiveViewModel/RVMViewModel.h"
+        },
+        {
+          'type': 'file',
+          'name': "ReactiveViewModel-Swift.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/ReactiveViewModel/ReactiveViewModel.framework/Headers/ReactiveViewModel-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "ReactiveViewModel-umbrella.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Target Support Files/ReactiveViewModel/ReactiveViewModel-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "ReactiveViewModel.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/ReactiveViewModel/ReactiveViewModel/ReactiveViewModel.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/ReactiveViewModel/ReactiveViewModel.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Intermediates/Pods.build/Debug-iphoneos/ReactiveViewModel.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/libextobjc/libextobjc.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "EXTADT.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/libextobjc/extobjc/EXTADT.h"
+        },
+        {
+          'type': 'file',
+          'name': "EXTConcreteProtocol.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/libextobjc/extobjc/EXTConcreteProtocol.h"
+        },
+        {
+          'type': 'file',
+          'name': "EXTKeyPathCoding.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/libextobjc/extobjc/EXTKeyPathCoding.h"
+        },
+        {
+          'type': 'file',
+          'name': "EXTNil.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/libextobjc/extobjc/EXTNil.h"
+        },
+        {
+          'type': 'file',
+          'name': "EXTRuntimeExtensions.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/libextobjc/extobjc/EXTRuntimeExtensions.h"
+        },
+        {
+          'type': 'file',
+          'name': "EXTSafeCategory.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/libextobjc/extobjc/EXTSafeCategory.h"
+        },
+        {
+          'type': 'file',
+          'name': "EXTScope.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/libextobjc/extobjc/EXTScope.h"
+        },
+        {
+          'type': 'file',
+          'name': "EXTSelectorChecking.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/libextobjc/extobjc/EXTSelectorChecking.h"
+        },
+        {
+          'type': 'file',
+          'name': "EXTSynthesize.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/libextobjc/extobjc/EXTSynthesize.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSInvocation+EXT.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/libextobjc/extobjc/NSInvocation+EXT.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSMethodSignature+EXT.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/libextobjc/extobjc/NSMethodSignature+EXT.h"
+        },
+        {
+          'type': 'file',
+          'name': "extobjc.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/libextobjc/extobjc/extobjc.h"
+        },
+        {
+          'type': 'file',
+          'name': "libextobjc-Swift.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/libextobjc/libextobjc.framework/Headers/libextobjc-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "libextobjc-umbrella.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/Target Support Files/libextobjc/libextobjc-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "metamacros.h",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/libextobjc/extobjc/metamacros.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Products/Debug-iphoneos/libextobjc/libextobjc.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/xiangweiwang/Documents/GitHub/SkyPixel/DerivedData/Build/Intermediates/Pods.build/Debug-iphoneos/libextobjc.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

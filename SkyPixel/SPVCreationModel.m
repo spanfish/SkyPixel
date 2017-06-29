@@ -8,6 +8,7 @@
 
 #import "SPVCreationModel.h"
 #import <ReactiveCocoa.h>
+#include <stdlib.h>
 
 @implementation SPVCreationModel
 
@@ -18,15 +19,31 @@
         @weakify(self)
         [self.didBecomeActiveSignal subscribeNext:^(id x) {
             @strongify(self);
-            NSLog(@"x:%@", x);
+
             [((RACSubject *)self.updatedContentSignal) sendNext:@YES];
             NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.skypixel.com/api/website/resources/works/?page=1&page_size=26&resourceType=&type=latest"]];
             [[NSURLConnection rac_sendAsynchronousRequest:request] subscribeNext:^(RACTuple * x) {
-                NSLog(@"fetchSingal:%@", [x second]);
+                
                 NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[x second]
                                                 options:NSJSONReadingMutableContainers
                                                                        error:nil];
-                [((RACSubject *)self.updatedContentSignal) sendNext:json];
+                NSLog(@"json:%@", json);
+                NSMutableArray *all = [NSMutableArray array];
+                NSArray *photos = [json objectForKey:@"photos"];
+                NSArray *panos = [json objectForKey:@"panos"];
+                NSArray *videos = [json objectForKey:@"videos"];
+                
+                [all addObjectsFromArray:photos];
+                for(NSInteger i = 0; i < [videos count]; i++) {
+                    NSInteger r = arc4random_uniform((int32_t)[all count]);
+                    [all insertObject:[videos objectAtIndex:i] atIndex:r];
+                }
+                for(NSInteger i = 0; i < [panos count]; i++) {
+                    NSInteger r = arc4random_uniform((int32_t)[all count]);
+                    [all insertObject:[panos objectAtIndex:i] atIndex:r];
+                }
+                _items = all;
+                [((RACSubject *)self.updatedContentSignal) sendNext:nil];
                 [((RACSubject *)self.updatedContentSignal) sendNext:@NO];
             }];
         }];

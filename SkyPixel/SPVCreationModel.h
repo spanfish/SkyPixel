@@ -10,9 +10,7 @@
 
 @interface SPVCreationModel : RVMViewModel
 
-@property (nonatomic, assign, readonly) NSInteger status;
-@property (nonatomic, strong, readonly) NSString *accountId;
-//@property (nonatomic, strong, readonly) NSString *accountId;
+@property (nonatomic, strong, readonly) NSArray *items;
 
 @property (nonatomic, readonly) RACSignal *updatedContentSignal;
 @end

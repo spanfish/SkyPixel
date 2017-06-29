@@ -1,0 +1,5 @@
+version: "Apple Swift version 3.1 (swiftlang-802.0.53 clang-802.0.42)"
+options: "c2a04e7aa3194a2345c35738c2da10c8"
+build_time: [552021635, 806539000]
+inputs:
+  "/Users/xiangweiwang/Documents/GitHub/SkyPixel/Pods/LNICoverFlowLayout/LNICoverFlowLayout/Classes/LNICoverFlowLayout.swift": [552021256, 0]

@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B61D5FF967AE7097708EE04 /* libPods-SkyPixel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B84C8E84F23D6AF160F575D6 /* libPods-SkyPixel.a */; };
 		BC43B3581F03DE1C00998A59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B3571F03DE1C00998A59 /* main.m */; };
 		BC43B35B1F03DE1C00998A59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B35A1F03DE1C00998A59 /* AppDelegate.m */; };
-		BC43B35E1F03DE1C00998A59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B35D1F03DE1C00998A59 /* ViewController.m */; };
 		BC43B3611F03DE1C00998A59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC43B35F1F03DE1C00998A59 /* Main.storyboard */; };
 		BC43B3631F03DE1C00998A59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC43B3621F03DE1C00998A59 /* Assets.xcassets */; };
 		BC43B3661F03DE1C00998A59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC43B3641F03DE1C00998A59 /* LaunchScreen.storyboard */; };
 		BC43B36F1F03E0F500998A59 /* MainCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B36E1F03E0F500998A59 /* MainCollectionViewController.m */; };
 		BC43B3741F03E2A100998A59 /* SPVCreationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B3731F03E2A100998A59 /* SPVCreationModel.m */; };
 		BC43B3821F03F24200998A59 /* UIActivityIndicatorView+loading.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B3811F03F24200998A59 /* UIActivityIndicatorView+loading.m */; };
+		BCC56E8B1F0492B300A9F879 /* SPVCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC56E8A1F0492B300A9F879 /* SPVCollectionViewCell.m */; };
+		BCC56E9B1F04AC4D00A9F879 /* CVCLCoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC56E9A1F04AC4D00A9F879 /* CVCLCoverFlowLayout.m */; };
+		BCC56E9E1F04BE6E00A9F879 /* YRCoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC56E9D1F04BE6E00A9F879 /* YRCoverFlowLayout.m */; };
+		F8F2E5A1ABBBF83C6243AE4D /* libPods-SkyPixel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29BE0CEE6B377480AFDD7E87 /* libPods-SkyPixel.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29BE0CEE6B377480AFDD7E87 /* libPods-SkyPixel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SkyPixel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C4190FAF7ADBD31F8C81B45 /* Pods-SkyPixel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyPixel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkyPixel/Pods-SkyPixel.release.xcconfig"; sourceTree = "<group>"; };
-		B84C8E84F23D6AF160F575D6 /* libPods-SkyPixel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SkyPixel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC43B3531F03DE1C00998A59 /* SkyPixel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyPixel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC43B3571F03DE1C00998A59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BC43B3591F03DE1C00998A59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BC43B35A1F03DE1C00998A59 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BC43B35C1F03DE1C00998A59 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BC43B35D1F03DE1C00998A59 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BC43B3601F03DE1C00998A59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BC43B3621F03DE1C00998A59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC43B3651F03DE1C00998A59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +38,12 @@
 		BC43B3731F03E2A100998A59 /* SPVCreationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVCreationModel.m; sourceTree = "<group>"; };
 		BC43B3801F03F24200998A59 /* UIActivityIndicatorView+loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+loading.h"; sourceTree = "<group>"; };
 		BC43B3811F03F24200998A59 /* UIActivityIndicatorView+loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+loading.m"; sourceTree = "<group>"; };
+		BCC56E891F0492B300A9F879 /* SPVCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVCollectionViewCell.h; sourceTree = "<group>"; };
+		BCC56E8A1F0492B300A9F879 /* SPVCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVCollectionViewCell.m; sourceTree = "<group>"; };
+		BCC56E991F04AC4D00A9F879 /* CVCLCoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVCLCoverFlowLayout.h; sourceTree = "<group>"; };
+		BCC56E9A1F04AC4D00A9F879 /* CVCLCoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVCLCoverFlowLayout.m; sourceTree = "<group>"; };
+		BCC56E9C1F04BE6E00A9F879 /* YRCoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRCoverFlowLayout.h; sourceTree = "<group>"; };
+		BCC56E9D1F04BE6E00A9F879 /* YRCoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRCoverFlowLayout.m; sourceTree = "<group>"; };
 		CB36B70873C5A58756C5E2F3 /* Pods-SkyPixel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyPixel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkyPixel/Pods-SkyPixel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B61D5FF967AE7097708EE04 /* libPods-SkyPixel.a in Frameworks */,
+				F8F2E5A1ABBBF83C6243AE4D /* libPods-SkyPixel.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +71,7 @@
 		8F370627FFF4DB8064BA6CF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B84C8E84F23D6AF160F575D6 /* libPods-SkyPixel.a */,
+				29BE0CEE6B377480AFDD7E87 /* libPods-SkyPixel.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,8 +122,6 @@
 		BC43B3701F03E24700998A59 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				BC43B35C1F03DE1C00998A59 /* ViewController.h */,
-				BC43B35D1F03DE1C00998A59 /* ViewController.m */,
 				BC43B36D1F03E0F500998A59 /* MainCollectionViewController.h */,
 				BC43B36E1F03E0F500998A59 /* MainCollectionViewController.m */,
 			);
@@ -136,8 +140,14 @@
 		BC43B37F1F03F20E00998A59 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BCC56E991F04AC4D00A9F879 /* CVCLCoverFlowLayout.h */,
+				BCC56E9A1F04AC4D00A9F879 /* CVCLCoverFlowLayout.m */,
+				BCC56E9C1F04BE6E00A9F879 /* YRCoverFlowLayout.h */,
+				BCC56E9D1F04BE6E00A9F879 /* YRCoverFlowLayout.m */,
 				BC43B3801F03F24200998A59 /* UIActivityIndicatorView+loading.h */,
 				BC43B3811F03F24200998A59 /* UIActivityIndicatorView+loading.m */,
+				BCC56E891F0492B300A9F879 /* SPVCollectionViewCell.h */,
+				BCC56E8A1F0492B300A9F879 /* SPVCollectionViewCell.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -176,7 +186,7 @@
 				TargetAttributes = {
 					BC43B3521F03DE1C00998A59 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = S78RUL88S5;
+						DevelopmentTeam = XAU86MSXBP;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -240,7 +250,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A5A6D255A9541C2DE53B8ABA /* [CP] Copy Pods Resources */ = {
@@ -265,11 +275,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC56E8B1F0492B300A9F879 /* SPVCollectionViewCell.m in Sources */,
 				BC43B3741F03E2A100998A59 /* SPVCreationModel.m in Sources */,
-				BC43B35E1F03DE1C00998A59 /* ViewController.m in Sources */,
 				BC43B36F1F03E0F500998A59 /* MainCollectionViewController.m in Sources */,
+				BCC56E9B1F04AC4D00A9F879 /* CVCLCoverFlowLayout.m in Sources */,
 				BC43B35B1F03DE1C00998A59 /* AppDelegate.m in Sources */,
 				BC43B3821F03F24200998A59 /* UIActivityIndicatorView+loading.m in Sources */,
+				BCC56E9E1F04BE6E00A9F879 /* YRCoverFlowLayout.m in Sources */,
 				BC43B3581F03DE1C00998A59 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,7 +405,7 @@
 			baseConfigurationReference = CB36B70873C5A58756C5E2F3 /* Pods-SkyPixel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = S78RUL88S5;
+				DEVELOPMENT_TEAM = XAU86MSXBP;
 				INFOPLIST_FILE = SkyPixel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -407,7 +419,7 @@
 			baseConfigurationReference = 2C4190FAF7ADBD31F8C81B45 /* Pods-SkyPixel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = S78RUL88S5;
+				DEVELOPMENT_TEAM = XAU86MSXBP;
 				INFOPLIST_FILE = SkyPixel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -3,7 +3,7 @@
 
 target 'SkyPixel' do
   # Uncomment this line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
+  #use_frameworks!
 
   # Pods for ReactivePlayground
   #pod 'ReactiveObjC', '3.0.0'

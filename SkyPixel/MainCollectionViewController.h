@@ -10,6 +10,7 @@
 #import <ReactiveCocoa.h>
 #import "SPVCreationModel.h"
 
-@interface MainCollectionViewController : UICollectionViewController
+@interface MainCollectionViewController : UICollectionViewController {
+}
 
 @end

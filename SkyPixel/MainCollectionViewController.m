@@ -8,31 +8,36 @@
 
 #import "MainCollectionViewController.h"
 #import "UIActivityIndicatorView+loading.h"
+#import "SPVCollectionViewCell.h"
+#import "YRCoverFlowLayout.h"
 
-@interface MainCollectionViewController ()
+@interface MainCollectionViewController () {
+    CGSize _originalItemSize;
+    CGSize _originalCollectionViewSize;
+}
 
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *indicatorView;
-
+@property (nonatomic, weak) IBOutlet YRCoverFlowLayout *coverFlowLayout;
 @property (nonatomic) SPVCreationModel *creationModel;
 @end
 
 @implementation MainCollectionViewController
-
-static NSString * const reuseIdentifier = @"Cell";
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.creationModel = [[SPVCreationModel alloc] init];
     @weakify(self);
-    [[self.creationModel.updatedContentSignal filter:^BOOL(id value) {
+    [[[self.creationModel.updatedContentSignal filter:^BOOL(id value) {
         if([value isKindOfClass:[NSNumber class]]) {
             return NO;
         }
         return YES;
-    }] subscribeNext:^(id x) {
+    }]
+    deliverOnMainThread]
+    subscribeNext:^(id x) {
         @strongify(self);
         NSLog(@"updatedContentSignal");
+        [self.collectionView reloadData];
     }];
     
     [[[self.creationModel.updatedContentSignal filter:^BOOL(id value) {
@@ -53,9 +58,10 @@ static NSString * const reuseIdentifier = @"Cell";
     //RAC(self.indicatorView, loading) = self.creationModel.fetchContentSignal;
     
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    //[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    // Do any additional setup after loading the view.
+    _originalItemSize = _coverFlowLayout.itemSize;
+    _originalCollectionViewSize = self.collectionView.bounds.size;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,6 +78,29 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewWillDisappear:animated];
     self.creationModel.active = YES;
 }
+
+- (void)viewWillLayoutSubviews {
+    //[super viewWillLayoutSubviews];
+    
+    // We should invalidate layout in case we are switching orientation.
+    // If we won't do that we will receive warning from collection view's flow layout that cell size isn't correct.
+    //[_coverFlowLayout invalidateLayout];
+}
+
+- (void)viewDidLayoutSubviews {
+    //[super viewDidLayoutSubviews];
+    
+    // Now we should calculate new item size depending on new collection view size.
+    _coverFlowLayout.itemSize = (CGSize){
+        self.collectionView.bounds.size.width * _originalItemSize.width / _originalCollectionViewSize.width,
+        self.collectionView.bounds.size.height * _originalItemSize.height / _originalCollectionViewSize.height
+    };
+    
+    // Forcely tell collection view to reload current data.
+    //[self.collectionView setNeedsLayout];
+    //[self.collectionView layoutIfNeeded];
+    [self.collectionView reloadData];
+}
 /*
 #pragma mark - Navigation
 
@@ -85,20 +114,20 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 0;
+    return [self.creationModel.items count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    static NSString * const reuseIdentifier = @"Cell";
+    SPVCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
+    NSDictionary *viewModel = [self.creationModel.items objectAtIndex:indexPath.row];
+    [cell setViewModel:viewModel];
     
     return cell;
 }

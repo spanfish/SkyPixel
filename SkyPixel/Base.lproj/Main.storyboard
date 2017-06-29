@@ -33,25 +33,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tmg-4D-Zmw">
-                            <size key="itemSize" width="50" height="50"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tmg-4D-Zmw" customClass="YRCoverFlowLayout">
+                            <size key="itemSize" width="200" height="200"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="IES-Y0-ShW">
-                            <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="color" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </activityIndicatorView>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iA6-nd-VoD">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="iA6-nd-VoD" customClass="SPVCollectionViewCell">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OLP-40-gWD">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="OLP-40-gWD" firstAttribute="width" secondItem="iA6-nd-VoD" secondAttribute="width" id="Nz6-np-Smf"/>
+                                    <constraint firstItem="OLP-40-gWD" firstAttribute="height" secondItem="iA6-nd-VoD" secondAttribute="height" id="e7X-Wo-xzG"/>
+                                    <constraint firstItem="OLP-40-gWD" firstAttribute="centerX" secondItem="iA6-nd-VoD" secondAttribute="centerX" id="va7-sb-8h7"/>
+                                    <constraint firstItem="OLP-40-gWD" firstAttribute="centerY" secondItem="iA6-nd-VoD" secondAttribute="centerY" id="vd1-AS-G45"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="OLP-40-gWD" id="15P-8k-gfb"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -60,12 +74,13 @@
                         </connections>
                     </collectionView>
                     <connections>
+                        <outlet property="coverFlowLayout" destination="tmg-4D-Zmw" id="g28-15-MK0"/>
                         <outlet property="indicatorView" destination="IES-Y0-ShW" id="UQe-Gv-Bcs"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wsa-60-iTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="937" y="112"/>
+            <point key="canvasLocation" x="936.79999999999995" y="111.99400299850076"/>
         </scene>
     </scenes>
 </document>
