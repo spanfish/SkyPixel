@@ -16,8 +16,7 @@
 		BC43B3741F03E2A100998A59 /* SPVCreationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B3731F03E2A100998A59 /* SPVCreationModel.m */; };
 		BC43B3821F03F24200998A59 /* UIActivityIndicatorView+loading.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B3811F03F24200998A59 /* UIActivityIndicatorView+loading.m */; };
 		BCC56E8B1F0492B300A9F879 /* SPVCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC56E8A1F0492B300A9F879 /* SPVCollectionViewCell.m */; };
-		BCC56E9B1F04AC4D00A9F879 /* CVCLCoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC56E9A1F04AC4D00A9F879 /* CVCLCoverFlowLayout.m */; };
-		BCC56E9E1F04BE6E00A9F879 /* YRCoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC56E9D1F04BE6E00A9F879 /* YRCoverFlowLayout.m */; };
+		BCC56EA11F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC56EA01F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.m */; };
 		F8F2E5A1ABBBF83C6243AE4D /* libPods-SkyPixel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29BE0CEE6B377480AFDD7E87 /* libPods-SkyPixel.a */; };
 /* End PBXBuildFile section */
 
@@ -40,10 +39,8 @@
 		BC43B3811F03F24200998A59 /* UIActivityIndicatorView+loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+loading.m"; sourceTree = "<group>"; };
 		BCC56E891F0492B300A9F879 /* SPVCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVCollectionViewCell.h; sourceTree = "<group>"; };
 		BCC56E8A1F0492B300A9F879 /* SPVCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVCollectionViewCell.m; sourceTree = "<group>"; };
-		BCC56E991F04AC4D00A9F879 /* CVCLCoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVCLCoverFlowLayout.h; sourceTree = "<group>"; };
-		BCC56E9A1F04AC4D00A9F879 /* CVCLCoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVCLCoverFlowLayout.m; sourceTree = "<group>"; };
-		BCC56E9C1F04BE6E00A9F879 /* YRCoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRCoverFlowLayout.h; sourceTree = "<group>"; };
-		BCC56E9D1F04BE6E00A9F879 /* YRCoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRCoverFlowLayout.m; sourceTree = "<group>"; };
+		BCC56E9F1F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVCollectionViewCoverFlowLayout.h; sourceTree = "<group>"; };
+		BCC56EA01F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVCollectionViewCoverFlowLayout.m; sourceTree = "<group>"; };
 		CB36B70873C5A58756C5E2F3 /* Pods-SkyPixel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyPixel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkyPixel/Pods-SkyPixel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,14 +137,12 @@
 		BC43B37F1F03F20E00998A59 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				BCC56E991F04AC4D00A9F879 /* CVCLCoverFlowLayout.h */,
-				BCC56E9A1F04AC4D00A9F879 /* CVCLCoverFlowLayout.m */,
-				BCC56E9C1F04BE6E00A9F879 /* YRCoverFlowLayout.h */,
-				BCC56E9D1F04BE6E00A9F879 /* YRCoverFlowLayout.m */,
 				BC43B3801F03F24200998A59 /* UIActivityIndicatorView+loading.h */,
 				BC43B3811F03F24200998A59 /* UIActivityIndicatorView+loading.m */,
 				BCC56E891F0492B300A9F879 /* SPVCollectionViewCell.h */,
 				BCC56E8A1F0492B300A9F879 /* SPVCollectionViewCell.m */,
+				BCC56E9F1F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.h */,
+				BCC56EA01F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -278,11 +273,10 @@
 				BCC56E8B1F0492B300A9F879 /* SPVCollectionViewCell.m in Sources */,
 				BC43B3741F03E2A100998A59 /* SPVCreationModel.m in Sources */,
 				BC43B36F1F03E0F500998A59 /* MainCollectionViewController.m in Sources */,
-				BCC56E9B1F04AC4D00A9F879 /* CVCLCoverFlowLayout.m in Sources */,
 				BC43B35B1F03DE1C00998A59 /* AppDelegate.m in Sources */,
 				BC43B3821F03F24200998A59 /* UIActivityIndicatorView+loading.m in Sources */,
-				BCC56E9E1F04BE6E00A9F879 /* YRCoverFlowLayout.m in Sources */,
 				BC43B3581F03DE1C00998A59 /* main.m in Sources */,
+				BCC56EA11F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

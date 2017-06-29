@@ -33,7 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tmg-4D-Zmw" customClass="YRCoverFlowLayout">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tmg-4D-Zmw">
                             <size key="itemSize" width="200" height="200"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -57,6 +57,7 @@
                                         </imageView>
                                     </subviews>
                                 </view>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="OLP-40-gWD" firstAttribute="width" secondItem="iA6-nd-VoD" secondAttribute="width" id="Nz6-np-Smf"/>
                                     <constraint firstItem="OLP-40-gWD" firstAttribute="height" secondItem="iA6-nd-VoD" secondAttribute="height" id="e7X-Wo-xzG"/>
@@ -74,7 +75,6 @@
                         </connections>
                     </collectionView>
                     <connections>
-                        <outlet property="coverFlowLayout" destination="tmg-4D-Zmw" id="g28-15-MK0"/>
                         <outlet property="indicatorView" destination="IES-Y0-ShW" id="UQe-Gv-Bcs"/>
                     </connections>
                 </collectionViewController>

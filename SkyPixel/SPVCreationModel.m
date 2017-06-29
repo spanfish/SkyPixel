@@ -27,7 +27,7 @@
                 NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[x second]
                                                 options:NSJSONReadingMutableContainers
                                                                        error:nil];
-                NSLog(@"json:%@", json);
+                //NSLog(@"json:%@", json);
                 NSMutableArray *all = [NSMutableArray array];
                 NSArray *photos = [json objectForKey:@"photos"];
                 NSArray *panos = [json objectForKey:@"panos"];

@@ -17,16 +17,18 @@
     //NSString *type = [value objectForKey:@"type"];
     //BOOL isPano = [[value objectForKey:@"is_pano"] boolValue];
     //BOOL is360 = [[value objectForKey:@"is_360"] boolValue];
-    self.imageView.image = nil;
+    //self.imageView.image = nil;
     id value = [_viewModel objectForKey:@"image"];
     
     if([value respondsToSelector:@selector(stringByAppendingString:)]) {
         NSString *imagePath = [value stringByAppendingString:@"@!670x382"];        
         [[[self loadCoverWithURLString:imagePath] deliverOnMainThread] subscribeNext:^(UIImage *image) {
             self.imageView.image = image;
+            //NSLog(@"image loaded: %@", imagePath);
         }];
     } else {
-        NSLog(@"****_viewModel****%@", _viewModel);
+        //NSLog(@"****_viewModel****%@", _viewModel);
+        NSLog(@"image not loaded");
     }
 }
 
