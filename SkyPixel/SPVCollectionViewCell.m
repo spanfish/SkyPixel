@@ -14,6 +14,39 @@
 -(void) setViewModel:(NSDictionary *) viewModel {
     _viewModel = viewModel;
     
+    RAC(self.typeContainerView, hidden) = [[RACObserve(self, viewModel)
+                                   takeUntil:[self rac_prepareForReuseSignal]]
+                                  map:^id(NSDictionary *value) {
+                                      BOOL isPano = [[value objectForKey:@"is_pano"] boolValue];
+                                      BOOL is360 = [[value objectForKey:@"is_360"] boolValue];
+                                      NSString *type = [value objectForKey:@"type"];
+                                      return [NSNumber numberWithBool:!isPano && !is360 && ![type isEqualToString:@"video"]];
+                                  }];
+    
+    RAC(self.playButton, hidden) = [[RACObserve(self, viewModel)
+                                            takeUntil:[self rac_prepareForReuseSignal]]
+                                           map:^id(NSDictionary *value) {
+                                               NSString *type = [value objectForKey:@"type"];
+                                               return [NSNumber numberWithBool:![type isEqualToString:@"video"]];
+                                           }];
+    
+    RAC(self.typeLabel, text) = [[RACObserve(self, viewModel)
+                                            takeUntil:[self rac_prepareForReuseSignal]]
+                                           map:^id(NSDictionary *value) {
+                                               BOOL isPano = [[value objectForKey:@"is_pano"] boolValue];
+                                               BOOL is360 = [[value objectForKey:@"is_360"] boolValue];
+                                               NSString *type = [value objectForKey:@"type"];
+                                               if([type isEqualToString:@"video"]) {
+                                                   NSString *duration = [value objectForKey:@"duration"];
+                                                   return duration == nil ? @"" : duration;
+                                               } else if(isPano) {
+                                                   return @"Pano";
+                                               } else if(is360) {
+                                                   return @"360°";
+                                               } else {
+                                                   return @"";
+                                               }
+                                           }];
     //NSString *type = [value objectForKey:@"type"];
     //BOOL isPano = [[value objectForKey:@"is_pano"] boolValue];
     //BOOL is360 = [[value objectForKey:@"is_360"] boolValue];
@@ -27,9 +60,52 @@
             //NSLog(@"image loaded: %@", imagePath);
         }];
     } else {
-        //NSLog(@"****_viewModel****%@", _viewModel);
         NSLog(@"image not loaded");
     }
+    
+    RAC(self.titleLabel, text) = [[RACObserve(self, viewModel)
+                                   takeUntil:[self rac_prepareForReuseSignal]]
+                                  map:^id(NSDictionary *value) {
+        NSString *title = [value objectForKey:@"title"];
+        if([title isKindOfClass:[NSString class]] || [title length] == 0) {
+            return title;
+        } else {
+            return @"";
+        }
+    }];
+    
+    RAC(self.favoriteLabel, text) = [[RACObserve(self, viewModel)
+                                   takeUntil:[self rac_prepareForReuseSignal]]
+                                  map:^id(NSDictionary *value) {
+                                      NSNumber *favoriteCount = [value objectForKey:@"favorites_count"];
+                                      if([favoriteCount isKindOfClass:[NSNumber class]]) {
+                                          return [NSString stringWithFormat:@"%ld", [favoriteCount integerValue]];
+                                      } else {
+                                          return @"";
+                                      }
+                                  }];
+    
+    RAC(self.likeLabel, text) = [[RACObserve(self, viewModel)
+                                   takeUntil:[self rac_prepareForReuseSignal]]
+                                  map:^id(NSDictionary *value) {
+                                      NSNumber *count = [value objectForKey:@"likes_count"];
+                                      if([count isKindOfClass:[NSNumber class]]) {
+                                          return [NSString stringWithFormat:@"%ld", [count integerValue]];
+                                      } else {
+                                          return @"";
+                                      }
+                                  }];
+    
+    RAC(self.watchLabel, text) = [[RACObserve(self, viewModel)
+                                   takeUntil:[self rac_prepareForReuseSignal]]
+                                  map:^id(NSDictionary *value) {
+                                      NSNumber *count = [value objectForKey:@"views_count"];
+                                      if([count isKindOfClass:[NSNumber class]]) {
+                                          return [NSString stringWithFormat:@"%ld", [count integerValue]];
+                                      } else {
+                                          return @"";
+                                      }
+                                  }];
 }
 
 -(RACSignal *) loadCoverWithURLString:(NSString *) urlString {

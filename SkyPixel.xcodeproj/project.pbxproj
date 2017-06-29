@@ -181,7 +181,7 @@
 				TargetAttributes = {
 					BC43B3521F03DE1C00998A59 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = XAU86MSXBP;
+						DevelopmentTeam = S78RUL88S5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -245,7 +245,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A5A6D255A9541C2DE53B8ABA /* [CP] Copy Pods Resources */ = {
@@ -399,7 +399,7 @@
 			baseConfigurationReference = CB36B70873C5A58756C5E2F3 /* Pods-SkyPixel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XAU86MSXBP;
+				DEVELOPMENT_TEAM = S78RUL88S5;
 				INFOPLIST_FILE = SkyPixel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -413,7 +413,7 @@
 			baseConfigurationReference = 2C4190FAF7ADBD31F8C81B45 /* Pods-SkyPixel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XAU86MSXBP;
+				DEVELOPMENT_TEAM = S78RUL88S5;
 				INFOPLIST_FILE = SkyPixel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

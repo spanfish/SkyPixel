@@ -9,7 +9,8 @@
 #import "MainCollectionViewController.h"
 #import "UIActivityIndicatorView+loading.h"
 #import "SPVCollectionViewCell.h"
-#import "SPVCollectionViewCoverFlowLayout.h"
+
+#define DESCRIPTION_HEIGHT 50
 
 @interface MainCollectionViewController () {
 //    CGSize _originalItemSize;
@@ -17,7 +18,8 @@
 }
 
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *indicatorView;
-@property (nonatomic, strong) SPVCollectionViewCoverFlowLayout *coverFlowLayout;
+@property (nonatomic, weak) IBOutlet UICollectionViewFlowLayout *flowLayout;
+//@property (nonatomic, weak) IBOutlet NSLayoutConstraint *descriptionViewHeightConstraint;
 @property (nonatomic) SPVCreationModel *creationModel;
 @end
 
@@ -55,19 +57,13 @@
              [self.indicatorView stopAnimating];
          }
     }];
+    self.view.layer.cornerRadius = 6;
+    self.view.layer.borderWidth = 1;
     //RAC(self.indicatorView, loading) = self.creationModel.fetchContentSignal;
-    
-    // Register cell classes
-    //[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
-//    _originalItemSize = _coverFlowLayout.itemSize;
-//    _originalCollectionViewSize = self.collectionView.bounds.size;
-
-    self.coverFlowLayout = [[SPVCollectionViewCoverFlowLayout alloc] init];
-    self.coverFlowLayout.itemSize = CGSizeMake(300, 300);
-    self.coverFlowLayout.minimumLineSpacing = 10;
-    self.coverFlowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    [self.collectionView setCollectionViewLayout:self.coverFlowLayout animated:YES];
+    self.flowLayout.itemSize = CGSizeMake(self.view.bounds.size.width,
+                                          self.view.bounds.size.width * 382 / 670 + DESCRIPTION_HEIGHT);
+    self.flowLayout.minimumLineSpacing = 0;
+    self.flowLayout.sectionInset = UIEdgeInsetsZero;
 }
 
 - (void)didReceiveMemoryWarning {
