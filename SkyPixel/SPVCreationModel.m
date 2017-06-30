@@ -10,25 +10,30 @@
 #import <ReactiveCocoa.h>
 #include <stdlib.h>
 
+@interface SPVCreationModel()
+@property (nonatomic, assign) NSUInteger pageNo;
+@end
+
 @implementation SPVCreationModel
 
 -(instancetype) init {
     self = [super init];
     if(self) {
         _updatedContentSignal = [[RACSubject subject] setNameWithFormat:@"SPVCreationModel updatedContentSignal"];
+        self.pageNo = 1;
         @weakify(self)
         [self.didBecomeActiveSignal subscribeNext:^(id x) {
             @strongify(self);
 
-            [self fetchCreationsForPage:1];
+            [self fetchCreations];
         }];
     }
     return self;
 }
 
--(void) fetchCreationsForPage:(NSUInteger) page {
+-(void) fetchCreations {
     [((RACSubject *)self.updatedContentSignal) sendNext:@YES];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.skypixel.com/api/website/resources/works/?page=%ld&page_size=26&resourceType=&type=latest", page]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.skypixel.com/api/website/resources/works/?page=%ld&page_size=26&resourceType=&type=latest", self.pageNo]]];
     [[NSURLConnection rac_sendAsynchronousRequest:request] subscribeNext:^(RACTuple * x) {
         
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[x second]
