@@ -59,7 +59,7 @@
     }];
     self.view.layer.cornerRadius = 6;
     self.view.layer.borderWidth = 1;
-    //RAC(self.indicatorView, loading) = self.creationModel.fetchContentSignal;
+
     self.flowLayout.itemSize = CGSizeMake(self.view.bounds.size.width,
                                           self.view.bounds.size.width * 382 / 670 + DESCRIPTION_HEIGHT);
     self.flowLayout.minimumLineSpacing = 0;

@@ -98,3 +98,94 @@
     }];
 }
 @end
+
+
+@implementation SPVRelatedModel
+
+-(instancetype) initWithModel:(id)model {
+    self = [super initWithModel:model];
+    if(self) {
+        _relatedArray = [NSMutableArray array];
+        _updatedContentSignal = [[RACSubject subject] setNameWithFormat:@"SPVCommentModel updatedContentSignal"];
+        
+        @weakify(self)
+        [self.didBecomeActiveSignal subscribeNext:^(id x) {
+            @strongify(self);
+            [self fetchRelated];
+        }];
+    }
+    
+    return self;
+}
+
+-(void) fetchRelated {
+    NSString *type = [self.model objectForKey:@"type"];
+    NSString *rid = [self.model objectForKey:@"id"];
+    NSString *url = [NSString stringWithFormat:@"https://www.skypixel.com/api/website/%@s/%@/related_creations",
+                     type,
+                     rid];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    
+    @weakify(self)
+    [[NSURLConnection rac_sendAsynchronousRequest:request] subscribeNext:^(RACTuple* x) {
+        @strongify(self);
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[x second]
+                                                             options:NSJSONReadingMutableContainers
+                                                               error:nil];
+        NSArray *array = [dict objectForKey:@"resources"];
+        if([array isKindOfClass:[NSArray class]] && [array count] > 0) {
+            [self.relatedArray addObjectsFromArray:array];
+        }
+        
+        [((RACSubject *)self.updatedContentSignal) sendNext:_relatedArray];
+        [((RACSubject *)self.updatedContentSignal) sendCompleted];
+    }];
+}
+@end
+
+@implementation SPVAlsoLikeModel
+
+-(instancetype) initWithModel:(id)model {
+    self = [super initWithModel:model];
+    if(self) {
+        _alsoLikeArray = [NSMutableArray array];
+        _updatedContentSignal = [[RACSubject subject] setNameWithFormat:@"SPVCommentModel updatedContentSignal"];
+        
+        @weakify(self)
+        [self.didBecomeActiveSignal subscribeNext:^(id x) {
+            @strongify(self);
+            [self fetchAlsoLike];
+        }];
+    }
+    
+    return self;
+}
+
+-(void) fetchAlsoLike {
+    //https://www.skypixel.com/api/website/photos/02da2ae1-5c37-4c74-aed5-b955348309f1
+    //https://www.skypixel.com/api/website/videos/d2c1dda3-5269-4ab6-abe8-42ed613fbdce
+    NSString *type = [self.model objectForKey:@"type"];
+    NSString *rid = [self.model objectForKey:@"id"];
+    NSString *url = [NSString stringWithFormat:@"https://www.skypixel.com/api/website/%@s/%@/also_likes",
+                     type,
+                     rid];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    
+    @weakify(self)
+    [[NSURLConnection rac_sendAsynchronousRequest:request] subscribeNext:^(RACTuple* x) {
+        @strongify(self);
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[x second]
+                                                             options:NSJSONReadingMutableContainers
+                                                               error:nil];
+        NSArray *array = [dict objectForKey:@"resources"];
+        if([array isKindOfClass:[NSArray class]] && [array count] > 0) {
+            [self.alsoLikeArray addObjectsFromArray:array];
+        }
+        
+        [((RACSubject *)self.updatedContentSignal) sendNext:self.alsoLikeArray];
+        [((RACSubject *)self.updatedContentSignal) sendCompleted];
+    }];
+}
+@end

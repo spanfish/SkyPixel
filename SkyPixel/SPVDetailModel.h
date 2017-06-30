@@ -20,3 +20,15 @@
 @property (nonatomic, readonly) RACSignal *updatedContentSignal;
 @property (nonatomic, readonly) NSMutableArray *comments;
 @end
+
+@interface SPVRelatedModel : RVMViewModel
+
+@property (nonatomic, readonly) RACSignal *updatedContentSignal;
+@property (nonatomic, readonly) NSMutableArray *relatedArray;
+@end
+
+@interface SPVAlsoLikeModel : RVMViewModel
+
+@property (nonatomic, readonly) RACSignal *updatedContentSignal;
+@property (nonatomic, readonly) NSMutableArray *alsoLikeArray;
+@end

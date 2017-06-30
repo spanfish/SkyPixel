@@ -31,7 +31,7 @@
         <scene sceneID="eFE-I5-NcZ">
             <objects>
                 <collectionViewController id="V4d-I1-LJC" customClass="MainCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="IYX-gD-Cmd">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="IYX-gD-Cmd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -429,6 +429,29 @@
                                             <outlet property="commentLabel" destination="Fa9-x3-K1s" id="ZSC-FH-NSW"/>
                                             <outlet property="dateLabel" destination="RBp-zo-KJD" id="mXn-fT-IjA"/>
                                             <outlet property="nameLabel" destination="PDd-mn-SrB" id="FoA-Sk-cff"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Resources" rowHeight="156" id="PAA-12-lWp" customClass="ResourceTableViewCell">
+                                        <rect key="frame" x="0.0" y="518" width="375" height="156"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PAA-12-lWp" id="Gj3-2t-Xcn">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="155.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwF-zS-nh2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="155"/>
+                                                </scrollView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="qwF-zS-nh2" firstAttribute="centerY" secondItem="Gj3-2t-Xcn" secondAttribute="centerY" id="8OF-w3-QYW"/>
+                                                <constraint firstItem="qwF-zS-nh2" firstAttribute="height" secondItem="Gj3-2t-Xcn" secondAttribute="height" id="Z3O-fj-GqR"/>
+                                                <constraint firstItem="qwF-zS-nh2" firstAttribute="centerX" secondItem="Gj3-2t-Xcn" secondAttribute="centerX" id="eMw-ec-oZh"/>
+                                                <constraint firstItem="qwF-zS-nh2" firstAttribute="width" secondItem="Gj3-2t-Xcn" secondAttribute="width" id="h1j-hY-tvO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="scrollView" destination="qwF-zS-nh2" id="jeJ-eo-erk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

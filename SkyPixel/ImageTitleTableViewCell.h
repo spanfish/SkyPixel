@@ -25,3 +25,11 @@
 @property(nonatomic, weak) IBOutlet UILabel *dateLabel;
 @property(nonatomic, weak) IBOutlet UILabel *commentLabel;
 @end
+
+@interface ResourceTableViewCell : UITableViewCell
+
+@property(nonatomic, strong) NSArray *model;
+
+@property(nonatomic, weak) IBOutlet UIScrollView *scrollView;
+
+@end
