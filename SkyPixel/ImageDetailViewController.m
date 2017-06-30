@@ -151,9 +151,9 @@
                                                       options:NSStringDrawingUsesLineFragmentOrigin
                                                    attributes:attributes
                                                       context:nil];
-            return rect.size.height;
+            return rect.size.height + 30;
         } else {
-            return 80;
+            return 30;
         }
         
     }
