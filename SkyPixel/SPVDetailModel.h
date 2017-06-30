@@ -13,3 +13,10 @@
 @property (nonatomic, readonly) RACSignal *updatedContentSignal;
 @property (nonatomic, readonly) NSDictionary *modelData;
 @end
+
+
+@interface SPVCommentModel : RVMViewModel
+
+@property (nonatomic, readonly) RACSignal *updatedContentSignal;
+@property (nonatomic, readonly) NSMutableArray *comments;
+@end

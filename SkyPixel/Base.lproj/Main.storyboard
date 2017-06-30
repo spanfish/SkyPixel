@@ -336,13 +336,100 @@
                                             <outlet property="shutterLabel" destination="gbT-q8-njz" id="Tvh-IF-FAS"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Info" id="2dN-BS-Xql">
-                                        <rect key="frame" x="0.0" y="318" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Info" rowHeight="80" id="2dN-BS-Xql" customClass="ImageTitleTableViewCell">
+                                        <rect key="frame" x="0.0" y="318" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2dN-BS-Xql" id="4Xi-WF-mIU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vat-OO-4GH">
+                                                    <rect key="frame" x="10" y="0.0" width="355" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="YXu-yx-RuJ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Date and License" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7N-QU-qI5">
+                                                    <rect key="frame" x="10" y="30" width="355" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="U5e-cI-com"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="g7N-QU-qI5" firstAttribute="centerX" secondItem="Vat-OO-4GH" secondAttribute="centerX" id="brD-JL-fnV"/>
+                                                <constraint firstItem="g7N-QU-qI5" firstAttribute="top" secondItem="Vat-OO-4GH" secondAttribute="bottom" id="fwc-M0-7xW"/>
+                                                <constraint firstItem="g7N-QU-qI5" firstAttribute="width" secondItem="Vat-OO-4GH" secondAttribute="width" id="qja-lm-Il4"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Vat-OO-4GH" secondAttribute="trailing" constant="10" id="AhC-tR-Q4h"/>
+                                            <constraint firstItem="Vat-OO-4GH" firstAttribute="leading" secondItem="2dN-BS-Xql" secondAttribute="leading" constant="10" id="OIG-ka-yoF"/>
+                                            <constraint firstItem="Vat-OO-4GH" firstAttribute="top" secondItem="2dN-BS-Xql" secondAttribute="top" id="dXo-0E-n5h"/>
+                                            <constraint firstItem="Vat-OO-4GH" firstAttribute="centerX" secondItem="2dN-BS-Xql" secondAttribute="centerX" id="nZT-9g-ErN"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="g7N-QU-qI5" id="g8q-rf-QQ1"/>
+                                            <outlet property="titleLabel" destination="Vat-OO-4GH" id="BnV-aK-zj7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Comment" rowHeight="80" id="V5h-C8-yiu" customClass="CommentTableViewCell">
+                                        <rect key="frame" x="0.0" y="398" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V5h-C8-yiu" id="6nH-1b-yaB">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDd-mn-SrB">
+                                                    <rect key="frame" x="18" y="8" width="239" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="FYo-Ee-oA4"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Date and License" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fa9-x3-K1s">
+                                                    <rect key="frame" x="18" y="38" width="339" height="33.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-06-30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBp-zo-KJD">
+                                                    <rect key="frame" x="257" y="14" width="100" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="5pm-Pj-xsL"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="RBp-zo-KJD" secondAttribute="trailing" constant="10" id="1gU-tx-JCe"/>
+                                                <constraint firstItem="RBp-zo-KJD" firstAttribute="centerY" secondItem="PDd-mn-SrB" secondAttribute="centerY" id="8yy-nX-ozV"/>
+                                                <constraint firstItem="Fa9-x3-K1s" firstAttribute="leading" secondItem="6nH-1b-yaB" secondAttribute="leadingMargin" constant="10" id="9w4-V6-ssi"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Fa9-x3-K1s" secondAttribute="trailing" constant="10" id="Fxl-1u-uHL"/>
+                                                <constraint firstItem="PDd-mn-SrB" firstAttribute="leading" secondItem="6nH-1b-yaB" secondAttribute="leadingMargin" constant="10" id="ROE-2s-fL6"/>
+                                                <constraint firstItem="PDd-mn-SrB" firstAttribute="top" secondItem="6nH-1b-yaB" secondAttribute="topMargin" id="YMJ-xd-6DL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Fa9-x3-K1s" secondAttribute="bottom" id="a0y-4v-fLe"/>
+                                                <constraint firstItem="Fa9-x3-K1s" firstAttribute="top" secondItem="PDd-mn-SrB" secondAttribute="bottom" id="fKH-j6-51e"/>
+                                                <constraint firstItem="RBp-zo-KJD" firstAttribute="leading" secondItem="PDd-mn-SrB" secondAttribute="trailing" id="gyj-vf-vHP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="commentLabel" destination="Fa9-x3-K1s" id="ZSC-FH-NSW"/>
+                                            <outlet property="dateLabel" destination="RBp-zo-KJD" id="mXn-fT-IjA"/>
+                                            <outlet property="nameLabel" destination="PDd-mn-SrB" id="FoA-Sk-cff"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

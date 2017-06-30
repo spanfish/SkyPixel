@@ -25,6 +25,12 @@
 -(void) setModel:(NSDictionary *)model {
     _model = model;
     
+    self.locationLabel.text = @"";
+    self.coverImageView.image = nil;
+    self.equipLabel.text = @"";
+    self.shutterLabel.text = @"";
+    self.focusLabel.text = @"";
+    
     //image
     NSString *imagePath = [_model objectForKey:@"image"];
     if([imagePath isKindOfClass:[NSString class]]) {
@@ -54,13 +60,16 @@
     NSString *latitude = [_model objectForKey:@"latitude"];
     NSString *longitude = [_model objectForKey:@"longitude"];
     
-    @weakify(self)
-    [[[[self signalForReverseGeocodeLatitude:[latitude doubleValue] longitude:[longitude doubleValue]]
-      takeUntil:[self rac_prepareForReuseSignal]]
-     deliverOnMainThread] subscribeNext:^(id x) {
-        @strongify(self)
-        self.locationLabel.text = x;
-    }];
+    if([latitude respondsToSelector:@selector(doubleValue)] && [longitude respondsToSelector:@selector(doubleValue)]) {
+        @weakify(self)
+        [[[[self signalForReverseGeocodeLatitude:[latitude doubleValue] longitude:[longitude doubleValue]]
+           takeUntil:[self rac_prepareForReuseSignal]]
+          deliverOnMainThread] subscribeNext:^(id x) {
+            @strongify(self)
+            self.locationLabel.text = x;
+        }];
+    }
+    
     /*
     RAC(self.shutterLabel, text) = [[RACObserve(self, model)
                                      takeUntil:[self rac_prepareForReuseSignal]]
@@ -78,7 +87,7 @@
                                       NSString *shutter = [value objectForKey:@"shutter"];
                                       NSString *aperture = [value objectForKey:@"aperture"];
                                       
-                                      return [NSString stringWithFormat:@"%@ %@", aperture == nil ? @"n/a" : aperture,
+                                      return [NSString stringWithFormat:@"%@ %@", aperture == nil ? @"n/a" : [NSString stringWithFormat:@"f%@", aperture],
                                               shutter == nil ? @"n/a" : shutter];
                                   }];
     //focus
@@ -86,7 +95,7 @@
                                      takeUntil:[self rac_prepareForReuseSignal]]
                                     map:^id(NSDictionary *value) {
                                         NSNumber *focus = [value objectForKey:@"focal_length"];
-                                        return [NSString stringWithFormat:@"%@", [focus stringValue]];
+                                        return [NSString stringWithFormat:@"%@", focus == nil ? @ "n/a" : [focus stringValue]];
                                     }];
 }
 
@@ -130,9 +139,9 @@
             for(CLPlacemark *placemark in placemarks) {
                 if(placemark) {
                     NSString *locatedAt = [NSString stringWithFormat:@"%@ %@ %@",
-                                           placemark.administrativeArea ? @"" : placemark.administrativeArea,
-                                           placemark.locality ? @"" : placemark.locality,
-                                           placemark.subLocality ? @"" : placemark.subLocality];
+                                           placemark.administrativeArea ? placemark.administrativeArea : @"" ,
+                                           placemark.locality ? placemark.locality : @"",
+                                           placemark.subLocality ? placemark.subLocality : @""];
 //                    NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
 //                    NSLog(@"placemark %@",placemark.region);
 //                    NSLog(@"placemark %@",placemark.country);  // Give Country Name
