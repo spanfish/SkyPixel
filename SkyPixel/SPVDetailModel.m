@@ -17,21 +17,25 @@
 -(instancetype) initWithModel:(id)model {
     self = [super initWithModel:model];
     if(self) {
+        _imageInfo = nil;
+        _commentArray = [NSMutableArray array];
+        _relatedArray = [NSMutableArray array];
+        _alsoLikeArray = [NSMutableArray array];
         _updatedContentSignal = [[RACSubject subject] setNameWithFormat:@"SPVDetailModel updatedContentSignal"];
-        
         @weakify(self)
         [self.didBecomeActiveSignal subscribeNext:^(id x) {
             @strongify(self);
-            [self fetchDetail];
+            [self fetchImageInfo];
+            [self fetchComment];
+            [self fetchRelated];
+            [self fetchAlsoLike];
         }];
     }
     
     return self;
 }
 
--(void) fetchDetail {
-    //https://www.skypixel.com/api/website/photos/02da2ae1-5c37-4c74-aed5-b955348309f1
-    //https://www.skypixel.com/api/website/videos/d2c1dda3-5269-4ab6-abe8-42ed613fbdce
+-(void) fetchImageInfo {
     NSString *type = [self.model objectForKey:@"type"];
     NSString *rid = [self.model objectForKey:@"id"];
     NSString *url = [NSString stringWithFormat:@"https://www.skypixel.com/api/website/%@s/%@",
@@ -43,36 +47,14 @@
     @weakify(self)
     [[NSURLConnection rac_sendAsynchronousRequest:request] subscribeNext:^(RACTuple* x) {
         @strongify(self);
-        _modelData = [NSJSONSerialization JSONObjectWithData:[x second]
+        _imageInfo = [NSJSONSerialization JSONObjectWithData:[x second]
                                                              options:NSJSONReadingMutableContainers
                                                                error:nil];
-        [((RACSubject *)self.updatedContentSignal) sendNext:_modelData];
-        [((RACSubject *)self.updatedContentSignal) sendCompleted];
+        [((RACSubject *)self.updatedContentSignal) sendNext:nil];
     }];
-}
-@end
-
-@implementation SPVCommentModel
-
--(instancetype) initWithModel:(id)model {
-    self = [super initWithModel:model];
-    if(self) {
-        _comments = [NSMutableArray array];
-        _updatedContentSignal = [[RACSubject subject] setNameWithFormat:@"SPVCommentModel updatedContentSignal"];
-        
-        @weakify(self)
-        [self.didBecomeActiveSignal subscribeNext:^(id x) {
-            @strongify(self);
-            [self fetchComment];
-        }];
-    }
-    
-    return self;
 }
 
 -(void) fetchComment {
-    //https://www.skypixel.com/api/website/photos/02da2ae1-5c37-4c74-aed5-b955348309f1
-    //https://www.skypixel.com/api/website/videos/d2c1dda3-5269-4ab6-abe8-42ed613fbdce
     NSString *type = [self.model objectForKey:@"type"];
     NSString *rid = [self.model objectForKey:@"id"];
     NSString *url = [NSString stringWithFormat:@"https://www.skypixel.com/api/website/%@s/%@/comments?page=%d&page_size=10",
@@ -86,36 +68,15 @@
     [[NSURLConnection rac_sendAsynchronousRequest:request] subscribeNext:^(RACTuple* x) {
         @strongify(self);
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[x second]
-                                                     options:NSJSONReadingMutableContainers
-                                                       error:nil];
+                                                             options:NSJSONReadingMutableContainers
+                                                               error:nil];
         NSArray *array = [dict objectForKey:@"comments"];
         if([array isKindOfClass:[NSArray class]] && [array count] > 0) {
-            [self.comments addObjectsFromArray:array];
+            [self.commentArray addObjectsFromArray:array];
         }
         
-        [((RACSubject *)self.updatedContentSignal) sendNext:_comments];
-        [((RACSubject *)self.updatedContentSignal) sendCompleted];
+        [((RACSubject *)self.updatedContentSignal) sendNext:nil];
     }];
-}
-@end
-
-
-@implementation SPVRelatedModel
-
--(instancetype) initWithModel:(id)model {
-    self = [super initWithModel:model];
-    if(self) {
-        _relatedArray = [NSMutableArray array];
-        _updatedContentSignal = [[RACSubject subject] setNameWithFormat:@"SPVCommentModel updatedContentSignal"];
-        
-        @weakify(self)
-        [self.didBecomeActiveSignal subscribeNext:^(id x) {
-            @strongify(self);
-            [self fetchRelated];
-        }];
-    }
-    
-    return self;
 }
 
 -(void) fetchRelated {
@@ -138,33 +99,11 @@
             [self.relatedArray addObjectsFromArray:array];
         }
         
-        [((RACSubject *)self.updatedContentSignal) sendNext:_relatedArray];
-        [((RACSubject *)self.updatedContentSignal) sendCompleted];
+        [((RACSubject *)self.updatedContentSignal) sendNext:nil];
     }];
-}
-@end
-
-@implementation SPVAlsoLikeModel
-
--(instancetype) initWithModel:(id)model {
-    self = [super initWithModel:model];
-    if(self) {
-        _alsoLikeArray = [NSMutableArray array];
-        _updatedContentSignal = [[RACSubject subject] setNameWithFormat:@"SPVCommentModel updatedContentSignal"];
-        
-        @weakify(self)
-        [self.didBecomeActiveSignal subscribeNext:^(id x) {
-            @strongify(self);
-            [self fetchAlsoLike];
-        }];
-    }
-    
-    return self;
 }
 
 -(void) fetchAlsoLike {
-    //https://www.skypixel.com/api/website/photos/02da2ae1-5c37-4c74-aed5-b955348309f1
-    //https://www.skypixel.com/api/website/videos/d2c1dda3-5269-4ab6-abe8-42ed613fbdce
     NSString *type = [self.model objectForKey:@"type"];
     NSString *rid = [self.model objectForKey:@"id"];
     NSString *url = [NSString stringWithFormat:@"https://www.skypixel.com/api/website/%@s/%@/also_likes",
@@ -184,8 +123,7 @@
             [self.alsoLikeArray addObjectsFromArray:array];
         }
         
-        [((RACSubject *)self.updatedContentSignal) sendNext:self.alsoLikeArray];
-        [((RACSubject *)self.updatedContentSignal) sendCompleted];
+        [((RACSubject *)self.updatedContentSignal) sendNext:nil];
     }];
 }
 @end

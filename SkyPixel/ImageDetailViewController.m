@@ -12,57 +12,56 @@
 #import "ImageTableViewCell.h"
 #import "ImageTitleTableViewCell.h"
 
+typedef NS_ENUM(NSInteger, DetailSection) {
+    IMAGE_SECTION,
+    COMMENT_SECTION,
+    RELATE_SECTION,
+    ALSOLIKE_SECTION,
+    NUM_OF_SECTION
+};
+
 @interface ImageDetailViewController ()
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic) SPVDetailModel *detailViewModel;
-@property (nonatomic) SPVCommentModel *commentModel;
-@property (nonatomic) SPVRelatedModel *relatedModel;
-@property (nonatomic) SPVAlsoLikeModel *alsoLikeModel;
+
+@property (nonatomic) SPVDetailModel *viewModel;
 @end
 
 @implementation ImageDetailViewController
 
 -(void) setModel:(NSDictionary *) model {
-    self.detailViewModel = [[SPVDetailModel alloc] initWithModel:model];
-    self.commentModel = [[SPVCommentModel alloc] initWithModel:model];
-    self.relatedModel = [[SPVRelatedModel alloc] initWithModel:model];
-    self.alsoLikeModel = [[SPVAlsoLikeModel alloc] initWithModel:model];
+    self.viewModel = [[SPVDetailModel alloc] initWithModel:model];
     
-    RAC(self, title) = [RACObserve(self, detailViewModel)
+    RAC(self, title) = [RACObserve(self, viewModel)
                         map:^id(SPVDetailModel *value) {
                             NSString *title = [value.model objectForKey:@"title"];
                             return title;
                         }];
 
     @weakify(self);
-    [[[[[self.detailViewModel.updatedContentSignal combineLatestWith:self.commentModel.updatedContentSignal]
-             combineLatestWith:self.relatedModel.updatedContentSignal]
-     combineLatestWith:self.alsoLikeModel.updatedContentSignal]
-      deliverOnMainThread]
-     subscribeNext:^(id x) {
+    [[self.viewModel.updatedContentSignal deliverOnMainThread] subscribeNext:^(id x) {
         @strongify(self);
-         NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
-         if(self.detailViewModel.modelData) {
-             [indexSet addIndex:0];
-         }
-         if([self.commentModel.comments count] > 0) {
-             [indexSet addIndex:2];
-         }
-         if([self.relatedModel.relatedArray count] > 0) {
-             [indexSet addIndex:3];
-         }
-         if([self.alsoLikeModel.alsoLikeArray count] > 0) {
-             [indexSet addIndex:4];
-         }
-         [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
+        NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
+        if(self.viewModel.imageInfo) {
+            [indexSet addIndex:IMAGE_SECTION];
+        }
+        if([self.viewModel.commentArray count] > 0) {
+            [indexSet addIndex:COMMENT_SECTION];
+        }
+        if([self.viewModel.relatedArray count] > 0) {
+            [indexSet addIndex:RELATE_SECTION];
+        }
+        if([self.viewModel.alsoLikeArray count] > 0) {
+            [indexSet addIndex:ALSOLIKE_SECTION];
+        }
+        [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
     }];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.tableView.estimatedRowHeight = 50;
-    //self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    self.viewModel.active = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,10 +71,6 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.detailViewModel.active = YES;
-    self.commentModel.active = YES;
-    self.relatedModel.active = YES;
-    self.alsoLikeModel.active = YES;
 }
 /*
 #pragma mark - Navigation
@@ -92,15 +87,13 @@
         return nil;
     }
     
-    if(section == 0) {
+    if(section == IMAGE_SECTION) {
         return nil;
-    } else if(section == 1) {
-        return nil;
-    } else if(section == 2) {
+    } else if(section == COMMENT_SECTION) {
         return @"Comments";
-    } else if(section == 3) {
+    } else if(section == RELATE_SECTION) {
         return @"Related";
-    } else if(section == 4) {
+    } else if(section == ALSOLIKE_SECTION) {
         return @"Also like";
     }
     return nil;
@@ -112,18 +105,18 @@
     //2: comment
     //3: related
     //4: also like
-    return 5;
+    return NUM_OF_SECTION;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(section == 0) {
+    if(section == IMAGE_SECTION) {
         return 2;
-    } else if(section == 2) {
-        return [self.commentModel.comments count];
-    } else if(section == 3) {
-        return [self.relatedModel.relatedArray count] > 0 ? 1 : 0;
-    } else if(section == 4) {
-        return [self.alsoLikeModel.alsoLikeArray count] > 0 ? 1 : 0;
+    } else if(section == COMMENT_SECTION) {
+        return [self.viewModel.commentArray count];
+    } else if(section == RELATE_SECTION) {
+        return [self.viewModel.relatedArray count] > 0 ? 1 : 0;
+    } else if(section == ALSOLIKE_SECTION) {
+        return [self.viewModel.alsoLikeArray count] > 0 ? 1 : 0;
     }
     return 0;
 }
@@ -132,27 +125,27 @@
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.section == 0) {
+    if(indexPath.section == IMAGE_SECTION) {
         if(indexPath.row == 0) {
             ImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Image"];
-            cell.model = self.detailViewModel.modelData;
+            [cell configureCellWithModel:self.viewModel.imageInfo];
             return cell;
         } else {
             ImageTitleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Info"];
-            cell.model = self.detailViewModel.modelData;
+            cell.model = self.viewModel.imageInfo;
             return cell;
         }
-    } else if(indexPath.section == 2) {
+    } else if(indexPath.section == COMMENT_SECTION) {
         CommentTableViewCell*cell = [tableView dequeueReusableCellWithIdentifier:@"Comment"];
-        cell.model = [self.commentModel.comments objectAtIndex:indexPath.row];
+        cell.model = [self.viewModel.commentArray objectAtIndex:indexPath.row];
         return cell;
-    } else if(indexPath.section == 3) {
+    } else if(indexPath.section == RELATE_SECTION) {
         ResourceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Resources"];
-        cell.model = self.relatedModel.relatedArray;
+        cell.model = self.viewModel.relatedArray;
         return cell;
-    } else if(indexPath.section == 4) {
+    } else if(indexPath.section == ALSOLIKE_SECTION) {
         ResourceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Resources"];
-        cell.model = self.alsoLikeModel.alsoLikeArray;
+        cell.model = self.viewModel.alsoLikeArray;
         
         return cell;
     }
@@ -162,9 +155,9 @@
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.section == 0) {
+    if(indexPath.section == IMAGE_SECTION) {
         if(indexPath.row == 0) {
-            NSDictionary *dict = self.detailViewModel.modelData;
+            NSDictionary *dict = self.viewModel.imageInfo;
             if(dict) {
                 CGFloat width = [[dict objectForKey:@"width"] floatValue];
                 CGFloat height = [[dict objectForKey:@"height"] floatValue];
@@ -173,20 +166,20 @@
                     return cellHeight + 5/*space between image and camera*/ + 22/*camera height*/ + 22/*shutter height*/ + 10/*space between camera and shutter*/ + 10/*space between shutter and bottom*/;
                 }
             } else {
-                return 0;
+                return self.tableView.bounds.size.height - 100;
             }
         } else if(indexPath.row == 1) {
             return 80;
         }
-    } else if(indexPath.section == 2) {
+    } else if(indexPath.section == COMMENT_SECTION) {
         CommentTableViewCell *cell = (CommentTableViewCell *)[self tableView:self.tableView cellForRowAtIndexPath:indexPath];
-        cell.model = [self.commentModel.comments objectAtIndex:indexPath.row];
+        cell.model = [self.viewModel.commentArray objectAtIndex:indexPath.row];
         [cell layoutIfNeeded];
         CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
         return size.height + 1/*line seperator*/ + 30;
-    } else if(indexPath.section == 3) {
+    } else if(indexPath.section == RELATE_SECTION) {
         return 155 + 1;
-    } else if(indexPath.section == 4) {
+    } else if(indexPath.section == ALSOLIKE_SECTION) {
         return 155 + 1;
     }
     

@@ -49,11 +49,20 @@
                                            }];
 
     id value = [_viewModel objectForKey:@"image"];
-    self.imageView.image = [UIImage imageNamed:@"photo"];
+    //loading image
+    NSMutableArray *images = [NSMutableArray arrayWithCapacity:6];
+    for(NSInteger i = 0; i < 6; i++) {
+        [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"propeller_horizon_%ld", i * 30]]];
+    }
+    self.imageView.image = nil;
+    self.imageView.animationImages = images;
+    [self.imageView startAnimating];
     self.imageView.contentMode = UIViewContentModeCenter;
     if([value respondsToSelector:@selector(stringByAppendingString:)]) {
         NSString *imagePath = [value stringByAppendingString:@"@!670x382"];        
         [[[self loadCoverWithURLString:imagePath] deliverOnMainThread] subscribeNext:^(UIImage *image) {
+            [self.imageView stopAnimating];
+            self.imageView.animationImages = nil;
             self.imageView.image = image;
             self.imageView.contentMode = UIViewContentModeScaleAspectFill;
         }];

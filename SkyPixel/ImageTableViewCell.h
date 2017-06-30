@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImageTableViewCell : UITableViewCell
+@interface ImageTableViewCell : UITableViewCell {
+    
+}
 @property(nonatomic, weak) IBOutlet UIImageView *coverImageView;
 @property(nonatomic, weak) IBOutlet UILabel *equipLabel;
 @property(nonatomic, weak) IBOutlet UILabel *locationLabel;
 @property(nonatomic, weak) IBOutlet UILabel *shutterLabel;
 @property(nonatomic, weak) IBOutlet UILabel *focusLabel;
 
-@property(nonatomic, strong) NSDictionary *model;
+-(void) configureCellWithModel:(NSDictionary *) model;
 @end

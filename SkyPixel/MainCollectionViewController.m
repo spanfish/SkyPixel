@@ -10,6 +10,7 @@
 #import "UIActivityIndicatorView+loading.h"
 #import "SPVCollectionViewCell.h"
 #import "ImageDetailViewController.h"
+#import <Masonry.h>
 
 #define DESCRIPTION_HEIGHT 50
 
@@ -17,51 +18,64 @@
 
 }
 
-@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *indicatorView;
+@property (nonatomic, strong) UIImageView *indicatorView;
 @property (nonatomic, weak) IBOutlet UICollectionViewFlowLayout *flowLayout;
-//@property (nonatomic, weak) IBOutlet NSLayoutConstraint *descriptionViewHeightConstraint;
-@property (nonatomic) SPVCreationModel *creationModel;
+@property (nonatomic) SPVCreationModel *viewModel;
 @end
 
 @implementation MainCollectionViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //loading image
+    NSMutableArray *images = [NSMutableArray arrayWithCapacity:6];
+    for(NSInteger i = 0; i < 6; i++) {
+        [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"propeller_horizon_%ld", i * 30]]];
+    }
     
-    self.creationModel = [[SPVCreationModel alloc] init];
+    self.indicatorView = [[UIImageView alloc] init];
+    self.indicatorView.image = nil;
+    self.indicatorView.animationImages = images;
+    [self.indicatorView startAnimating];
+    self.indicatorView.contentMode = UIViewContentModeCenter;
+    [self.view addSubview:self.indicatorView];
+    [self.indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.width.mas_equalTo(120);
+        make.height.mas_equalTo(120);
+    }];
+    self.indicatorView.hidden = YES;
+    
+    self.viewModel = [[SPVCreationModel alloc] init];
+    
+    RACSignal *startedMessageSource = [self.viewModel.fetchContentCommand.executionSignals map:^id(RACSignal *subscribeSignal) {
+        return [NSNumber numberWithBool:YES];
+    }];
+   
+    RACSignal *completedMessageSource = [self.viewModel.fetchContentCommand.executionSignals flattenMap:^RACStream *(RACSignal *subscribeSignal) {
+        return [[[subscribeSignal materialize] filter:^BOOL(RACEvent *event) {
+            return event.eventType == RACEventTypeCompleted;
+        }] map:^id(id value) {
+            return [NSNumber numberWithBool:NO];
+        }];
+    }];
+    
     @weakify(self);
-    [[[self.creationModel.updatedContentSignal filter:^BOOL(id value) {
-        if([value isKindOfClass:[NSNumber class]]) {
-            return NO;
-        }
-        return YES;
-    }]
-    deliverOnMainThread]
-    subscribeNext:^(id x) {
+    [[completedMessageSource deliverOnMainThread] subscribeNext:^(id x) {
         @strongify(self);
-        NSLog(@"updatedContentSignal");
         [self.collectionView reloadData];
     }];
     
-    [[[self.creationModel.updatedContentSignal filter:^BOOL(id value) {
-        if([value isKindOfClass:[NSNumber class]]) {
-            return YES;
-        }
-        return NO;
-    }]
-      deliverOnMainThread]
-     subscribeNext:^(id x) {
-        @strongify(self);
-         if([x boolValue]) {
-             [self.indicatorView startAnimating];
-         } else {
-             [self.indicatorView stopAnimating];
-         }
+    RACSignal *failedMessageSource = [[self.viewModel.fetchContentCommand.errors subscribeOn:[RACScheduler mainThreadScheduler]] map:^id(NSError *error) {
+        return [NSNumber numberWithBool:NO];
     }];
-    self.view.layer.cornerRadius = 6;
-    self.view.layer.borderWidth = 1;
-
-    self.flowLayout.itemSize = CGSizeMake(self.view.bounds.size.width,
-                                          self.view.bounds.size.width * 382 / 670 + DESCRIPTION_HEIGHT);
+    
+    [[[RACSignal merge:@[startedMessageSource, completedMessageSource, failedMessageSource]] deliverOnMainThread]subscribeNext:^(NSNumber *running) {
+        @strongify(self);
+        self.indicatorView.hidden = ![running boolValue];
+    }];
+    
+    self.flowLayout.itemSize = CGSizeMake(self.collectionView.bounds.size.width,
+                                          self.collectionView.bounds.size.width * 382 / 670 + DESCRIPTION_HEIGHT);
     self.flowLayout.minimumLineSpacing = 0;
     self.flowLayout.sectionInset = UIEdgeInsetsZero;
 }
@@ -73,47 +87,44 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.creationModel.active = YES;
-}
 
--(void) viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-//    self.creationModel.active = YES;
+    if([[self.viewModel pages] objectForKey:@(0)] == nil) {
+        [self.viewModel.fetchContentCommand execute: [NSNumber numberWithInteger:1]];
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark <UICollectionViewDataSource>
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return [[self.viewModel pages] count];
 }
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self.creationModel.items count];
+    NSArray *items = [[self.viewModel pages] objectForKey:[NSNumber numberWithInteger:section]];
+    return items == nil ? 0 : [items count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * const reuseIdentifier = @"Cell";
     SPVCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    NSDictionary *viewModel = [self.creationModel.items objectAtIndex:indexPath.row];
-    [cell setViewModel:viewModel];
+    NSArray *items = [[self.viewModel pages] objectForKey:[NSNumber numberWithInteger:indexPath.section]];
+    NSDictionary *viewModel = [items objectAtIndex:indexPath.row];
+    [self configreCell:cell withViewModel:viewModel];
     
     return cell;
 }
 
+-(void) configreCell:(SPVCollectionViewCell *) cell withViewModel:(NSDictionary *) viewModel {
+    [cell setViewModel:viewModel];
+}
 #pragma mark <UICollectionViewDelegate>
-
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *items = [[self.viewModel pages] objectForKey:[NSNumber numberWithInteger:indexPath.section]];
+    
+    if(indexPath.row == [items count] - 1 && [[self.viewModel pages] objectForKey:@(indexPath.section + 1)] == nil) {
+        [self.viewModel.fetchContentCommand execute: [NSNumber numberWithInteger:indexPath.section + 1 + 1]];
+    }
+}
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -148,7 +159,8 @@
         ImageDetailViewController *vc = segue.destinationViewController;
         UICollectionViewCell *cell = sender;
         NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
-        NSDictionary *viewModel = [self.creationModel.items objectAtIndex:indexPath.row];
+        NSArray *items = [[self.viewModel pages] objectForKey:[NSNumber numberWithInteger:indexPath.section]];
+        NSDictionary *viewModel = [items objectAtIndex:indexPath.row];
         [vc setModel:viewModel];
     }
 }

@@ -7,10 +7,13 @@
 //
 
 #import <ReactiveViewModel/ReactiveViewModel.h>
+#import <ReactiveCocoa.h>
 
 @interface SPVCreationModel : RVMViewModel
 
-@property (nonatomic, strong, readonly) NSArray *items;
+@property (nonatomic, readonly) RACCommand *fetchContentCommand;
 
-@property (nonatomic, readonly) RACSignal *updatedContentSignal;
+-(instancetype) init;
+
+-(NSDictionary *) pages;
 @end

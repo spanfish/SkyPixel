@@ -9,6 +9,12 @@
 #import "ImageTableViewCell.h"
 #import <ReactiveCocoa.h>
 
+
+@interface ImageTableViewCell()
+
+@property(nonatomic, strong) NSDictionary *model;
+@end
+
 @implementation ImageTableViewCell
 
 - (void)awakeFromNib {
@@ -22,7 +28,7 @@
     // Configure the view for the selected state
 }
 
--(void) setModel:(NSDictionary *)model {
+-(void) configureCellWithModel:(NSDictionary *) model {
     _model = model;
     
     self.locationLabel.text = @"";
@@ -32,6 +38,16 @@
     self.focusLabel.text = @"";
     
     //image
+    NSMutableArray *images = [NSMutableArray arrayWithCapacity:6];
+    for(NSInteger i = 0; i < 6; i++) {
+        [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"propeller_horizon_%ld", i * 30]]];
+    }
+
+    self.coverImageView.image = nil;
+    self.coverImageView.animationImages = images;
+    [self.coverImageView startAnimating];
+    self.coverImageView.contentMode = UIViewContentModeCenter;
+    
     NSString *imagePath = [_model objectForKey:@"image"];
     if([imagePath isKindOfClass:[NSString class]]) {
         imagePath = [imagePath stringByAppendingString:@"@!1200"];
@@ -40,6 +56,8 @@
            takeUntil:[self rac_prepareForReuseSignal]]
           deliverOnMainThread] 
          subscribeNext:^(UIImage *image) {
+             [self.coverImageView stopAnimating];
+             self.coverImageView.animationImages = nil;
              self.coverImageView.image = image;
              self.coverImageView.contentMode = UIViewContentModeScaleAspectFill;
          }];
@@ -59,7 +77,7 @@
     //location
     NSString *latitude = [_model objectForKey:@"latitude"];
     NSString *longitude = [_model objectForKey:@"longitude"];
-    
+    self.locationLabel.text = @"n/a";
     if([latitude respondsToSelector:@selector(doubleValue)] && [longitude respondsToSelector:@selector(doubleValue)]) {
         @weakify(self)
         [[[[self signalForReverseGeocodeLatitude:[latitude doubleValue] longitude:[longitude doubleValue]]
@@ -70,16 +88,6 @@
         }];
     }
     
-    /*
-    RAC(self.shutterLabel, text) = [[RACObserve(self, model)
-                                     takeUntil:[self rac_prepareForReuseSignal]]
-                                    map:^id(NSDictionary *value) {
-                                        NSString *latitude = [value objectForKey:@"latitude"];
-                                        NSString *longitude = [value objectForKey:@"longitude"];
-                                        
-                                        return @"";
-                                    }];
-     */
     //shutter
     RAC(self.shutterLabel, text) = [[RACObserve(self, model)
                                    takeUntil:[self rac_prepareForReuseSignal]]
@@ -87,7 +95,7 @@
                                       NSString *shutter = [value objectForKey:@"shutter"];
                                       NSString *aperture = [value objectForKey:@"aperture"];
                                       
-                                      return [NSString stringWithFormat:@"%@ %@", aperture == nil ? @"n/a" : [NSString stringWithFormat:@"f%@", aperture],
+                                      return [NSString stringWithFormat:@"%@ %@", aperture == nil ? @"n/a" : [NSString stringWithFormat:@"%@%@", aperture == nil ? @"" : @"f", aperture],
                                               shutter == nil ? @"n/a" : shutter];
                                   }];
     //focus
