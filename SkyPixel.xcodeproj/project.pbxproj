@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9DE9B66D1F05E60F00C249C9 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9B66C1F05E60F00C249C9 /* ImageDetailViewController.m */; };
+		9DE9B6701F05E80A00C249C9 /* SPVDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9B66F1F05E80A00C249C9 /* SPVDetailModel.m */; };
 		BC43B3581F03DE1C00998A59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B3571F03DE1C00998A59 /* main.m */; };
 		BC43B35B1F03DE1C00998A59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B35A1F03DE1C00998A59 /* AppDelegate.m */; };
 		BC43B3611F03DE1C00998A59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC43B35F1F03DE1C00998A59 /* Main.storyboard */; };
@@ -23,6 +25,10 @@
 /* Begin PBXFileReference section */
 		29BE0CEE6B377480AFDD7E87 /* libPods-SkyPixel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SkyPixel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C4190FAF7ADBD31F8C81B45 /* Pods-SkyPixel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyPixel.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkyPixel/Pods-SkyPixel.release.xcconfig"; sourceTree = "<group>"; };
+		9DE9B66B1F05E60F00C249C9 /* ImageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailViewController.h; sourceTree = "<group>"; };
+		9DE9B66C1F05E60F00C249C9 /* ImageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailViewController.m; sourceTree = "<group>"; };
+		9DE9B66E1F05E80A00C249C9 /* SPVDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVDetailModel.h; sourceTree = "<group>"; };
+		9DE9B66F1F05E80A00C249C9 /* SPVDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVDetailModel.m; sourceTree = "<group>"; };
 		BC43B3531F03DE1C00998A59 /* SkyPixel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyPixel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC43B3571F03DE1C00998A59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BC43B3591F03DE1C00998A59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -121,6 +127,8 @@
 			children = (
 				BC43B36D1F03E0F500998A59 /* MainCollectionViewController.h */,
 				BC43B36E1F03E0F500998A59 /* MainCollectionViewController.m */,
+				9DE9B66B1F05E60F00C249C9 /* ImageDetailViewController.h */,
+				9DE9B66C1F05E60F00C249C9 /* ImageDetailViewController.m */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -130,6 +138,8 @@
 			children = (
 				BC43B3721F03E2A100998A59 /* SPVCreationModel.h */,
 				BC43B3731F03E2A100998A59 /* SPVCreationModel.m */,
+				9DE9B66E1F05E80A00C249C9 /* SPVDetailModel.h */,
+				9DE9B66F1F05E80A00C249C9 /* SPVDetailModel.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -245,7 +255,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A5A6D255A9541C2DE53B8ABA /* [CP] Copy Pods Resources */ = {
@@ -271,8 +281,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCC56E8B1F0492B300A9F879 /* SPVCollectionViewCell.m in Sources */,
+				9DE9B6701F05E80A00C249C9 /* SPVDetailModel.m in Sources */,
 				BC43B3741F03E2A100998A59 /* SPVCreationModel.m in Sources */,
 				BC43B36F1F03E0F500998A59 /* MainCollectionViewController.m in Sources */,
+				9DE9B66D1F05E60F00C249C9 /* ImageDetailViewController.m in Sources */,
 				BC43B35B1F03DE1C00998A59 /* AppDelegate.m in Sources */,
 				BC43B3821F03F24200998A59 /* UIActivityIndicatorView+loading.m in Sources */,
 				BC43B3581F03DE1C00998A59 /* main.m in Sources */,

@@ -47,17 +47,15 @@
                                                    return @"";
                                                }
                                            }];
-    //NSString *type = [value objectForKey:@"type"];
-    //BOOL isPano = [[value objectForKey:@"is_pano"] boolValue];
-    //BOOL is360 = [[value objectForKey:@"is_360"] boolValue];
-    //self.imageView.image = nil;
+
     id value = [_viewModel objectForKey:@"image"];
-    
+    self.imageView.image = [UIImage imageNamed:@"photo"];
+    self.imageView.contentMode = UIViewContentModeCenter;
     if([value respondsToSelector:@selector(stringByAppendingString:)]) {
         NSString *imagePath = [value stringByAppendingString:@"@!670x382"];        
         [[[self loadCoverWithURLString:imagePath] deliverOnMainThread] subscribeNext:^(UIImage *image) {
             self.imageView.image = image;
-            //NSLog(@"image loaded: %@", imagePath);
+            self.imageView.contentMode = UIViewContentModeScaleAspectFill;
         }];
     } else {
         NSLog(@"image not loaded");
@@ -111,9 +109,24 @@
 -(RACSignal *) loadCoverWithURLString:(NSString *) urlString {
     RACScheduler *scheduler = [RACScheduler
                                schedulerWithPriority:RACSchedulerPriorityBackground];
-    
     return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
+        
+        NSData *data = nil;
+        NSString *fileName = [urlString lastPathComponent];
+        NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+        path = [path stringByAppendingPathComponent:fileName];
+        
+        if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+            data = [NSData dataWithContentsOfFile:path];
+        }
+        
+        if(!data) {
+            data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
+            if(data) {
+                [data writeToFile:path atomically:YES];
+            }
+        }
+
         UIImage *image = [UIImage imageWithData:data];
         [subscriber sendNext:image];
         [subscriber sendCompleted];

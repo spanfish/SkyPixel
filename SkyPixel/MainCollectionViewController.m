@@ -9,12 +9,12 @@
 #import "MainCollectionViewController.h"
 #import "UIActivityIndicatorView+loading.h"
 #import "SPVCollectionViewCell.h"
+#import "ImageDetailViewController.h"
 
 #define DESCRIPTION_HEIGHT 50
 
 @interface MainCollectionViewController () {
-//    CGSize _originalItemSize;
-//    CGSize _originalCollectionViewSize;
+
 }
 
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *indicatorView;
@@ -78,7 +78,7 @@
 
 -(void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    self.creationModel.active = YES;
+//    self.creationModel.active = YES;
 }
 
 /*
@@ -143,4 +143,13 @@
 }
 */
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"Detail"]) {
+        ImageDetailViewController *vc = segue.destinationViewController;
+        UICollectionViewCell *cell = sender;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+        NSDictionary *viewModel = [self.creationModel.items objectAtIndex:indexPath.row];
+        [vc setModel:viewModel];
+    }
+}
 @end

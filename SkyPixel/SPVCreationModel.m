@@ -45,6 +45,7 @@
                 _items = all;
                 [((RACSubject *)self.updatedContentSignal) sendNext:nil];
                 [((RACSubject *)self.updatedContentSignal) sendNext:@NO];
+                [((RACSubject *)self.updatedContentSignal) sendCompleted];
             }];
         }];
     }
