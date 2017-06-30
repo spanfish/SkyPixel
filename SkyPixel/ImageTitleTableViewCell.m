@@ -9,6 +9,12 @@
 #import "ImageTitleTableViewCell.h"
 #import <ReactiveCocoa.h>
 #import <Masonry.h>
+
+@interface ImageTitleTableViewCell()
+
+@property(nonatomic, strong) NSDictionary *model;
+@end
+
 @implementation ImageTitleTableViewCell
 
 - (void)awakeFromNib {
@@ -22,7 +28,10 @@
     // Configure the view for the selected state
 }
 
--(void) setModel:(NSDictionary *)model {
+-(void) configureCellWithModel:(NSDictionary *) model {
+    if(_model == model) {
+        return;
+    }
     _model = model;
     
     self.titleLabel.text = @"";
@@ -59,6 +68,12 @@
 }
 @end
 
+#pragma mark -
+@interface CommentTableViewCell()
+
+@property(nonatomic, strong) NSDictionary *model;
+@end
+
 @implementation CommentTableViewCell
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -71,7 +86,7 @@
     // Configure the view for the selected state
 }
 
--(void) setModel:(NSDictionary *)model {
+-(void) configureCellWithModel:(NSDictionary *)model {
     if(_model == model) {
         return;
     }
@@ -123,6 +138,11 @@
 }
 @end
 
+#pragma mark -
+@interface ResourceTableViewCell()
+
+@property(nonatomic, strong) NSArray *model;
+@end
 @implementation ResourceTableViewCell
 
 - (void)awakeFromNib {
@@ -136,20 +156,29 @@
     // Configure the view for the selected state
 }
 
--(void) setModel:(NSArray *)model {
-//    if(_model == model) {
-//        return;
-//    }
+-(void) configureCellWithModel:(NSArray *)model {
+    if(_model == model) {
+        return;
+    }
     _model = model;
+    if(!_touchSignal) {
+        _touchSignal = [RACSubject subject];
+    }
+    //[_touchSignal takeUntil:[self rac_prepareForReuseSignal]];
     self.scrollView.contentSize = CGSizeMake(219 * [model count] + ([model count] + 1)* 10, 155);
     for (UIView *view in self.scrollView.subviews) {
         [view removeFromSuperview];
     }
     
     NSInteger offsetX = 10;
+    NSInteger i = 0;
     for (NSDictionary *r in _model) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(offsetX, 0, 219, 155)];
+        imageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTouched:)];
+        [imageView addGestureRecognizer:recognizer];
         
+        imageView.tag = i++;
         [self.scrollView addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(offsetX);
@@ -174,6 +203,15 @@
                  imageView.contentMode = UIViewContentModeScaleAspectFill;
              }];
         }
+    }
+}
+
+-(void) imageTouched:(UITapGestureRecognizer *) recognizer {
+    NSInteger tag = recognizer.view.tag;
+    if(tag >= 0 && tag < [_model count]) {
+        NSDictionary *r = [_model objectAtIndex:tag];
+        [self.touchSignal sendNext:r];
+//        [self.touchSignal sendCompleted];
     }
 }
 

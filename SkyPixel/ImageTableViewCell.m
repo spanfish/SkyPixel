@@ -29,6 +29,9 @@
 }
 
 -(void) configureCellWithModel:(NSDictionary *) model {
+    if(_model == model) {
+        return;
+    }
     _model = model;
     
     self.locationLabel.text = @"";
@@ -38,28 +41,50 @@
     self.focusLabel.text = @"";
     
     //image
-    NSMutableArray *images = [NSMutableArray arrayWithCapacity:6];
-    for(NSInteger i = 0; i < 6; i++) {
-        [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"propeller_horizon_%ld", i * 30]]];
-    }
-
-    self.coverImageView.image = nil;
-    self.coverImageView.animationImages = images;
-    [self.coverImageView startAnimating];
-    self.coverImageView.contentMode = UIViewContentModeCenter;
     
     NSString *imagePath = [_model objectForKey:@"image"];
+//    NSMutableArray *images = [NSMutableArray arrayWithCapacity:6];
+//    for(NSInteger i = 0; i < 6; i++) {
+//        [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"propeller_horizon_%ld", i * 30]]];
+//    }
+    
+    self.coverImageView.image = nil;
+//    self.coverImageView.animationImages = images;
+//    [self.coverImageView startAnimating];
+//    self.coverImageView.contentMode = UIViewContentModeCenter;
+    
     if([imagePath isKindOfClass:[NSString class]]) {
         imagePath = [imagePath stringByAppendingString:@"@!1200"];
+    
+        //duplicated, can be improved
+        NSString *fileName = [imagePath lastPathComponent];
+        NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+        path = [path stringByAppendingPathComponent:fileName];
         
+//        if(![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+//            NSMutableArray *images = [NSMutableArray arrayWithCapacity:6];
+//            for(NSInteger i = 0; i < 6; i++) {
+//                [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"propeller_horizon_%ld", i * 30]]];
+//            }
+//            
+//            self.coverImageView.image = nil;
+//            self.coverImageView.animationImages = images;
+//            [self.coverImageView startAnimating];
+//            self.coverImageView.contentMode = UIViewContentModeCenter;
+//        }
+        
+        @weakify(self);
         [[[[self loadImageWithURLString:imagePath]
            takeUntil:[self rac_prepareForReuseSignal]]
-          deliverOnMainThread] 
+          deliverOnMainThread]
          subscribeNext:^(UIImage *image) {
-             [self.coverImageView stopAnimating];
-             self.coverImageView.animationImages = nil;
+             @strongify(self);
+//             [self.coverImageView stopAnimating];
+//             self.coverImageView.animationImages = nil;
              self.coverImageView.image = image;
              self.coverImageView.contentMode = UIViewContentModeScaleAspectFill;
+         } error:^(NSError *error) {
+             NSLog(@"error:%@", error);
          }];
     }
     
@@ -94,8 +119,13 @@
                                   map:^id(NSDictionary *value) {
                                       NSString *shutter = [value objectForKey:@"shutter"];
                                       NSString *aperture = [value objectForKey:@"aperture"];
-                                      
-                                      return [NSString stringWithFormat:@"%@ %@", aperture == nil ? @"n/a" : [NSString stringWithFormat:@"%@%@", aperture == nil ? @"" : @"f", aperture],
+                                      if([shutter isKindOfClass:[NSNull class]] || [shutter isEqualToString:@"<null>"]) {
+                                          shutter = nil;
+                                      }
+                                      if([aperture isKindOfClass:[NSNull class]] ||[aperture isEqualToString:@"<null>"]) {
+                                          aperture = nil;
+                                      }
+                                      return [NSString stringWithFormat:@"%@ %@", aperture == nil ? @"n/a" : [NSString stringWithFormat:@"%@%@", [aperture length] == 0 ? @"" : @"f", ([aperture length] > 2 ? [aperture substringToIndex:3]: aperture)],
                                               shutter == nil ? @"n/a" : shutter];
                                   }];
     //focus
@@ -110,7 +140,7 @@
 -(RACSignal *) loadImageWithURLString:(NSString *) urlString {
     RACScheduler *scheduler = [RACScheduler
                                schedulerWithPriority:RACSchedulerPriorityBackground];
-    return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+    RACSignal *sig =  [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
         NSData *data = nil;
         NSString *fileName = [urlString lastPathComponent];
@@ -131,8 +161,12 @@
         UIImage *image = [UIImage imageWithData:data];
         [subscriber sendNext:image];
         [subscriber sendCompleted];
+
         return nil;
-    }] subscribeOn:scheduler];
+    }];
+    [sig subscribeOn:scheduler];
+    [sig logAll];
+    return sig;
 }
 
 -(RACSignal *) signalForReverseGeocodeLatitude:(double) latitude longitude:(double) longitude {

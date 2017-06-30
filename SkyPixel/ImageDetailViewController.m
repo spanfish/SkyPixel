@@ -41,20 +41,23 @@ typedef NS_ENUM(NSInteger, DetailSection) {
     @weakify(self);
     [[self.viewModel.updatedContentSignal deliverOnMainThread] subscribeNext:^(id x) {
         @strongify(self);
-        NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
-        if(self.viewModel.imageInfo) {
-            [indexSet addIndex:IMAGE_SECTION];
-        }
-        if([self.viewModel.commentArray count] > 0) {
-            [indexSet addIndex:COMMENT_SECTION];
-        }
-        if([self.viewModel.relatedArray count] > 0) {
-            [indexSet addIndex:RELATE_SECTION];
-        }
-        if([self.viewModel.alsoLikeArray count] > 0) {
-            [indexSet addIndex:ALSOLIKE_SECTION];
-        }
-        [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
+//        NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
+//        if(self.viewModel.imageInfo) {
+//            [indexSet addIndex:IMAGE_SECTION];
+//        }
+//        if([self.viewModel.commentArray count] > 0) {
+//            [indexSet addIndex:COMMENT_SECTION];
+//        }
+//        if([self.viewModel.relatedArray count] > 0) {
+//            [indexSet addIndex:RELATE_SECTION];
+//        }
+//        if([self.viewModel.alsoLikeArray count] > 0) {
+//            [indexSet addIndex:ALSOLIKE_SECTION];
+//        }
+//        if([indexSet count] > 0) {
+//            [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
+//        }
+        [self.tableView reloadData];
     }];
 }
 
@@ -132,21 +135,32 @@ typedef NS_ENUM(NSInteger, DetailSection) {
             return cell;
         } else {
             ImageTitleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Info"];
-            cell.model = self.viewModel.imageInfo;
+            [cell configureCellWithModel: self.viewModel.imageInfo];
             return cell;
         }
     } else if(indexPath.section == COMMENT_SECTION) {
         CommentTableViewCell*cell = [tableView dequeueReusableCellWithIdentifier:@"Comment"];
-        cell.model = [self.viewModel.commentArray objectAtIndex:indexPath.row];
+        [cell configureCellWithModel:[self.viewModel.commentArray objectAtIndex:indexPath.row]];
         return cell;
     } else if(indexPath.section == RELATE_SECTION) {
         ResourceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Resources"];
-        cell.model = self.viewModel.relatedArray;
+        [cell configureCellWithModel: self.viewModel.relatedArray];
+        [[[cell.touchSignal deliverOnMainThread] takeUntil:[cell rac_prepareForReuseSignal]] subscribeNext:^(NSDictionary *m) {
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ImageDetailViewController *vc =  [sb instantiateViewControllerWithIdentifier:@"Detail"];
+            [vc setModel:m];
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
         return cell;
     } else if(indexPath.section == ALSOLIKE_SECTION) {
         ResourceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Resources"];
-        cell.model = self.viewModel.alsoLikeArray;
-        
+        [cell configureCellWithModel:self.viewModel.alsoLikeArray];
+        [[[cell.touchSignal deliverOnMainThread] takeUntil:[cell rac_prepareForReuseSignal]] subscribeNext:^(NSDictionary *m) {
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ImageDetailViewController *vc =  [sb instantiateViewControllerWithIdentifier:@"Detail"];
+            [vc setModel:m];
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
         return cell;
     }
     
@@ -173,7 +187,7 @@ typedef NS_ENUM(NSInteger, DetailSection) {
         }
     } else if(indexPath.section == COMMENT_SECTION) {
         CommentTableViewCell *cell = (CommentTableViewCell *)[self tableView:self.tableView cellForRowAtIndexPath:indexPath];
-        cell.model = [self.viewModel.commentArray objectAtIndex:indexPath.row];
+        [cell configureCellWithModel: [self.viewModel.commentArray objectAtIndex:indexPath.row]];
         [cell layoutIfNeeded];
         CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
         return size.height + 1/*line seperator*/ + 30;
@@ -190,5 +204,6 @@ typedef NS_ENUM(NSInteger, DetailSection) {
 -(CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewAutomaticDimension;
 }
+
 
 @end

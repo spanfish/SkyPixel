@@ -7,29 +7,30 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ReactiveCocoa.h>
 
 @interface ImageTitleTableViewCell : UITableViewCell
 
-@property(nonatomic, strong) NSDictionary *model;
-
 @property(nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property(nonatomic, weak) IBOutlet UILabel *dateLabel;
+
+-(void) configureCellWithModel:(NSDictionary *) model;
 @end
 
 
 @interface CommentTableViewCell : UITableViewCell
 
-@property(nonatomic, strong) NSDictionary *model;
-
 @property(nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property(nonatomic, weak) IBOutlet UILabel *dateLabel;
 @property(nonatomic, weak) IBOutlet UILabel *commentLabel;
+
+-(void) configureCellWithModel:(NSDictionary *) model;
 @end
 
 @interface ResourceTableViewCell : UITableViewCell
-
-@property(nonatomic, strong) NSArray *model;
-
 @property(nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
+-(void) configureCellWithModel:(NSArray *) model;
+
+@property(nonatomic, strong) RACSubject *touchSignal;
 @end

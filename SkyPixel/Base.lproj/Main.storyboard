@@ -214,7 +214,7 @@
         <!--Image Detail View Controller-->
         <scene sceneID="2FU-IE-aAw">
             <objects>
-                <viewController id="xeN-DW-k8Q" customClass="ImageDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Detail" id="xeN-DW-k8Q" customClass="ImageDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jnp-b1-1tY"/>
                         <viewControllerLayoutGuide type="bottom" id="pEz-Zk-jm6"/>
