@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImageDetailViewController : UIViewController
+@interface ImageDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 -(void) setModel:(NSDictionary *) model;
 @end

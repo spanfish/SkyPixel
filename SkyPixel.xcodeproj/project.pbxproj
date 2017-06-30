@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9DE9B66D1F05E60F00C249C9 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9B66C1F05E60F00C249C9 /* ImageDetailViewController.m */; };
 		9DE9B6701F05E80A00C249C9 /* SPVDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9B66F1F05E80A00C249C9 /* SPVDetailModel.m */; };
+		9DE9B6731F060F5E00C249C9 /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9B6721F060F5E00C249C9 /* ImageTableViewCell.m */; };
 		BC43B3581F03DE1C00998A59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B3571F03DE1C00998A59 /* main.m */; };
 		BC43B35B1F03DE1C00998A59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B35A1F03DE1C00998A59 /* AppDelegate.m */; };
 		BC43B3611F03DE1C00998A59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC43B35F1F03DE1C00998A59 /* Main.storyboard */; };
@@ -29,6 +30,8 @@
 		9DE9B66C1F05E60F00C249C9 /* ImageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailViewController.m; sourceTree = "<group>"; };
 		9DE9B66E1F05E80A00C249C9 /* SPVDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVDetailModel.h; sourceTree = "<group>"; };
 		9DE9B66F1F05E80A00C249C9 /* SPVDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVDetailModel.m; sourceTree = "<group>"; };
+		9DE9B6711F060F5E00C249C9 /* ImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
+		9DE9B6721F060F5E00C249C9 /* ImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
 		BC43B3531F03DE1C00998A59 /* SkyPixel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyPixel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC43B3571F03DE1C00998A59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BC43B3591F03DE1C00998A59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 				BCC56E8A1F0492B300A9F879 /* SPVCollectionViewCell.m */,
 				BCC56E9F1F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.h */,
 				BCC56EA01F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.m */,
+				9DE9B6711F060F5E00C249C9 /* ImageTableViewCell.h */,
+				9DE9B6721F060F5E00C249C9 /* ImageTableViewCell.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				9DE9B66D1F05E60F00C249C9 /* ImageDetailViewController.m in Sources */,
 				BC43B35B1F03DE1C00998A59 /* AppDelegate.m in Sources */,
 				BC43B3821F03F24200998A59 /* UIActivityIndicatorView+loading.m in Sources */,
+				9DE9B6731F060F5E00C249C9 /* ImageTableViewCell.m in Sources */,
 				BC43B3581F03DE1C00998A59 /* main.m in Sources */,
 				BCC56EA11F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.m in Sources */,
 			);
