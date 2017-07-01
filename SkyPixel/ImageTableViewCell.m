@@ -48,44 +48,17 @@
 //        [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"propeller_horizon_%ld", i * 30]]];
 //    }
     
-    self.coverImageView.image = nil;
+    
 //    self.coverImageView.animationImages = images;
 //    [self.coverImageView startAnimating];
 //    self.coverImageView.contentMode = UIViewContentModeCenter;
     
     if([imagePath isKindOfClass:[NSString class]]) {
         imagePath = [imagePath stringByAppendingString:@"@!1200"];
-    
-        //duplicated, can be improved
-        NSString *fileName = [imagePath lastPathComponent];
-        NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
-        path = [path stringByAppendingPathComponent:fileName];
         
-//        if(![[NSFileManager defaultManager] fileExistsAtPath:path]) {
-//            NSMutableArray *images = [NSMutableArray arrayWithCapacity:6];
-//            for(NSInteger i = 0; i < 6; i++) {
-//                [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"propeller_horizon_%ld", i * 30]]];
-//            }
-//            
-//            self.coverImageView.image = nil;
-//            self.coverImageView.animationImages = images;
-//            [self.coverImageView startAnimating];
-//            self.coverImageView.contentMode = UIViewContentModeCenter;
-//        }
-        
-        @weakify(self);
-        [[[[self loadImageWithURLString:imagePath]
-           takeUntil:[self rac_prepareForReuseSignal]]
-          deliverOnMainThread]
-         subscribeNext:^(UIImage *image) {
-             @strongify(self);
-//             [self.coverImageView stopAnimating];
-//             self.coverImageView.animationImages = nil;
-             self.coverImageView.image = image;
-             self.coverImageView.contentMode = UIViewContentModeScaleAspectFill;
-         } error:^(NSError *error) {
-             NSLog(@"error:%@", error);
-         }];
+        self.coverImageView.imagePath = imagePath;
+    } else {
+        self.coverImageView.imagePath = nil;
     }
     
     RAC(self.equipLabel, text) = [[RACObserve(self, model)

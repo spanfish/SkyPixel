@@ -11,6 +11,7 @@
 		9DE9B6701F05E80A00C249C9 /* SPVDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9B66F1F05E80A00C249C9 /* SPVDetailModel.m */; };
 		9DE9B6731F060F5E00C249C9 /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9B6721F060F5E00C249C9 /* ImageTableViewCell.m */; };
 		9DE9B6761F0620A300C249C9 /* ImageTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9B6751F0620A300C249C9 /* ImageTitleTableViewCell.m */; };
+		BC13B0751F07463300245FDD /* SPVImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC13B0741F07463300245FDD /* SPVImageView.m */; };
 		BC43B3581F03DE1C00998A59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B3571F03DE1C00998A59 /* main.m */; };
 		BC43B35B1F03DE1C00998A59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B35A1F03DE1C00998A59 /* AppDelegate.m */; };
 		BC43B3611F03DE1C00998A59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC43B35F1F03DE1C00998A59 /* Main.storyboard */; };
@@ -35,6 +36,8 @@
 		9DE9B6721F060F5E00C249C9 /* ImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
 		9DE9B6741F0620A300C249C9 /* ImageTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTitleTableViewCell.h; sourceTree = "<group>"; };
 		9DE9B6751F0620A300C249C9 /* ImageTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTitleTableViewCell.m; sourceTree = "<group>"; };
+		BC13B0731F07463300245FDD /* SPVImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVImageView.h; sourceTree = "<group>"; };
+		BC13B0741F07463300245FDD /* SPVImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVImageView.m; sourceTree = "<group>"; };
 		BC43B3531F03DE1C00998A59 /* SkyPixel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyPixel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC43B3571F03DE1C00998A59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BC43B3591F03DE1C00998A59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				9DE9B6721F060F5E00C249C9 /* ImageTableViewCell.m */,
 				9DE9B6741F0620A300C249C9 /* ImageTitleTableViewCell.h */,
 				9DE9B6751F0620A300C249C9 /* ImageTitleTableViewCell.m */,
+				BC13B0731F07463300245FDD /* SPVImageView.h */,
+				BC13B0741F07463300245FDD /* SPVImageView.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 				BC43B35B1F03DE1C00998A59 /* AppDelegate.m in Sources */,
 				BC43B3821F03F24200998A59 /* UIActivityIndicatorView+loading.m in Sources */,
 				9DE9B6731F060F5E00C249C9 /* ImageTableViewCell.m in Sources */,
+				BC13B0751F07463300245FDD /* SPVImageView.m in Sources */,
 				9DE9B6761F0620A300C249C9 /* ImageTitleTableViewCell.m in Sources */,
 				BC43B3581F03DE1C00998A59 /* main.m in Sources */,
 				BCC56EA11F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.m in Sources */,
