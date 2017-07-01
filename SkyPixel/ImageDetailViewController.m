@@ -20,7 +20,9 @@ typedef NS_ENUM(NSInteger, DetailSection) {
     NUM_OF_SECTION
 };
 
-@interface ImageDetailViewController ()
+@interface ImageDetailViewController () {
+    NSInteger numOfRows[NUM_OF_SECTION];
+}
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
@@ -29,7 +31,14 @@ typedef NS_ENUM(NSInteger, DetailSection) {
 
 @implementation ImageDetailViewController
 
+-(void) configureNumOfRows {
+    numOfRows[IMAGE_SECTION] = 2;
+    numOfRows[COMMENT_SECTION] = 0;
+    numOfRows[RELATE_SECTION] = 0;
+    numOfRows[ALSOLIKE_SECTION] = 0;
+}
 -(void) setModel:(NSDictionary *) model {
+    [self configureNumOfRows];
     self.viewModel = [[SPVDetailModel alloc] initWithModel:model];
     
     RAC(self, title) = [RACObserve(self, viewModel)
@@ -39,25 +48,22 @@ typedef NS_ENUM(NSInteger, DetailSection) {
                         }];
 
     @weakify(self);
-    [[self.viewModel.updatedContentSignal deliverOnMainThread] subscribeNext:^(id x) {
+    [[self.viewModel.updatedContentSignal deliverOnMainThread] subscribeNext:^(NSString *source) {
         @strongify(self);
-//        NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
-//        if(self.viewModel.imageInfo) {
-//            [indexSet addIndex:IMAGE_SECTION];
-//        }
-//        if([self.viewModel.commentArray count] > 0) {
-//            [indexSet addIndex:COMMENT_SECTION];
-//        }
-//        if([self.viewModel.relatedArray count] > 0) {
-//            [indexSet addIndex:RELATE_SECTION];
-//        }
-//        if([self.viewModel.alsoLikeArray count] > 0) {
-//            [indexSet addIndex:ALSOLIKE_SECTION];
-//        }
-//        if([indexSet count] > 0) {
-//            [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
-//        }
-        [self.tableView reloadData];
+        
+        if([source isEqualToString:@"image"]) {
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:IMAGE_SECTION] withRowAnimation:UITableViewRowAnimationNone];
+        } else if([source isEqualToString:@"comment"]) {
+            numOfRows[COMMENT_SECTION] = [self.viewModel.commentArray count];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:COMMENT_SECTION] withRowAnimation:UITableViewRowAnimationNone];
+        } else if([source isEqualToString:@"related"]) {
+            numOfRows[RELATE_SECTION] = [self.viewModel.relatedArray count] > 0 ? 1 : 0;
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:RELATE_SECTION] withRowAnimation:UITableViewRowAnimationNone];
+        } else if([source isEqualToString:@"alsolike"]) {
+            numOfRows[ALSOLIKE_SECTION] = [self.viewModel.alsoLikeArray count] > 0 ? 1 : 0;
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:ALSOLIKE_SECTION] withRowAnimation:UITableViewRowAnimationNone];
+        }
+        //[self.tableView reloadData];
     }];
 }
 
@@ -112,16 +118,16 @@ typedef NS_ENUM(NSInteger, DetailSection) {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(section == IMAGE_SECTION) {
-        return 2;
-    } else if(section == COMMENT_SECTION) {
-        return [self.viewModel.commentArray count];
-    } else if(section == RELATE_SECTION) {
-        return [self.viewModel.relatedArray count] > 0 ? 1 : 0;
-    } else if(section == ALSOLIKE_SECTION) {
-        return [self.viewModel.alsoLikeArray count] > 0 ? 1 : 0;
-    }
-    return 0;
+//    if(section == IMAGE_SECTION) {
+//        return 2;
+//    } else if(section == COMMENT_SECTION) {
+//        return [self.viewModel.commentArray count];
+//    } else if(section == RELATE_SECTION) {
+//        return [self.viewModel.relatedArray count] > 0 ? 1 : 0;
+//    } else if(section == ALSOLIKE_SECTION) {
+//        return [self.viewModel.alsoLikeArray count] > 0 ? 1 : 0;
+//    }
+    return numOfRows[section];
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:

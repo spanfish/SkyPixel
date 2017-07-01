@@ -9,6 +9,7 @@
 #import "ImageTitleTableViewCell.h"
 #import <ReactiveCocoa.h>
 #import <Masonry.h>
+#import "SPVImageView.h"
 
 @interface ImageTitleTableViewCell()
 
@@ -164,7 +165,7 @@
     if(!_touchSignal) {
         _touchSignal = [RACSubject subject];
     }
-    //[_touchSignal takeUntil:[self rac_prepareForReuseSignal]];
+
     self.scrollView.contentSize = CGSizeMake(219 * [model count] + ([model count] + 1)* 10, 155);
     for (UIView *view in self.scrollView.subviews) {
         [view removeFromSuperview];
@@ -173,7 +174,7 @@
     NSInteger offsetX = 10;
     NSInteger i = 0;
     for (NSDictionary *r in _model) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(offsetX, 0, 219, 155)];
+        SPVImageView *imageView = [[SPVImageView alloc] initWithFrame:CGRectMake(offsetX, 0, 219, 155)];
         imageView.userInteractionEnabled = YES;
         UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTouched:)];
         [imageView addGestureRecognizer:recognizer];
@@ -189,19 +190,11 @@
         offsetX += 219;
         offsetX += 10;
         
-        //image
-        @weakify(imageView);
+
         NSString *imagePath = [r objectForKey:@"image"];
         if([imagePath isKindOfClass:[NSString class]]) {
             imagePath = [imagePath stringByAppendingString:@"@!219x155"];
-            [[[[self loadImageWithURLString:imagePath]
-               takeUntil:[imageView rac_willDeallocSignal]]
-              deliverOnMainThread]
-             subscribeNext:^(UIImage *image) {
-                 @strongify(imageView);
-                 imageView.image = image;
-                 imageView.contentMode = UIViewContentModeScaleAspectFill;
-             }];
+            imageView.imagePath = imagePath;
         }
     }
 }
@@ -211,36 +204,6 @@
     if(tag >= 0 && tag < [_model count]) {
         NSDictionary *r = [_model objectAtIndex:tag];
         [self.touchSignal sendNext:r];
-//        [self.touchSignal sendCompleted];
     }
-}
-
--(RACSignal *) loadImageWithURLString:(NSString *) urlString {
-    NSLog(@"urlString:%@", urlString);
-    RACScheduler *scheduler = [RACScheduler
-                               schedulerWithPriority:RACSchedulerPriorityBackground];
-    return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        
-        NSData *data = nil;
-        NSString *fileName = [urlString lastPathComponent];
-        NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
-        path = [path stringByAppendingPathComponent:fileName];
-        
-        if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-            data = [NSData dataWithContentsOfFile:path];
-        }
-        
-        if(!data) {
-            data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
-            if(data) {
-                [data writeToFile:path atomically:YES];
-            }
-        }
-        
-        UIImage *image = [UIImage imageWithData:data];
-        [subscriber sendNext:image];
-        [subscriber sendCompleted];
-        return nil;
-    }] subscribeOn:scheduler];
 }
 @end

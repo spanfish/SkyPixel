@@ -50,7 +50,7 @@
         _imageInfo = [NSJSONSerialization JSONObjectWithData:[x second]
                                                              options:NSJSONReadingMutableContainers
                                                                error:nil];
-        [((RACSubject *)self.updatedContentSignal) sendNext:nil];
+        [((RACSubject *)self.updatedContentSignal) sendNext:@"image"];
     }];
 }
 
@@ -75,7 +75,7 @@
             [self.commentArray addObjectsFromArray:array];
         }
         
-        [((RACSubject *)self.updatedContentSignal) sendNext:nil];
+        [((RACSubject *)self.updatedContentSignal) sendNext:@"comment"];
     }];
 }
 
@@ -99,7 +99,7 @@
             [self.relatedArray addObjectsFromArray:array];
         }
         
-        [((RACSubject *)self.updatedContentSignal) sendNext:nil];
+        [((RACSubject *)self.updatedContentSignal) sendNext:@"related"];
     }];
 }
 
@@ -123,7 +123,7 @@
             [self.alsoLikeArray addObjectsFromArray:array];
         }
         
-        [((RACSubject *)self.updatedContentSignal) sendNext:nil];
+        [((RACSubject *)self.updatedContentSignal) sendNext:@"alsolike"];
     }];
 }
 @end

@@ -43,19 +43,9 @@
     //image
     
     NSString *imagePath = [_model objectForKey:@"image"];
-//    NSMutableArray *images = [NSMutableArray arrayWithCapacity:6];
-//    for(NSInteger i = 0; i < 6; i++) {
-//        [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"propeller_horizon_%ld", i * 30]]];
-//    }
-    
-    
-//    self.coverImageView.animationImages = images;
-//    [self.coverImageView startAnimating];
-//    self.coverImageView.contentMode = UIViewContentModeCenter;
     
     if([imagePath isKindOfClass:[NSString class]]) {
         imagePath = [imagePath stringByAppendingString:@"@!1200"];
-        
         self.coverImageView.imagePath = imagePath;
     } else {
         self.coverImageView.imagePath = nil;
@@ -65,11 +55,23 @@
                                       takeUntil:[self rac_prepareForReuseSignal]]
                                      map:^id(NSDictionary *value) {
                                          NSDictionary *dict = [value objectForKey:@"show_equipment"];
+                                         
                                          NSString *equip = [dict objectForKey:@"name"];
+                                         NSString *model = [value objectForKey:@"model"];
+                                         NSString *dji_equipment = [dict objectForKey:@"dji_equipment"];
+                                         
                                          if([equip isKindOfClass:[NSString class]] && equip != nil) {
                                              return equip;
                                          } else {
-                                             return @"";
+                                             if([dji_equipment isKindOfClass:[NSString class]] && dji_equipment != nil) {
+                                                 return dji_equipment;
+                                             } else {
+                                                 if([model isKindOfClass:[NSString class]] && model != nil) {
+                                                     return model;
+                                                 } else {
+                                                     return @"n/a";
+                                                 }
+                                             }
                                          }
                                      }];
     //location
@@ -78,12 +80,16 @@
     self.locationLabel.text = @"n/a";
     if([latitude respondsToSelector:@selector(doubleValue)] && [longitude respondsToSelector:@selector(doubleValue)]) {
         @weakify(self)
-        [[[[self signalForReverseGeocodeLatitude:[latitude doubleValue] longitude:[longitude doubleValue]]
-           takeUntil:[self rac_prepareForReuseSignal]]
-          deliverOnMainThread] subscribeNext:^(id x) {
-            @strongify(self)
-            self.locationLabel.text = x;
-        }];
+        self.locationLabel.text = [NSString stringWithFormat:@"lat:%@, lon:%@", latitude, longitude];
+        if(CLLocationCoordinate2DIsValid(CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]))) {
+            [[[[self signalForReverseGeocodeLatitude:[latitude doubleValue] longitude:[longitude doubleValue]]
+               takeUntil:[self rac_prepareForReuseSignal]]
+              deliverOnMainThread] subscribeNext:^(NSString *address) {
+                @strongify(self)
+                self.locationLabel.text = address == nil ? @"n/a" : address;
+            }];
+
+        }
     }
     
     //shutter
@@ -110,37 +116,6 @@
                                     }];
 }
 
--(RACSignal *) loadImageWithURLString:(NSString *) urlString {
-    RACScheduler *scheduler = [RACScheduler
-                               schedulerWithPriority:RACSchedulerPriorityBackground];
-    RACSignal *sig =  [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        
-        NSData *data = nil;
-        NSString *fileName = [urlString lastPathComponent];
-        NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
-        path = [path stringByAppendingPathComponent:fileName];
-        
-        if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-            data = [NSData dataWithContentsOfFile:path];
-        }
-        
-        if(!data) {
-            data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
-            if(data) {
-                [data writeToFile:path atomically:YES];
-            }
-        }
-        
-        UIImage *image = [UIImage imageWithData:data];
-        [subscriber sendNext:image];
-        [subscriber sendCompleted];
-
-        return nil;
-    }];
-    [sig subscribeOn:scheduler];
-    [sig logAll];
-    return sig;
-}
 
 -(RACSignal *) signalForReverseGeocodeLatitude:(double) latitude longitude:(double) longitude {
     RACScheduler *scheduler = [RACScheduler
@@ -157,20 +132,15 @@
                                            placemark.administrativeArea ? placemark.administrativeArea : @"" ,
                                            placemark.locality ? placemark.locality : @"",
                                            placemark.subLocality ? placemark.subLocality : @""];
-//                    NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
-//                    NSLog(@"placemark %@",placemark.region);
-//                    NSLog(@"placemark %@",placemark.country);  // Give Country Name
-//                    NSLog(@"placemark %@",placemark.locality); // Extract the city name
-//                    NSLog(@"location %@",placemark.name);
-//                    NSLog(@"location %@",placemark.ocean);
-//                    NSLog(@"location %@",placemark.postalCode);
-//                    NSLog(@"location %@",placemark.subLocality);
-//                    
-//                    NSLog(@"location %@",placemark.location);
-//                    //Print the location to console
-//                    NSLog(@"I am currently at %@",locatedAt);
+                    if([[locatedAt stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0) {
+                        NSArray *address = [placemark.addressDictionary objectForKey:@"FormattedAddressLines"];
+                        if([address count] > 0) {
+                            locatedAt = [address componentsJoinedByString:@" "];
+                        }
+                    }
+                    NSLog(@"location:%@", locatedAt);
                     [subscriber sendNext:locatedAt];
-                    [subscriber sendCompleted];
+                    //[subscriber sendCompleted];
                     break;
                 }
             }

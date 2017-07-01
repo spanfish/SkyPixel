@@ -63,7 +63,7 @@
 
 -(void) commonInit {
     _loadImageCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString *path) {
-        
+        NSLog(@"download image:%@", path);
         NSString *fileName = [path lastPathComponent];
         NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
         cachePath = [cachePath stringByAppendingPathComponent:fileName];
@@ -110,7 +110,6 @@
     [[[_loadImageCommand.executionSignals flattenMap:^RACStream *(RACSignal *subscribeSignal) {
         return subscribeSignal;
     }] deliverOnMainThread] subscribeNext:^(RACTuple *value) {
-        NSLog(@"");
         if([[value second] isKindOfClass:[UIImage class]]) {
             self.image = [value second];
         } else if([[value second] isKindOfClass:[NSData class]]) {
