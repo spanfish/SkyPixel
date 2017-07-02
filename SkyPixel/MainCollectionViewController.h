@@ -10,7 +10,9 @@
 #import <ReactiveCocoa.h>
 #import "SPVCreationModel.h"
 
-@interface MainCollectionViewController : UICollectionViewController {
+#import "Vitamio.h"
+@interface MainCollectionViewController : UICollectionViewController<VMediaPlayerDelegate> {
+    VMediaPlayer *mMPayer;
 }
 
 @end

@@ -22,6 +22,23 @@
 		BC43B3821F03F24200998A59 /* UIActivityIndicatorView+loading.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B3811F03F24200998A59 /* UIActivityIndicatorView+loading.m */; };
 		BCC56E8B1F0492B300A9F879 /* SPVCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC56E8A1F0492B300A9F879 /* SPVCollectionViewCell.m */; };
 		BCC56EA11F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC56EA01F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.m */; };
+		BCE74C961F0943AC00112BCB /* include in Resources */ = {isa = PBXBuildFile; fileRef = BCE74C921F0943AC00112BCB /* include */; };
+		BCE74C971F0943AC00112BCB /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74C931F0943AC00112BCB /* libffmpeg.a */; };
+		BCE74C981F0943AC00112BCB /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74C941F0943AC00112BCB /* libopenssl.a */; };
+		BCE74C991F0943AC00112BCB /* libVitamio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74C951F0943AC00112BCB /* libVitamio.a */; };
+		BCE74C9B1F0943C000112BCB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74C9A1F0943C000112BCB /* AVFoundation.framework */; };
+		BCE74C9D1F0943C600112BCB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74C9C1F0943C600112BCB /* AudioToolbox.framework */; };
+		BCE74C9F1F0943CB00112BCB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74C9E1F0943CB00112BCB /* CoreGraphics.framework */; };
+		BCE74CA11F0943D000112BCB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74CA01F0943D000112BCB /* CoreMedia.framework */; };
+		BCE74CA31F0943D600112BCB /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74CA21F0943D600112BCB /* CoreVideo.framework */; };
+		BCE74CA51F0943DB00112BCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74CA41F0943DB00112BCB /* Foundation.framework */; };
+		BCE74CA71F0943E200112BCB /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74CA61F0943E200112BCB /* MediaPlayer.framework */; };
+		BCE74CA91F0943E700112BCB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74CA81F0943E700112BCB /* OpenGLES.framework */; };
+		BCE74CAB1F0943EC00112BCB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74CAA1F0943EC00112BCB /* QuartzCore.framework */; };
+		BCE74CAD1F0943F200112BCB /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74CAC1F0943F200112BCB /* libbz2.tbd */; };
+		BCE74CAF1F0943F600112BCB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74CAE1F0943F600112BCB /* libz.tbd */; };
+		BCE74CB11F0943FC00112BCB /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74CB01F0943FC00112BCB /* libstdc++.tbd */; };
+		BCE74CB31F09440100112BCB /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74CB21F09440100112BCB /* libiconv.tbd */; };
 		F8F2E5A1ABBBF83C6243AE4D /* libPods-SkyPixel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29BE0CEE6B377480AFDD7E87 /* libPods-SkyPixel.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +73,23 @@
 		BCC56E8A1F0492B300A9F879 /* SPVCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVCollectionViewCell.m; sourceTree = "<group>"; };
 		BCC56E9F1F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVCollectionViewCoverFlowLayout.h; sourceTree = "<group>"; };
 		BCC56EA01F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVCollectionViewCoverFlowLayout.m; sourceTree = "<group>"; };
+		BCE74C921F0943AC00112BCB /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
+		BCE74C931F0943AC00112BCB /* libffmpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libffmpeg.a; sourceTree = "<group>"; };
+		BCE74C941F0943AC00112BCB /* libopenssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenssl.a; sourceTree = "<group>"; };
+		BCE74C951F0943AC00112BCB /* libVitamio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libVitamio.a; sourceTree = "<group>"; };
+		BCE74C9A1F0943C000112BCB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BCE74C9C1F0943C600112BCB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BCE74C9E1F0943CB00112BCB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BCE74CA01F0943D000112BCB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		BCE74CA21F0943D600112BCB /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		BCE74CA41F0943DB00112BCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BCE74CA61F0943E200112BCB /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		BCE74CA81F0943E700112BCB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		BCE74CAA1F0943EC00112BCB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BCE74CAC1F0943F200112BCB /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		BCE74CAE1F0943F600112BCB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		BCE74CB01F0943FC00112BCB /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		BCE74CB21F09440100112BCB /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		CB36B70873C5A58756C5E2F3 /* Pods-SkyPixel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyPixel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkyPixel/Pods-SkyPixel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,7 +98,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCE74CB31F09440100112BCB /* libiconv.tbd in Frameworks */,
+				BCE74CB11F0943FC00112BCB /* libstdc++.tbd in Frameworks */,
+				BCE74CAF1F0943F600112BCB /* libz.tbd in Frameworks */,
+				BCE74CAD1F0943F200112BCB /* libbz2.tbd in Frameworks */,
+				BCE74CAB1F0943EC00112BCB /* QuartzCore.framework in Frameworks */,
+				BCE74CA91F0943E700112BCB /* OpenGLES.framework in Frameworks */,
+				BCE74CA71F0943E200112BCB /* MediaPlayer.framework in Frameworks */,
+				BCE74CA51F0943DB00112BCB /* Foundation.framework in Frameworks */,
+				BCE74CA31F0943D600112BCB /* CoreVideo.framework in Frameworks */,
+				BCE74CA11F0943D000112BCB /* CoreMedia.framework in Frameworks */,
+				BCE74C9F1F0943CB00112BCB /* CoreGraphics.framework in Frameworks */,
+				BCE74C9D1F0943C600112BCB /* AudioToolbox.framework in Frameworks */,
+				BCE74C9B1F0943C000112BCB /* AVFoundation.framework in Frameworks */,
+				BCE74C981F0943AC00112BCB /* libopenssl.a in Frameworks */,
+				BCE74C971F0943AC00112BCB /* libffmpeg.a in Frameworks */,
 				F8F2E5A1ABBBF83C6243AE4D /* libPods-SkyPixel.a in Frameworks */,
+				BCE74C991F0943AC00112BCB /* libVitamio.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +133,19 @@
 		8F370627FFF4DB8064BA6CF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BCE74CB21F09440100112BCB /* libiconv.tbd */,
+				BCE74CB01F0943FC00112BCB /* libstdc++.tbd */,
+				BCE74CAE1F0943F600112BCB /* libz.tbd */,
+				BCE74CAC1F0943F200112BCB /* libbz2.tbd */,
+				BCE74CAA1F0943EC00112BCB /* QuartzCore.framework */,
+				BCE74CA81F0943E700112BCB /* OpenGLES.framework */,
+				BCE74CA61F0943E200112BCB /* MediaPlayer.framework */,
+				BCE74CA41F0943DB00112BCB /* Foundation.framework */,
+				BCE74CA21F0943D600112BCB /* CoreVideo.framework */,
+				BCE74CA01F0943D000112BCB /* CoreMedia.framework */,
+				BCE74C9E1F0943CB00112BCB /* CoreGraphics.framework */,
+				BCE74C9C1F0943C600112BCB /* AudioToolbox.framework */,
+				BCE74C9A1F0943C000112BCB /* AVFoundation.framework */,
 				29BE0CEE6B377480AFDD7E87 /* libPods-SkyPixel.a */,
 			);
 			name = Frameworks;
@@ -109,6 +172,10 @@
 		BC43B3551F03DE1C00998A59 /* SkyPixel */ = {
 			isa = PBXGroup;
 			children = (
+				BCE74C921F0943AC00112BCB /* include */,
+				BCE74C931F0943AC00112BCB /* libffmpeg.a */,
+				BCE74C941F0943AC00112BCB /* libopenssl.a */,
+				BCE74C951F0943AC00112BCB /* libVitamio.a */,
 				BC43B37F1F03F20E00998A59 /* UI */,
 				BC43B3711F03E25300998A59 /* ViewModel */,
 				BC43B3701F03E24700998A59 /* VC */,
@@ -237,6 +304,7 @@
 				BC43B3661F03DE1C00998A59 /* LaunchScreen.storyboard in Resources */,
 				BC43B3631F03DE1C00998A59 /* Assets.xcassets in Resources */,
 				BC43B3611F03DE1C00998A59 /* Main.storyboard in Resources */,
+				BCE74C961F0943AC00112BCB /* include in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +338,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A5A6D255A9541C2DE53B8ABA /* [CP] Copy Pods Resources */ = {
@@ -430,11 +498,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S78RUL88S5;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SkyPixel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SkyPixel",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiang.SkyPixel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SOURCE_ROOT}/include/**";
 			};
 			name = Debug;
 		};
@@ -444,11 +518,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S78RUL88S5;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SkyPixel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SkyPixel",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiang.SkyPixel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SOURCE_ROOT}/include/**";
 			};
 			name = Release;
 		};
