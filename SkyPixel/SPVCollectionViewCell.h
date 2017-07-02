@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SPVImageView.h"
+#import <ReactiveObjc/ReactiveObjc.h>
 
 @interface SPVCollectionViewCell : UICollectionViewCell
 
@@ -21,5 +22,5 @@
 @property(nonatomic, weak) IBOutlet UIButton *playButton;
 
 @property(nonatomic, strong) NSDictionary *viewModel;
-
+@property(nonatomic, strong) RACCommand *playCommand;
 @end

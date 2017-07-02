@@ -10,12 +10,16 @@
 #import "UIActivityIndicatorView+loading.h"
 #import "SPVCollectionViewCell.h"
 #import "ImageDetailViewController.h"
-#import <Masonry.h>
+//#import <Masonry/Masonry.h>
+#import "VideoPlayerViewController.h"
+#import "AppDelegate.h"
+#import <ReactiveObjc/ReactiveObjc.h>
 
 #define DESCRIPTION_HEIGHT 50
 
 @interface MainCollectionViewController () {
-
+    VideoPlayerViewController *_videoPlayerController;
+    UIWindow *_window;
 }
 
 @property (nonatomic, strong) UIImageView *indicatorView;
@@ -26,6 +30,42 @@
 @implementation MainCollectionViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"play" object:nil] map:^id(NSNotification *notification) {
+        return [notification object];
+    }] deliverOnMainThread] subscribeNext:^(NSString *url) {
+        NSLog(@"video:%@", url);
+        if(url) {
+            if(!_window) {
+                _videoPlayerController = [[VideoPlayerViewController alloc] init];
+                _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+                _window.rootViewController = _videoPlayerController;
+                _window.tag = 20170701;
+                [_window makeKeyAndVisible];
+            }
+            [_videoPlayerController play:url];
+        } else {
+            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            [[delegate window] makeKeyAndVisible];
+            _videoPlayerController = nil;
+            _window = nil;
+        }
+    }];
+    
+    
+//    [self.navigationController.view addSubview:_videoPlayerController.view];
+//    [self.navigationController addChildViewController:_videoPlayerController];
+//    [_videoPlayerController didMoveToParentViewController:self.navigationController];
+//    
+//    [_videoPlayerController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(_videoPlayerController.view.superview);
+//        make.right.equalTo(_videoPlayerController.view.superview);
+//        make.bottom.equalTo(_videoPlayerController.view.superview);
+//        make.top.equalTo(_videoPlayerController.view.superview);
+//    }];
+//    
+//    _videoPlayerController.view.hidden = YES;
+    
     //loading image
     NSMutableArray *images = [NSMutableArray arrayWithCapacity:6];
     for(NSInteger i = 0; i < 6; i++) {
@@ -38,11 +78,11 @@
     [self.indicatorView startAnimating];
     self.indicatorView.contentMode = UIViewContentModeCenter;
     [self.view addSubview:self.indicatorView];
-    [self.indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
-        make.width.mas_equalTo(120);
-        make.height.mas_equalTo(120);
-    }];
+//    [self.indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.center.equalTo(self.view);
+//        make.width.mas_equalTo(120);
+//        make.height.mas_equalTo(120);
+//    }];
     self.indicatorView.hidden = YES;
     
     self.viewModel = [[SPVCreationModel alloc] init];
@@ -51,13 +91,21 @@
         return [NSNumber numberWithBool:YES];
     }];
    
-    RACSignal *completedMessageSource = [self.viewModel.fetchContentCommand.executionSignals flattenMap:^RACStream *(RACSignal *subscribeSignal) {
+    RACSignal *completedMessageSource = [self.viewModel.fetchContentCommand.executionSignals flattenMap:^__kindof RACSignal * _Nullable(RACSignal *subscribeSignal) {
         return [[[subscribeSignal materialize] filter:^BOOL(RACEvent *event) {
             return event.eventType == RACEventTypeCompleted;
         }] map:^id(id value) {
             return [NSNumber numberWithBool:NO];
         }];
     }];
+                                         
+//    RACSignal *completedMessageSource = [self.viewModel.fetchContentCommand.executionSignals flattenMap:^RACStream *(RACSignal *subscribeSignal) {
+//        return [[[subscribeSignal materialize] filter:^BOOL(RACEvent *event) {
+//            return event.eventType == RACEventTypeCompleted;
+//        }] map:^id(id value) {
+//            return [NSNumber numberWithBool:NO];
+//        }];
+//    }];
     
     @weakify(self);
     [[completedMessageSource deliverOnMainThread] subscribeNext:^(id x) {
@@ -93,6 +141,17 @@
     }
 }
 
+-(void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+//    NSURL *url = [NSURL URLWithString:@"http://dn-djidl2.qbox.me/cloud/3d8dbe68f01a548a95cf46803010a37d/sd.mp4?sign=3d2ad320611444e1ef4734a0b4323b04&t=59576dca"];
+//    MobilePlayerViewController *vc=[[MobilePlayerViewController alloc] initWithContentURL:url];
+//    //http://dn-djidl2.qbox.me/cloud/3d8dbe68f01a548a95cf46803010a37d/sd.mp4?sign=3d2ad320611444e1ef4734a0b4323b04&t=59576dca
+//    
+//    vc.activityItems = @[url];
+//    [vc play];
+//    [self presentViewController:vc animated:YES completion:nil];
+}
 #pragma mark <UICollectionViewDataSource>
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return [[self.viewModel pages] count];
@@ -111,11 +170,29 @@
     NSDictionary *viewModel = [items objectAtIndex:indexPath.row];
     [self configreCell:cell withViewModel:viewModel];
     
+//    @weakify(self);
+//    [[[cell.playCommand.executionSignals flattenMap:^RACStream *(RACSignal *signal) {
+//        return signal;
+//    }] deliverOnMainThread] subscribeNext:^(NSString *playURL) {
+//        @strongify(self);
+//        [self playeVideo:playURL];
+//    }];
     return cell;
 }
 
 -(void) configreCell:(SPVCollectionViewCell *) cell withViewModel:(NSDictionary *) viewModel {
     [cell setViewModel:viewModel];
+}
+
+-(void) playeVideo:(NSString *) playerURL {
+    if(![playerURL isKindOfClass:[NSString class]] || [playerURL length] == 0) {
+        return;
+    }
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:playerURL]];
+    [[NSURLConnection rac_sendAsynchronousRequest:request] subscribeNext:^(id x) {
+        
+    }];
 }
 #pragma mark <UICollectionViewDelegate>
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {

@@ -7,8 +7,8 @@
 //
 
 #import "ImageTitleTableViewCell.h"
-#import <ReactiveCocoa.h>
-#import <Masonry.h>
+#import <ReactiveObjc/ReactiveObjC.h>
+//#import <Masonry/Masonry.h>
 #import "SPVImageView.h"
 
 @interface ImageTitleTableViewCell()
@@ -181,12 +181,12 @@
         
         imageView.tag = i++;
         [self.scrollView addSubview:imageView];
-        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(offsetX);
-            make.top.mas_equalTo(0);
-            make.width.mas_equalTo(219);
-            make.height.mas_equalTo(155);
-        }];
+//        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.mas_equalTo(offsetX);
+//            make.top.mas_equalTo(0);
+//            make.width.mas_equalTo(219);
+//            make.height.mas_equalTo(155);
+//        }];
         offsetX += 219;
         offsetX += 10;
         

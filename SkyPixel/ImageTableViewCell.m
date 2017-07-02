@@ -7,7 +7,7 @@
 //
 
 #import "ImageTableViewCell.h"
-#import <ReactiveCocoa.h>
+#import <ReactiveObjc/ReactiveObjC.h>
 
 
 @interface ImageTableViewCell()

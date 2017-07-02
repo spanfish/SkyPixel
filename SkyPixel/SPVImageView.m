@@ -7,7 +7,7 @@
 //
 
 #import "SPVImageView.h"
-#import <ReactiveCocoa.h>
+#import <ReactiveObjc/ReactiveObjC.h>
 
 @interface SPVImageView() {
     RACCommand *_loadImageCommand;
@@ -99,7 +99,7 @@
         return [NSNumber numberWithBool:YES];
     }];
     
-    RACSignal *completedMessageSource = [_loadImageCommand.executionSignals flattenMap:^RACStream *(RACSignal *subscribeSignal) {
+    RACSignal *completedMessageSource = [_loadImageCommand.executionSignals flattenMap:^__kindof RACSignal * _Nullable(RACSignal *subscribeSignal) {
         return [[[subscribeSignal materialize] filter:^BOOL(RACEvent *event) {
             return event.eventType == RACEventTypeCompleted;
         }] map:^id(id value) {
@@ -107,7 +107,8 @@
         }];
     }];
     
-    [[[_loadImageCommand.executionSignals flattenMap:^RACStream *(RACSignal *subscribeSignal) {
+    
+    [[[_loadImageCommand.executionSignals flattenMap:^RACSignal *(RACSignal *subscribeSignal) {
         return subscribeSignal;
     }] deliverOnMainThread] subscribeNext:^(RACTuple *value) {
         if([[value second] isKindOfClass:[UIImage class]]) {

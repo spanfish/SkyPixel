@@ -7,7 +7,7 @@
 //
 
 #import "SPVCreationModel.h"
-#import <ReactiveCocoa.h>
+#import <ReactiveObjc/ReactiveObjc.h>
 #include <stdlib.h>
 
 @interface SPVCreationModel() {

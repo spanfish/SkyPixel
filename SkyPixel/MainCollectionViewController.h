@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <ReactiveCocoa.h>
 #import "SPVCreationModel.h"
 
 @interface MainCollectionViewController : UICollectionViewController {

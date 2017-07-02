@@ -7,7 +7,6 @@
 //
 
 #import "SPVDetailModel.h"
-#import <ReactiveCocoa.h>
 
 @interface SPVDetailModel()
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <ReactiveCocoa.h>
+#import <ReactiveObjc/ReactiveObjC.h>
 
 @interface ImageTitleTableViewCell : UITableViewCell
 

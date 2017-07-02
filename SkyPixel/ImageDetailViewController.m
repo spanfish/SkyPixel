@@ -7,7 +7,7 @@
 //
 
 #import "ImageDetailViewController.h"
-#import <ReactiveCocoa.h>
+#import <ReactiveObjc/ReactiveObjC.h>
 #import "SPVDetailModel.h"
 #import "ImageTableViewCell.h"
 #import "ImageTitleTableViewCell.h"

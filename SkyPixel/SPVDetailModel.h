@@ -6,7 +6,8 @@
 //  Copyright © 2017 Xiangwei Wang. All rights reserved.
 //
 
-#import <ReactiveViewModel/ReactiveViewModel.h>
+#import <ReactiveObjC/ReactiveObjC.h>
+#import "RVMViewModel.h"
 
 @interface SPVDetailModel : RVMViewModel
 
