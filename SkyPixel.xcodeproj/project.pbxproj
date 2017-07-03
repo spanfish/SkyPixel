@@ -12,6 +12,12 @@
 		9DE9B6731F060F5E00C249C9 /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9B6721F060F5E00C249C9 /* ImageTableViewCell.m */; };
 		9DE9B6761F0620A300C249C9 /* ImageTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9B6751F0620A300C249C9 /* ImageTitleTableViewCell.m */; };
 		BC13B0751F07463300245FDD /* SPVImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC13B0741F07463300245FDD /* SPVImageView.m */; };
+		BC2050531F0A7068002A44F6 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2050511F0A7068002A44F6 /* PlayerViewController.m */; };
+		BC2050541F0A7068002A44F6 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2050521F0A7068002A44F6 /* PlayerViewController.xib */; };
+		BC2050571F0A7153002A44F6 /* VideoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2050561F0A7153002A44F6 /* VideoViewModel.m */; };
+		BC20505B1F0A7636002A44F6 /* close-button.png in Resources */ = {isa = PBXBuildFile; fileRef = BC2050581F0A7636002A44F6 /* close-button.png */; };
+		BC20505C1F0A7636002A44F6 /* close-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC2050591F0A7636002A44F6 /* close-button@2x.png */; };
+		BC20505D1F0A7636002A44F6 /* close-button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC20505A1F0A7636002A44F6 /* close-button@3x.png */; };
 		BC43B3581F03DE1C00998A59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B3571F03DE1C00998A59 /* main.m */; };
 		BC43B35B1F03DE1C00998A59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B35A1F03DE1C00998A59 /* AppDelegate.m */; };
 		BC43B3611F03DE1C00998A59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC43B35F1F03DE1C00998A59 /* Main.storyboard */; };
@@ -55,6 +61,14 @@
 		9DE9B6751F0620A300C249C9 /* ImageTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTitleTableViewCell.m; sourceTree = "<group>"; };
 		BC13B0731F07463300245FDD /* SPVImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVImageView.h; sourceTree = "<group>"; };
 		BC13B0741F07463300245FDD /* SPVImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVImageView.m; sourceTree = "<group>"; };
+		BC2050501F0A7068002A44F6 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		BC2050511F0A7068002A44F6 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		BC2050521F0A7068002A44F6 /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
+		BC2050551F0A7153002A44F6 /* VideoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewModel.h; sourceTree = "<group>"; };
+		BC2050561F0A7153002A44F6 /* VideoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewModel.m; sourceTree = "<group>"; };
+		BC2050581F0A7636002A44F6 /* close-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-button.png"; sourceTree = "<group>"; };
+		BC2050591F0A7636002A44F6 /* close-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-button@2x.png"; sourceTree = "<group>"; };
+		BC20505A1F0A7636002A44F6 /* close-button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-button@3x.png"; sourceTree = "<group>"; };
 		BC43B3531F03DE1C00998A59 /* SkyPixel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyPixel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC43B3571F03DE1C00998A59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BC43B3591F03DE1C00998A59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -151,6 +165,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BC20504F1F0A7049002A44F6 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				BC2050581F0A7636002A44F6 /* close-button.png */,
+				BC2050591F0A7636002A44F6 /* close-button@2x.png */,
+				BC20505A1F0A7636002A44F6 /* close-button@3x.png */,
+				BC2050501F0A7068002A44F6 /* PlayerViewController.h */,
+				BC2050511F0A7068002A44F6 /* PlayerViewController.m */,
+				BC2050521F0A7068002A44F6 /* PlayerViewController.xib */,
+				BC2050551F0A7153002A44F6 /* VideoViewModel.h */,
+				BC2050561F0A7153002A44F6 /* VideoViewModel.m */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
 		BC43B34A1F03DE1C00998A59 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +201,7 @@
 		BC43B3551F03DE1C00998A59 /* SkyPixel */ = {
 			isa = PBXGroup;
 			children = (
+				BC20504F1F0A7049002A44F6 /* Player */,
 				BCE74C921F0943AC00112BCB /* include */,
 				BCE74C931F0943AC00112BCB /* libffmpeg.a */,
 				BCE74C941F0943AC00112BCB /* libopenssl.a */,
@@ -301,9 +331,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC20505D1F0A7636002A44F6 /* close-button@3x.png in Resources */,
 				BC43B3661F03DE1C00998A59 /* LaunchScreen.storyboard in Resources */,
+				BC2050541F0A7068002A44F6 /* PlayerViewController.xib in Resources */,
+				BC20505B1F0A7636002A44F6 /* close-button.png in Resources */,
 				BC43B3631F03DE1C00998A59 /* Assets.xcassets in Resources */,
 				BC43B3611F03DE1C00998A59 /* Main.storyboard in Resources */,
+				BC20505C1F0A7636002A44F6 /* close-button@2x.png in Resources */,
 				BCE74C961F0943AC00112BCB /* include in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,7 +401,9 @@
 				9DE9B6701F05E80A00C249C9 /* SPVDetailModel.m in Sources */,
 				BC43B3741F03E2A100998A59 /* SPVCreationModel.m in Sources */,
 				BC43B36F1F03E0F500998A59 /* MainCollectionViewController.m in Sources */,
+				BC2050571F0A7153002A44F6 /* VideoViewModel.m in Sources */,
 				9DE9B66D1F05E60F00C249C9 /* ImageDetailViewController.m in Sources */,
+				BC2050531F0A7068002A44F6 /* PlayerViewController.m in Sources */,
 				BC43B35B1F03DE1C00998A59 /* AppDelegate.m in Sources */,
 				BC43B3821F03F24200998A59 /* UIActivityIndicatorView+loading.m in Sources */,
 				9DE9B6731F060F5E00C249C9 /* ImageTableViewCell.m in Sources */,
