@@ -4,6 +4,21 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>EGOCache.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FSImageViewer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UAProgressView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>libextobjc.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,12 +52,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>10DDA8082209AB381184D756CDB885CA</key>
+		<key>139250FF386949D993D2BFC69ADA3C07</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>26FDDC7158AC9A1F604D807F7AACAE84</key>
+		<key>1E8F96B2DA89BFDE661E5CC9552B69E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4D0130CD2557F481516FD7400CADC981</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,12 +77,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>551FD4C13D8306E37BAF4A7B8C09A7D0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7E41CA2ECB40C640963734378302229C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8388295B659B207C9039327A9F1A934B</key>
+		<key>A08AEFDC024D13A4C5F909784AEE8C56</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CDAE090C322134C189057BBA247ECA99</key>
 		<dict>
 			<key>primary</key>
 			<true/>

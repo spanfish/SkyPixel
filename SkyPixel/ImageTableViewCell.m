@@ -48,8 +48,7 @@
     self.coverImageView.image = nil;
     self.equipLabel.text = @"";
     self.shutterLabel.text = @"";
-    self.focusLabel.text = @"";
-    
+    self.focusLabel.text = @"";    
     //image
     
     NSString *imagePath = [_model objectForKey:@"image"];
@@ -126,6 +125,7 @@
                                     }];
     
     NSString *type = [self.model objectForKey:@"type"];
+    self.magnifyButton.hidden = YES;
     self.playButton.hidden = [@"video" isEqualToString:type] ? NO : YES;
 }
 

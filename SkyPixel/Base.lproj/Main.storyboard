@@ -307,11 +307,21 @@
                                                     </constraints>
                                                     <state key="normal" image="play-button-88"/>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itS-pg-ixB">
+                                                    <rect key="frame" x="323" y="8" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="C4g-Tn-j45"/>
+                                                        <constraint firstAttribute="width" constant="44" id="iB2-Da-dlp"/>
+                                                    </constraints>
+                                                    <state key="normal" image="magnify"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="itS-pg-ixB" secondAttribute="trailing" id="4N9-MG-qyJ"/>
                                                 <constraint firstItem="klw-kP-b3s" firstAttribute="centerX" secondItem="K2k-nk-s1U" secondAttribute="centerX" id="E1E-OP-z7l"/>
                                                 <constraint firstItem="uZb-am-GPt" firstAttribute="centerY" secondItem="Lfd-gO-UgA" secondAttribute="centerY" id="LUJ-wn-4SM"/>
                                                 <constraint firstItem="klw-kP-b3s" firstAttribute="centerY" secondItem="K2k-nk-s1U" secondAttribute="centerY" id="Lkh-kw-NFQ"/>
+                                                <constraint firstItem="itS-pg-ixB" firstAttribute="top" secondItem="j8H-tP-SUx" secondAttribute="topMargin" id="Mxb-xy-tM1"/>
                                                 <constraint firstItem="uZb-am-GPt" firstAttribute="width" secondItem="c5h-BO-Enc" secondAttribute="width" id="P5j-Hn-WVF"/>
                                                 <constraint firstItem="c5h-BO-Enc" firstAttribute="centerY" secondItem="63l-GR-Iyt" secondAttribute="centerY" id="P6M-du-kKC"/>
                                                 <constraint firstItem="gbT-q8-njz" firstAttribute="leading" secondItem="H1x-5c-mST" secondAttribute="trailing" constant="5" id="Pds-VX-y5H"/>
@@ -346,6 +356,7 @@
                                             <outlet property="equipLabel" destination="hbw-VI-RQa" id="eJF-xu-WaF"/>
                                             <outlet property="focusLabel" destination="c5h-BO-Enc" id="dRn-v0-jNi"/>
                                             <outlet property="locationLabel" destination="uZb-am-GPt" id="Yr7-Nc-YeD"/>
+                                            <outlet property="magnifyButton" destination="itS-pg-ixB" id="482-IU-hYF"/>
                                             <outlet property="playButton" destination="klw-kP-b3s" id="VCX-85-GZo"/>
                                             <outlet property="shutterLabel" destination="gbT-q8-njz" id="Tvh-IF-FAS"/>
                                         </connections>
@@ -512,6 +523,7 @@
         <image name="focus" width="53" height="53"/>
         <image name="like" width="410" height="410"/>
         <image name="location" width="53" height="53"/>
+        <image name="magnify" width="36" height="36"/>
         <image name="photo-camera" width="53" height="53"/>
         <image name="play-button-88" width="71" height="71"/>
         <image name="shutter" width="53" height="53"/>

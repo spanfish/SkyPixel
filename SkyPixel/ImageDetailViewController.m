@@ -11,6 +11,9 @@
 #import "SPVDetailModel.h"
 #import "ImageTableViewCell.h"
 #import "ImageTitleTableViewCell.h"
+#import "PhotoViewController.h"
+#import <FSImageViewer/FSBasicImage.h>
+#import <FSImageViewer/FSBasicImageSource.h>
 
 typedef NS_ENUM(NSInteger, DetailSection) {
     IMAGE_SECTION,
@@ -22,6 +25,7 @@ typedef NS_ENUM(NSInteger, DetailSection) {
 
 @interface ImageDetailViewController () {
     NSInteger numOfRows[NUM_OF_SECTION];
+    UIImage *_coverImage;
 }
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -137,7 +141,29 @@ typedef NS_ENUM(NSInteger, DetailSection) {
     if(indexPath.section == IMAGE_SECTION) {
         if(indexPath.row == 0) {
             ImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Image"];
+            @weakify(cell);
+            [[[cell.coverImageView.imageLoadedSignal takeUntil:[cell rac_prepareForReuseSignal]] deliverOnMainThread] subscribeNext:^(UIImage *image) {
+                @strongify(cell);
+                cell.magnifyButton.hidden = NO;
+                _coverImage = image;
+            }];
+            
             [cell configureCellWithModel:self.viewModel.imageInfo];
+            
+            @weakify(self);
+            cell.magnifyButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+                @strongify(self);
+                NSString *type = [self.viewModel.imageInfo objectForKey:@"type"];
+                if(![@"video" isEqualToString:type]) {
+                    FSBasicImageSource *photoSource = [[FSBasicImageSource alloc] initWithImages:@[[[FSBasicImage alloc] initWithImage:_coverImage]]];
+                    PhotoViewController *vc = [[PhotoViewController alloc] initWithImageSource:photoSource];
+                    [self.navigationController pushViewController:vc animated:YES];
+                    //UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+                    //[self presentViewController:nvc animated:YES completion:nil];
+                }
+                return [RACSignal empty];
+            }];
+            
             return cell;
         } else {
             ImageTitleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Info"];
@@ -211,5 +237,6 @@ typedef NS_ENUM(NSInteger, DetailSection) {
     return UITableViewAutomaticDimension;
 }
 
+#pragma mark -
 
 @end

@@ -62,6 +62,7 @@
 }
 
 -(void) commonInit {
+    _imageLoadedSignal = [[RACSubject subject] setNameWithFormat:@"imageLoadedSignal"];
     _loadImageCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSString *path) {
         NSLog(@"download image:%@", path);
         NSString *fileName = [path lastPathComponent];
@@ -70,12 +71,15 @@
         if([[NSFileManager defaultManager] fileExistsAtPath:cachePath]) {
             RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
                 UIImage *image = [UIImage imageWithContentsOfFile:cachePath];
+                [_imageLoadedSignal sendNext:image];
+                
                 RACTuple *tuple = [RACTuple tupleWithObjects:@"", image, nil];
                 [subscriber sendNext:tuple];
                 [subscriber sendCompleted];
                 return nil;
             }];
 
+            
             return signal;
         }
         
@@ -114,6 +118,7 @@
             self.image = [value second];
         } else if([[value second] isKindOfClass:[NSData class]]) {
             self.image = [UIImage imageWithData:[value second]];
+            [_imageLoadedSignal sendNext:self.image];
         }
         self.contentMode = UIViewContentModeScaleAspectFill;
     }];

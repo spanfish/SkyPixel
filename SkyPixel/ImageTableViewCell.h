@@ -18,6 +18,7 @@
 @property(nonatomic, weak) IBOutlet UILabel *shutterLabel;
 @property(nonatomic, weak) IBOutlet UILabel *focusLabel;
 @property(nonatomic, weak) IBOutlet UIButton *playButton;
+@property(nonatomic, weak) IBOutlet UIButton *magnifyButton;
 
 -(void) configureCellWithModel:(NSDictionary *) model;
 @end

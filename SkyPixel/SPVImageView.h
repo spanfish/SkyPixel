@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ReactiveCocoa.h>
 
 @interface SPVImageView : UIImageView
 
 @property(nonatomic, strong) NSString *imagePath;
+@property(nonatomic, strong) RACSubject *imageLoadedSignal;
 @end

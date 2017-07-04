@@ -11,4 +11,5 @@ target 'SkyPixel' do
   pod 'libextobjc', ' ~> 0.4'
   pod 'Masonry'
   pod 'Google-Mobile-Ads-SDK'
+  pod 'FSImageViewer', '~> 3.4'
 end

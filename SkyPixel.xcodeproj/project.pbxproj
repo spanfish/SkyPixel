@@ -29,6 +29,7 @@
 		BCC56E8B1F0492B300A9F879 /* SPVCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC56E8A1F0492B300A9F879 /* SPVCollectionViewCell.m */; };
 		BCC56EA11F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC56EA01F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.m */; };
 		BCC56F1F1F0B55E000A9F879 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCC56F211F0B55E000A9F879 /* Localizable.strings */; };
+		BCC56F271F0B648800A9F879 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC56F261F0B648800A9F879 /* PhotoViewController.m */; };
 		BCE74C961F0943AC00112BCB /* include in Resources */ = {isa = PBXBuildFile; fileRef = BCE74C921F0943AC00112BCB /* include */; };
 		BCE74C971F0943AC00112BCB /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74C931F0943AC00112BCB /* libffmpeg.a */; };
 		BCE74C981F0943AC00112BCB /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74C941F0943AC00112BCB /* libopenssl.a */; };
@@ -96,6 +97,8 @@
 		BCC56F221F0B55E400A9F879 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BCC56F231F0B55E500A9F879 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BCC56F241F0B55E600A9F879 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		BCC56F251F0B648800A9F879 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		BCC56F261F0B648800A9F879 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		BCE74C921F0943AC00112BCB /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
 		BCE74C931F0943AC00112BCB /* libffmpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libffmpeg.a; sourceTree = "<group>"; };
 		BCE74C941F0943AC00112BCB /* libopenssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenssl.a; sourceTree = "<group>"; };
@@ -211,10 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				BC20504F1F0A7049002A44F6 /* Player */,
-				BCE74C921F0943AC00112BCB /* include */,
-				BCE74C931F0943AC00112BCB /* libffmpeg.a */,
-				BCE74C941F0943AC00112BCB /* libopenssl.a */,
-				BCE74C951F0943AC00112BCB /* libVitamio.a */,
 				BC43B37F1F03F20E00998A59 /* UI */,
 				BC43B3711F03E25300998A59 /* ViewModel */,
 				BC43B3701F03E24700998A59 /* VC */,
@@ -232,6 +231,10 @@
 		BC43B3561F03DE1C00998A59 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BCE74C921F0943AC00112BCB /* include */,
+				BCE74C931F0943AC00112BCB /* libffmpeg.a */,
+				BCE74C941F0943AC00112BCB /* libopenssl.a */,
+				BCE74C951F0943AC00112BCB /* libVitamio.a */,
 				BC43B3571F03DE1C00998A59 /* main.m */,
 				BCC56F211F0B55E000A9F879 /* Localizable.strings */,
 			);
@@ -245,6 +248,8 @@
 				BC43B36E1F03E0F500998A59 /* MainCollectionViewController.m */,
 				9DE9B66B1F05E60F00C249C9 /* ImageDetailViewController.h */,
 				9DE9B66C1F05E60F00C249C9 /* ImageDetailViewController.m */,
+				BCC56F251F0B648800A9F879 /* PhotoViewController.h */,
+				BCC56F261F0B648800A9F879 /* PhotoViewController.m */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -419,6 +424,7 @@
 				BC2050531F0A7068002A44F6 /* PlayerViewController.m in Sources */,
 				BC43B35B1F03DE1C00998A59 /* AppDelegate.m in Sources */,
 				BC43B3821F03F24200998A59 /* UIActivityIndicatorView+loading.m in Sources */,
+				BCC56F271F0B648800A9F879 /* PhotoViewController.m in Sources */,
 				9DE9B6731F060F5E00C249C9 /* ImageTableViewCell.m in Sources */,
 				BC13B0751F07463300245FDD /* SPVImageView.m in Sources */,
 				9DE9B6761F0620A300C249C9 /* ImageTitleTableViewCell.m in Sources */,
