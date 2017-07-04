@@ -145,7 +145,7 @@
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    if([[self.viewModel pages] objectForKey:@(0)] == nil) {
+    if([[self.viewModel pages] objectForKey:@(1)] == nil) {
         [self.viewModel.fetchContentCommand execute: [NSNumber numberWithInteger:1]];
     }
 }

@@ -31,7 +31,10 @@
                                            }];
     
     self.playCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"play" object:[viewModel objectForKey:@"embed_url"]];
+        NSString *embed_url = [viewModel objectForKey:@"embed_url"];
+        if([embed_url length] > 0) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"play" object:embed_url];
+        }
         return [RACSignal empty];
     }];
     self.playButton.rac_command = self.playCommand;

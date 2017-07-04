@@ -19,7 +19,17 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    self.playButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        NSString *type = [self.model objectForKey:@"type"];
+        if([@"video" isEqualToString:type]) {
+            NSString *playUrl = [self.model objectForKey:@"play_url"];
+            if([playUrl length] > 0) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"play" object:playUrl];
+            }
+        }
+        return [RACSignal empty];
+    }];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -114,6 +124,9 @@
                                         NSNumber *focus = [value objectForKey:@"focal_length"];
                                         return [NSString stringWithFormat:@"%@", focus == nil ? @ "n/a" : [focus stringValue]];
                                     }];
+    
+    NSString *type = [self.model objectForKey:@"type"];
+    self.playButton.hidden = [@"video" isEqualToString:type] ? NO : YES;
 }
 
 

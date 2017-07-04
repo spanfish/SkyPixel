@@ -85,7 +85,7 @@
                                                 <constraint firstAttribute="width" constant="50" id="2iV-yn-RgU"/>
                                                 <constraint firstAttribute="height" constant="50" id="BLi-gQ-iP1"/>
                                             </constraints>
-                                            <state key="normal" image="play-button"/>
+                                            <state key="normal" image="play-button-88"/>
                                         </button>
                                         <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGJ-MI-RdZ" userLabel="Description View">
                                             <rect key="frame" x="0.0" y="303" width="370" height="50"/>
@@ -299,9 +299,19 @@
                                                         <constraint firstAttribute="width" constant="22" id="z0x-7i-Wtz"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klw-kP-b3s">
+                                                    <rect key="frame" x="143.5" y="66" width="88" height="88"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="88" id="dVw-u3-0fH"/>
+                                                        <constraint firstAttribute="height" constant="88" id="pVa-HR-uvf"/>
+                                                    </constraints>
+                                                    <state key="normal" image="play-button-88"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="klw-kP-b3s" firstAttribute="centerX" secondItem="K2k-nk-s1U" secondAttribute="centerX" id="E1E-OP-z7l"/>
                                                 <constraint firstItem="uZb-am-GPt" firstAttribute="centerY" secondItem="Lfd-gO-UgA" secondAttribute="centerY" id="LUJ-wn-4SM"/>
+                                                <constraint firstItem="klw-kP-b3s" firstAttribute="centerY" secondItem="K2k-nk-s1U" secondAttribute="centerY" id="Lkh-kw-NFQ"/>
                                                 <constraint firstItem="uZb-am-GPt" firstAttribute="width" secondItem="c5h-BO-Enc" secondAttribute="width" id="P5j-Hn-WVF"/>
                                                 <constraint firstItem="c5h-BO-Enc" firstAttribute="centerY" secondItem="63l-GR-Iyt" secondAttribute="centerY" id="P6M-du-kKC"/>
                                                 <constraint firstItem="gbT-q8-njz" firstAttribute="leading" secondItem="H1x-5c-mST" secondAttribute="trailing" constant="5" id="Pds-VX-y5H"/>
@@ -336,6 +346,7 @@
                                             <outlet property="equipLabel" destination="hbw-VI-RQa" id="eJF-xu-WaF"/>
                                             <outlet property="focusLabel" destination="c5h-BO-Enc" id="dRn-v0-jNi"/>
                                             <outlet property="locationLabel" destination="uZb-am-GPt" id="Yr7-Nc-YeD"/>
+                                            <outlet property="playButton" destination="klw-kP-b3s" id="VCX-85-GZo"/>
                                             <outlet property="shutterLabel" destination="gbT-q8-njz" id="Tvh-IF-FAS"/>
                                         </connections>
                                     </tableViewCell>
@@ -502,7 +513,7 @@
         <image name="like" width="410" height="410"/>
         <image name="location" width="53" height="53"/>
         <image name="photo-camera" width="53" height="53"/>
-        <image name="play-button" width="36" height="36"/>
+        <image name="play-button-88" width="71" height="71"/>
         <image name="shutter" width="53" height="53"/>
         <image name="star" width="48" height="48"/>
         <image name="watch" width="48" height="48"/>

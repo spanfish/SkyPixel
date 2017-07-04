@@ -50,11 +50,11 @@ static NSString* timeToHumanString(unsigned long ms)
     return self;
 }
 
--(instancetype) initWithURL:(NSString *) URL {
+-(instancetype) initWithURL:(NSString *) url {
     self = [super init];
     if(self) {
         self.mMPayer = [VMediaPlayer sharedInstance];
-        self.viewModel = [[VideoViewModel alloc] initWithModel:URL];
+        self.viewModel = [[VideoViewModel alloc] initWithModel:url];
         self.mCurPostion = 0;
         self.mDuration = 0;
         self.tableView.alpha = 0;
