@@ -578,7 +578,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SkyPixel",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xiang.SkyPixel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiang.skypixel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "${SOURCE_ROOT}/include/**";
 			};
@@ -598,7 +598,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SkyPixel",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xiang.SkyPixel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiang.skypixel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "${SOURCE_ROOT}/include/**";
 			};
