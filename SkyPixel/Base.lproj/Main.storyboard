@@ -31,7 +31,7 @@
         <scene sceneID="eFE-I5-NcZ">
             <objects>
                 <collectionViewController id="V4d-I1-LJC" customClass="MainCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="IYX-gD-Cmd">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="IYX-gD-Cmd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -195,6 +195,15 @@
                                     <outlet property="watchLabel" destination="a98-4n-DPg" id="tPm-ks-Wey"/>
                                     <segue destination="xeN-DW-k8Q" kind="show" identifier="Detail" id="J3G-lV-ucH"/>
                                 </connections>
+                            </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AdCell" id="9jv-rO-UTJ" customClass="SPVAdCell">
+                                <rect key="frame" x="2.5" y="371" width="370" height="361"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="370" height="361"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -493,7 +502,7 @@
         <image name="like" width="410" height="410"/>
         <image name="location" width="53" height="53"/>
         <image name="photo-camera" width="53" height="53"/>
-        <image name="play-button" width="32" height="32"/>
+        <image name="play-button" width="36" height="36"/>
         <image name="shutter" width="53" height="53"/>
         <image name="star" width="48" height="48"/>
         <image name="watch" width="48" height="48"/>

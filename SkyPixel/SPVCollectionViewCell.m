@@ -133,3 +133,8 @@
     }] subscribeOn:scheduler];
 }
 @end
+
+
+@implementation SPVAdCell
+
+@end

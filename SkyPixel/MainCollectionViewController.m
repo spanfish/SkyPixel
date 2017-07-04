@@ -15,9 +15,11 @@
 #import "PlayerViewController.h"
 
 #define DESCRIPTION_HEIGHT 50
-
-@interface MainCollectionViewController () {
+@import GoogleMobileAds;
+@interface MainCollectionViewController ()<GADBannerViewDelegate> {
     UIWindow *_window;
+    GADBannerView *_bannerView;
+    BOOL _adLoaded;
 }
 
 @property (nonatomic, strong) UIImageView *indicatorView;
@@ -26,21 +28,53 @@
 @end
 
 @implementation MainCollectionViewController
+
+#pragma mark - AD
+-(void) setupAd {
+    _bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeLargeBanner];
+
+    _bannerView.adUnitID = @"ca-app-pub-5834401851232277/2795862548";
+    _bannerView.rootViewController = self;
+    _bannerView.delegate = self;
+    GADRequest *request = [GADRequest request];
+    request.testDevices = @[ kGADSimulatorID,                       // All simulators
+                             @"e3d8833a984532558d9da4ce773d020a",
+                             @"89bc7a04a2caafab68af170673d7eff8"]; // Sample device ID
+    [_bannerView loadRequest:request];
+}
+
+- (void)adViewDidReceiveAd:(GADBannerView *)bannerView {
+    NSLog(@"adViewDidReceiveAd");
+    _adLoaded = YES;
+    [self.collectionView reloadData];
+}
+
+/// Tells the delegate that an ad request failed. The failure is normally due to network
+/// connectivity or ad availablility (i.e., no fill).
+- (void)adView:(GADBannerView *)bannerView didFailToReceiveAdWithError:(GADRequestError *)error {
+    NSLog(@"didFailToReceiveAdWithError:%@", error);
+    _adLoaded = NO;
+    [self.collectionView reloadData];
+}
+#pragma mark -
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = NSLocalizedString(@"Creations", nil);
+    [self setupAd];
+
     [[[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"play" object:nil] map:^id(NSNotification *notification) {
         return [notification object];
     }] deliverOnMainThread] subscribeNext:^(NSString *url) {
         NSLog(@"video:%@", url);
         if(url) {
             if(!_window) {
-                PlayerViewController *vc = [[PlayerViewController alloc] init];
+                PlayerViewController *vc = [[PlayerViewController alloc] initWithURL:url];
                 _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
                 _window.rootViewController = vc;
                 _window.tag = 20170701;
                 [_window makeKeyAndVisible];
-                [vc play:url];
+                //[vc play:url];
             }
         } else {
             AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -49,7 +83,6 @@
         }
     }];
 
-    
     //loading image
     NSMutableArray *images = [NSMutableArray arrayWithCapacity:6];
     for(NSInteger i = 0; i < 6; i++) {
@@ -119,15 +152,34 @@
 
 #pragma mark <UICollectionViewDataSource>
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return [[self.viewModel pages] count];
+    return [[self.viewModel pages] count] + 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    if(section == 0) {
+        //ad
+        return _adLoaded ? 1 : 0;
+    }
     NSArray *items = [[self.viewModel pages] objectForKey:[NSNumber numberWithInteger:section]];
     return items == nil ? 0 : [items count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0) {
+        SPVAdCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"AdCell" forIndexPath:indexPath];
+        if(_adLoaded) {
+            [cell.contentView addSubview:_bannerView];
+            [_bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.equalTo(_bannerView.superview).insets(UIEdgeInsetsZero);
+            }];
+        } else {
+            for(UIView *view in cell.contentView.subviews) {
+                [view removeFromSuperview];
+            }
+        }
+        return cell;
+    }
+    
     static NSString * const reuseIdentifier = @"Cell";
     SPVCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
@@ -143,10 +195,13 @@
 }
 #pragma mark <UICollectionViewDelegate>
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0) {
+        return;
+    }
     NSArray *items = [[self.viewModel pages] objectForKey:[NSNumber numberWithInteger:indexPath.section]];
     
     if(indexPath.row == [items count] - 1 && [[self.viewModel pages] objectForKey:@(indexPath.section + 1)] == nil) {
-        [self.viewModel.fetchContentCommand execute: [NSNumber numberWithInteger:indexPath.section + 1 + 1]];
+        [self.viewModel.fetchContentCommand execute: [NSNumber numberWithInteger:indexPath.section + 1]];
     }
 }
 /*

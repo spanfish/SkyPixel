@@ -17,12 +17,21 @@
 @property(nonatomic, weak) IBOutlet UILabel *durationLabel;
 @property(nonatomic, weak) IBOutlet UISlider *curPosSlider;
 @property(nonatomic, weak) IBOutlet UIButton *definitionsButton;
+@property(nonatomic, weak) IBOutlet UIButton *playButton;
+@property(nonatomic, weak) IBOutlet UIButton *pauseButton;
 @property(nonatomic, weak) IBOutlet UIView *controlView;
+@property(nonatomic, weak) IBOutlet UILabel *messageLabel;
 
 @property(nonatomic, weak) IBOutlet UITableView *tableView;
 @property(nonatomic, weak) IBOutlet UIButton *closeButton;
 
+@property(nonatomic, weak) IBOutlet UIActivityIndicatorView *indicatorView;
+
+@property(nonatomic, weak) IBOutlet UIView *allControlView;
+
 @property(nonatomic, strong) VMediaPlayer *mMPayer;
 @property(nonatomic, strong) VideoViewModel *viewModel;
--(void) play:(NSString *) URL;
+//-(void) play:(NSString *) URL;
+
+-(instancetype) initWithURL:(NSString *) URL;
 @end

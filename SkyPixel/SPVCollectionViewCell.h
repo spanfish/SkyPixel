@@ -25,3 +25,8 @@
 @property(nonatomic, strong) RACCommand *playCommand;
 
 @end
+
+
+@interface SPVAdCell : UICollectionViewCell
+
+@end

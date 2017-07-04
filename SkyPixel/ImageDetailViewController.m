@@ -99,11 +99,11 @@ typedef NS_ENUM(NSInteger, DetailSection) {
     if(section == IMAGE_SECTION) {
         return nil;
     } else if(section == COMMENT_SECTION) {
-        return @"Comments";
+        return NSLocalizedString(@"Comments", nil);
     } else if(section == RELATE_SECTION) {
-        return @"Related";
+        return NSLocalizedString(@"Related", nil);
     } else if(section == ALSOLIKE_SECTION) {
-        return @"Also like";
+        return NSLocalizedString(@"Also like", nil);
     }
     return nil;
 }

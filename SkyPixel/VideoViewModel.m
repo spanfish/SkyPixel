@@ -57,4 +57,12 @@
         }
     }];
 }
+
+-(NSDictionary *) playingItem {
+    if(self.videoDefinitions == nil || self.playingIndex >= [self.videoDefinitions count]) {
+        return nil;
+    }
+    
+    return [self.videoDefinitions objectAtIndex:self.playingIndex];
+}
 @end

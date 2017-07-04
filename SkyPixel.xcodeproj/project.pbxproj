@@ -28,6 +28,7 @@
 		BC43B3821F03F24200998A59 /* UIActivityIndicatorView+loading.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43B3811F03F24200998A59 /* UIActivityIndicatorView+loading.m */; };
 		BCC56E8B1F0492B300A9F879 /* SPVCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC56E8A1F0492B300A9F879 /* SPVCollectionViewCell.m */; };
 		BCC56EA11F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC56EA01F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.m */; };
+		BCC56F1F1F0B55E000A9F879 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCC56F211F0B55E000A9F879 /* Localizable.strings */; };
 		BCE74C961F0943AC00112BCB /* include in Resources */ = {isa = PBXBuildFile; fileRef = BCE74C921F0943AC00112BCB /* include */; };
 		BCE74C971F0943AC00112BCB /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74C931F0943AC00112BCB /* libffmpeg.a */; };
 		BCE74C981F0943AC00112BCB /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE74C941F0943AC00112BCB /* libopenssl.a */; };
@@ -87,6 +88,14 @@
 		BCC56E8A1F0492B300A9F879 /* SPVCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVCollectionViewCell.m; sourceTree = "<group>"; };
 		BCC56E9F1F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVCollectionViewCoverFlowLayout.h; sourceTree = "<group>"; };
 		BCC56EA01F04C65C00A9F879 /* SPVCollectionViewCoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVCollectionViewCoverFlowLayout.m; sourceTree = "<group>"; };
+		BCC56F191F0B557D00A9F879 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		BCC56F1A1F0B557D00A9F879 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		BCC56F1B1F0B558200A9F879 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		BCC56F1C1F0B558200A9F879 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		BCC56F201F0B55E000A9F879 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BCC56F221F0B55E400A9F879 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BCC56F231F0B55E500A9F879 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BCC56F241F0B55E600A9F879 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		BCE74C921F0943AC00112BCB /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
 		BCE74C931F0943AC00112BCB /* libffmpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libffmpeg.a; sourceTree = "<group>"; };
 		BCE74C941F0943AC00112BCB /* libopenssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenssl.a; sourceTree = "<group>"; };
@@ -224,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				BC43B3571F03DE1C00998A59 /* main.m */,
+				BCC56F211F0B55E000A9F879 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -315,6 +325,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
+				"zh-Hans",
 			);
 			mainGroup = BC43B34A1F03DE1C00998A59;
 			productRefGroup = BC43B3541F03DE1C00998A59 /* Products */;
@@ -335,6 +347,7 @@
 				BC43B3661F03DE1C00998A59 /* LaunchScreen.storyboard in Resources */,
 				BC2050541F0A7068002A44F6 /* PlayerViewController.xib in Resources */,
 				BC20505B1F0A7636002A44F6 /* close-button.png in Resources */,
+				BCC56F1F1F0B55E000A9F879 /* Localizable.strings in Resources */,
 				BC43B3631F03DE1C00998A59 /* Assets.xcassets in Resources */,
 				BC43B3611F03DE1C00998A59 /* Main.storyboard in Resources */,
 				BC20505C1F0A7636002A44F6 /* close-button@2x.png in Resources */,
@@ -372,7 +385,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A5A6D255A9541C2DE53B8ABA /* [CP] Copy Pods Resources */ = {
@@ -421,6 +434,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				BC43B3601F03DE1C00998A59 /* Base */,
+				BCC56F191F0B557D00A9F879 /* zh-Hans */,
+				BCC56F1B1F0B558200A9F879 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -429,8 +444,21 @@
 			isa = PBXVariantGroup;
 			children = (
 				BC43B3651F03DE1C00998A59 /* Base */,
+				BCC56F1A1F0B557D00A9F879 /* zh-Hans */,
+				BCC56F1C1F0B558200A9F879 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BCC56F211F0B55E000A9F879 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCC56F201F0B55E000A9F879 /* Base */,
+				BCC56F221F0B55E400A9F879 /* en */,
+				BCC56F231F0B55E500A9F879 /* ja */,
+				BCC56F241F0B55E600A9F879 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -440,6 +468,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -489,6 +518,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

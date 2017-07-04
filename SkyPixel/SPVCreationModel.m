@@ -44,7 +44,7 @@
                     NSInteger r = arc4random_uniform((int32_t)[all count]);
                     [all insertObject:[panos objectAtIndex:i] atIndex:r];
                 }
-                [_pages setObject:all forKey:@([pageNo integerValue]  - 1)];
+                [_pages setObject:all forKey:@([pageNo integerValue])];
             }];
             [signal setName:@"rac_sendAsynchronousRequest"];
             return signal;
