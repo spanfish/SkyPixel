@@ -61,7 +61,7 @@
     id value = [_viewModel objectForKey:@"image"];
 
     NSString *imagePath = [value stringByAppendingString:@"@!670x382"];
-    [self.imageView setImagePath:imagePath];
+    [self.imageView loadImage:imagePath forCell:self];
     
     RAC(self.titleLabel, text) = [[RACObserve(self, viewModel)
                                    takeUntil:[self rac_prepareForReuseSignal]]

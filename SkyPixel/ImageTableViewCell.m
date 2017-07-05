@@ -39,26 +39,26 @@
 }
 
 -(void) configureCellWithModel:(NSDictionary *) model {
-    if(_model == model) {
-        return;
-    }
+//    if(_model == model) {
+//        return;
+//    }
     _model = model;
     
     self.locationLabel.text = @"";
     self.coverImageView.image = nil;
     self.equipLabel.text = @"";
     self.shutterLabel.text = @"";
-    self.focusLabel.text = @"";    
+    self.focusLabel.text = @"";
+    self.playButton.hidden = YES;
+    self.magnifyButton.hidden = YES;
     //image
     
     NSString *imagePath = [_model objectForKey:@"image"];
     
     if([imagePath isKindOfClass:[NSString class]]) {
         imagePath = [imagePath stringByAppendingString:@"@!1200"];
-        self.coverImageView.imagePath = imagePath;
-    } else {
-        self.coverImageView.imagePath = nil;
     }
+    [self.coverImageView loadImage:imagePath forCell:self];
     
     RAC(self.equipLabel, text) = [[RACObserve(self, model)
                                       takeUntil:[self rac_prepareForReuseSignal]]
@@ -124,11 +124,16 @@
                                         return [NSString stringWithFormat:@"%@", focus == nil ? @ "n/a" : [focus stringValue]];
                                     }];
     
-    NSString *type = [self.model objectForKey:@"type"];
-    self.magnifyButton.hidden = YES;
-    self.playButton.hidden = [@"video" isEqualToString:type] ? NO : YES;
+//    NSString *type = [self.model objectForKey:@"type"];
+//    self.magnifyButton.hidden = YES;
+//    self.playButton.hidden = [@"video" isEqualToString:type] ? NO : YES;
 }
 
+-(void) imageDidLoad:(UIImage *) image {
+    NSString *type = [self.model objectForKey:@"type"];
+    self.playButton.hidden = [@"video" isEqualToString:type] ? NO : YES;
+    self.magnifyButton.hidden = !self.playButton.hidden;
+}
 
 -(RACSignal *) signalForReverseGeocodeLatitude:(double) latitude longitude:(double) longitude {
     RACScheduler *scheduler = [RACScheduler

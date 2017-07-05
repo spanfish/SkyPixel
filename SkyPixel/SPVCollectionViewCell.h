@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "SPVImageView.h"
 #import <ReactiveCocoa.h>
+#import "UIImageView+AsynLoad.h"
 
 @interface SPVCollectionViewCell : UICollectionViewCell
 
-@property(nonatomic, weak) IBOutlet SPVImageView *imageView;
+@property(nonatomic, weak) IBOutlet UIImageView *imageView;
 @property(nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property(nonatomic, weak) IBOutlet UILabel *favoriteLabel;
 @property(nonatomic, weak) IBOutlet UILabel *likeLabel;

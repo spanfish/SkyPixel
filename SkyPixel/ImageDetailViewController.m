@@ -54,20 +54,20 @@ typedef NS_ENUM(NSInteger, DetailSection) {
     @weakify(self);
     [[self.viewModel.updatedContentSignal deliverOnMainThread] subscribeNext:^(NSString *source) {
         @strongify(self);
-        
+        NSLog(@"%s %d, :%@", __FILE__, __LINE__, source);
         if([source isEqualToString:@"image"]) {
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:IMAGE_SECTION] withRowAnimation:UITableViewRowAnimationNone];
+//            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:IMAGE_SECTION] withRowAnimation:UITableViewRowAnimationNone];
         } else if([source isEqualToString:@"comment"]) {
             numOfRows[COMMENT_SECTION] = [self.viewModel.commentArray count];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:COMMENT_SECTION] withRowAnimation:UITableViewRowAnimationNone];
+//            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:COMMENT_SECTION] withRowAnimation:UITableViewRowAnimationNone];
         } else if([source isEqualToString:@"related"]) {
             numOfRows[RELATE_SECTION] = [self.viewModel.relatedArray count] > 0 ? 1 : 0;
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:RELATE_SECTION] withRowAnimation:UITableViewRowAnimationNone];
+//            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:RELATE_SECTION] withRowAnimation:UITableViewRowAnimationNone];
         } else if([source isEqualToString:@"alsolike"]) {
             numOfRows[ALSOLIKE_SECTION] = [self.viewModel.alsoLikeArray count] > 0 ? 1 : 0;
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:ALSOLIKE_SECTION] withRowAnimation:UITableViewRowAnimationNone];
+//            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:ALSOLIKE_SECTION] withRowAnimation:UITableViewRowAnimationNone];
         }
-        //[self.tableView reloadData];
+        [self.tableView reloadData];
     }];
 }
 
@@ -141,13 +141,7 @@ typedef NS_ENUM(NSInteger, DetailSection) {
     if(indexPath.section == IMAGE_SECTION) {
         if(indexPath.row == 0) {
             ImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Image"];
-            @weakify(cell);
-            [[[cell.coverImageView.imageLoadedSignal takeUntil:[cell rac_prepareForReuseSignal]] deliverOnMainThread] subscribeNext:^(UIImage *image) {
-                @strongify(cell);
-                cell.magnifyButton.hidden = NO;
-                _coverImage = image;
-            }];
-            
+           
             [cell configureCellWithModel:self.viewModel.imageInfo];
             
             @weakify(self);
@@ -155,11 +149,9 @@ typedef NS_ENUM(NSInteger, DetailSection) {
                 @strongify(self);
                 NSString *type = [self.viewModel.imageInfo objectForKey:@"type"];
                 if(![@"video" isEqualToString:type]) {
-                    FSBasicImageSource *photoSource = [[FSBasicImageSource alloc] initWithImages:@[[[FSBasicImage alloc] initWithImage:_coverImage]]];
+                    FSBasicImageSource *photoSource = [[FSBasicImageSource alloc] initWithImages:@[[[FSBasicImage alloc] initWithImage:cell.coverImageView.image]]];
                     PhotoViewController *vc = [[PhotoViewController alloc] initWithImageSource:photoSource];
                     [self.navigationController pushViewController:vc animated:YES];
-                    //UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
-                    //[self presentViewController:nvc animated:YES completion:nil];
                 }
                 return [RACSignal empty];
             }];

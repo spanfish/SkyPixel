@@ -7,9 +7,13 @@
 //
 
 #import "SPVDetailModel.h"
-#import <ReactiveCocoa.h>
 
 @interface SPVDetailModel()
+
+@property (nonatomic, readonly) RACSignal *infoSignal;
+@property (nonatomic, readonly) RACSignal *commentSignal;
+@property (nonatomic, readonly) RACSignal *relatedSignal;
+@property (nonatomic, readonly) RACSignal *alsoLikeSignal;
 @end
 
 @implementation SPVDetailModel
@@ -22,20 +26,21 @@
         _relatedArray = [NSMutableArray array];
         _alsoLikeArray = [NSMutableArray array];
         _updatedContentSignal = [[RACSubject subject] setNameWithFormat:@"SPVDetailModel updatedContentSignal"];
+        
         @weakify(self)
         [self.didBecomeActiveSignal subscribeNext:^(id x) {
             @strongify(self);
-            [self fetchImageInfo];
-            [self fetchComment];
-            [self fetchRelated];
-            [self fetchAlsoLike];
+            _infoSignal = [self fetchImageInfo];
+            _commentSignal = [self fetchComment];
+            _relatedSignal = [self fetchRelated];
+            _alsoLikeSignal = [self fetchAlsoLike];
         }];
     }
     
     return self;
 }
 
--(void) fetchImageInfo {
+-(RACSignal *) fetchImageInfo {
     NSString *type = [self.model objectForKey:@"type"];
     NSString *rid = [self.model objectForKey:@"id"];
     NSString *url = [NSString stringWithFormat:@"https://www.skypixel.com/api/website/%@s/%@",
@@ -44,17 +49,19 @@
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     
-    @weakify(self)
-    [[NSURLConnection rac_sendAsynchronousRequest:request] subscribeNext:^(RACTuple* x) {
-        @strongify(self);
+    RACSignal *signal = [NSURLConnection rac_sendAsynchronousRequest:request];
+    [signal subscribeNext:^(RACTuple* x) {
         _imageInfo = [NSJSONSerialization JSONObjectWithData:[x second]
-                                                             options:NSJSONReadingMutableContainers
-                                                               error:nil];
-        [((RACSubject *)self.updatedContentSignal) sendNext:@"image"];
+                                                     options:NSJSONReadingMutableContainers
+                                                       error:nil];
+        [_updatedContentSignal sendNext:@"image"];
+    } error:^(NSError *error) {
+        NSLog(@"%s %d, :%@", __FILE__, __LINE__, error);
     }];
+    return signal;
 }
 
--(void) fetchComment {
+-(RACSignal *) fetchComment {
     NSString *type = [self.model objectForKey:@"type"];
     NSString *rid = [self.model objectForKey:@"id"];
     NSString *url = [NSString stringWithFormat:@"https://www.skypixel.com/api/website/%@s/%@/comments?page=%d&page_size=10",
@@ -64,9 +71,8 @@
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     
-    @weakify(self)
-    [[NSURLConnection rac_sendAsynchronousRequest:request] subscribeNext:^(RACTuple* x) {
-        @strongify(self);
+    RACSignal *signal = [NSURLConnection rac_sendAsynchronousRequest:request];
+    [signal subscribeNext:^(RACTuple* x) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[x second]
                                                              options:NSJSONReadingMutableContainers
                                                                error:nil];
@@ -75,11 +81,14 @@
             [self.commentArray addObjectsFromArray:array];
         }
         
-        [((RACSubject *)self.updatedContentSignal) sendNext:@"comment"];
+        [_updatedContentSignal sendNext:@"comment"];
+    } error:^(NSError *error) {
+        NSLog(@"%s %d, :%@", __FILE__, __LINE__, error);
     }];
+    return signal;
 }
 
--(void) fetchRelated {
+-(RACSignal *) fetchRelated {
     NSString *type = [self.model objectForKey:@"type"];
     NSString *rid = [self.model objectForKey:@"id"];
     NSString *url = [NSString stringWithFormat:@"https://www.skypixel.com/api/website/%@s/%@/related_creations",
@@ -89,7 +98,8 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     
     @weakify(self)
-    [[NSURLConnection rac_sendAsynchronousRequest:request] subscribeNext:^(RACTuple* x) {
+    RACSignal *signal = [NSURLConnection rac_sendAsynchronousRequest:request];
+    [signal subscribeNext:^(RACTuple* x) {
         @strongify(self);
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[x second]
                                                              options:NSJSONReadingMutableContainers
@@ -99,11 +109,14 @@
             [self.relatedArray addObjectsFromArray:array];
         }
         
-        [((RACSubject *)self.updatedContentSignal) sendNext:@"related"];
+        [_updatedContentSignal sendNext:@"related"];
+    } error:^(NSError *error) {
+        NSLog(@"%s %d, :%@", __FILE__, __LINE__, error);
     }];
+    return signal;
 }
 
--(void) fetchAlsoLike {
+-(RACSignal *) fetchAlsoLike {
     NSString *type = [self.model objectForKey:@"type"];
     NSString *rid = [self.model objectForKey:@"id"];
     NSString *url = [NSString stringWithFormat:@"https://www.skypixel.com/api/website/%@s/%@/also_likes",
@@ -113,7 +126,8 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     
     @weakify(self)
-    [[NSURLConnection rac_sendAsynchronousRequest:request] subscribeNext:^(RACTuple* x) {
+    RACSignal *signal = [NSURLConnection rac_sendAsynchronousRequest:request];
+    [signal subscribeNext:^(RACTuple* x) {
         @strongify(self);
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[x second]
                                                              options:NSJSONReadingMutableContainers
@@ -123,7 +137,10 @@
             [self.alsoLikeArray addObjectsFromArray:array];
         }
         
-        [((RACSubject *)self.updatedContentSignal) sendNext:@"alsolike"];
+        [_updatedContentSignal sendNext:@"alsolike"];
+    } error:^(NSError *error) {
+        NSLog(@"%s %d, :%@", __FILE__, __LINE__, error);
     }];
+    return signal;
 }
 @end

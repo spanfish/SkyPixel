@@ -7,10 +7,11 @@
 //
 
 #import <ReactiveViewModel/ReactiveViewModel.h>
+#import <ReactiveCocoa.h>
 
 @interface SPVDetailModel : RVMViewModel
 
-@property (nonatomic, readonly) RACSignal *updatedContentSignal;
+@property (nonatomic, readonly) RACSubject *updatedContentSignal;
 
 @property (nonatomic, readonly) NSDictionary *imageInfo;
 @property (nonatomic, readonly) NSMutableArray *commentArray;

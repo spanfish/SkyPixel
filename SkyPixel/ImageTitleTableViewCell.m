@@ -9,7 +9,8 @@
 #import "ImageTitleTableViewCell.h"
 #import <ReactiveCocoa.h>
 #import <Masonry.h>
-#import "SPVImageView.h"
+//#import "SPVImageView.h"
+#import "UIImageView+AsynLoad.h"
 
 @interface ImageTitleTableViewCell()
 
@@ -174,19 +175,14 @@
     NSInteger offsetX = 10;
     NSInteger i = 0;
     for (NSDictionary *r in _model) {
-        SPVImageView *imageView = [[SPVImageView alloc] initWithFrame:CGRectMake(offsetX, 0, 219, 155)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(offsetX, 0, 219, 155)];
         imageView.userInteractionEnabled = YES;
         UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTouched:)];
         [imageView addGestureRecognizer:recognizer];
         
         imageView.tag = i++;
         [self.scrollView addSubview:imageView];
-//        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.mas_equalTo(offsetX);
-//            make.top.mas_equalTo(0);
-//            make.width.mas_equalTo(219);
-//            make.height.mas_equalTo(155);
-//        }];
+
         offsetX += 219;
         offsetX += 10;
         
@@ -194,7 +190,7 @@
         NSString *imagePath = [r objectForKey:@"image"];
         if([imagePath isKindOfClass:[NSString class]]) {
             imagePath = [imagePath stringByAppendingString:@"@!219x155"];
-            imageView.imagePath = imagePath;
+            [imageView loadImage:imagePath forCell:self];
         }
     }
 }

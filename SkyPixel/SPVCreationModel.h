@@ -12,8 +12,9 @@
 @interface SPVCreationModel : RVMViewModel
 
 @property (nonatomic, readonly) RACCommand *fetchContentCommand;
-
+@property (nonatomic, readonly) RACSubject *contentUpdatedSignal;
 -(instancetype) init;
 
+-(void) configureDefault;
 -(NSDictionary *) pages;
 @end
